@@ -1,0 +1,1316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SHOWSTOPPERS! — Musical Movies Game Portal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Outfit:wght@400;600;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#130821; --ink2:#1E0D36; --ink3:#2A1348;
+  --gold:#FFC72C; --mag:#FF2E88; --teal:#00E5C7; --cream:#FFF4E0;
+  --violet:#8B5CF6; --orange:#FF8A3D;
+  --disp:'Archivo Black',system-ui,sans-serif;
+  --body:'Outfit',system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{
+  background:var(--ink); color:var(--cream); font-family:var(--body);
+  min-height:100vh; -webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(ellipse 120% 60% at 50% -10%, #3B1A5C 0%, transparent 60%);
+}
+.wrap{max-width:1180px;margin:0 auto;padding:18px 20px 70px}
+
+/* ---------- MARQUEE HEADER ---------- */
+.bulbs{display:flex;gap:10px;justify-content:center;padding:6px 0 14px;flex-wrap:wrap}
+.bulb{width:11px;height:11px;border-radius:50%;background:var(--gold);
+  box-shadow:0 0 10px var(--gold),0 0 20px rgba(255,199,44,.5);animation:blink 1.4s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+header.hero{text-align:center;padding:4px 0 22px}
+h1.logo{
+  font-family:var(--disp); font-size:clamp(2.6rem,9vw,5.4rem); line-height:.92;
+  letter-spacing:-.02em; color:var(--gold); text-transform:uppercase;
+  text-shadow:5px 5px 0 var(--mag), 10px 10px 0 rgba(0,0,0,.45);
+  transform:rotate(-1.6deg);
+}
+.tag{margin-top:16px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;
+  font-size:.78rem;color:var(--teal)}
+
+/* ---------- TABS ---------- */
+nav.tabs{display:flex;gap:9px;flex-wrap:wrap;justify-content:center;margin:22px 0 26px}
+.tab{
+  font-family:var(--body);font-weight:900;font-size:.84rem;letter-spacing:.04em;
+  text-transform:uppercase;padding:13px 19px;border:0;cursor:pointer;
+  background:var(--ink3);color:var(--cream);border-radius:13px;
+  box-shadow:0 4px 0 rgba(0,0,0,.5); transition:transform .11s, box-shadow .11s;
+}
+.tab:hover{transform:translateY(-2px) rotate(-1deg);box-shadow:0 6px 0 rgba(0,0,0,.5)}
+.tab:active{transform:translateY(2px);box-shadow:0 1px 0 rgba(0,0,0,.5)}
+.tab.on{background:var(--mag);color:#fff;box-shadow:0 4px 0 #A3134F;transform:rotate(-1.4deg) scale(1.04)}
+.tab.on.g1{background:var(--gold);color:#2A1348;box-shadow:0 4px 0 #B8821A}
+.tab.on.g2{background:var(--teal);color:#0C2E29;box-shadow:0 4px 0 #009B88}
+.tab.on.g3{background:var(--violet);color:#fff;box-shadow:0 4px 0 #5B2EB8}
+.tab.on.g4{background:var(--orange);color:#3A1703;box-shadow:0 4px 0 #B85A1A}
+
+/* ---------- PANELS ---------- */
+.panel{display:none;animation:pop .22s ease}
+.panel.on{display:block}
+@keyframes pop{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+
+.card{
+  background:var(--ink2);border-radius:20px;padding:26px;
+  box-shadow:0 7px 0 rgba(0,0,0,.45);margin-bottom:18px;
+}
+.card.tiltL{transform:rotate(-.7deg)} .card.tiltR{transform:rotate(.7deg)}
+h2.ttl{font-family:var(--disp);font-size:clamp(1.5rem,4.4vw,2.5rem);text-transform:uppercase;
+  color:var(--gold);line-height:1;letter-spacing:-.01em}
+h3.sub{font-weight:900;text-transform:uppercase;letter-spacing:.14em;font-size:.76rem;
+  color:var(--teal);margin-bottom:12px}
+p.lede{font-size:1.03rem;line-height:1.6;color:#E8DCC8;max-width:62ch}
+.rule{height:4px;background:repeating-linear-gradient(90deg,var(--gold) 0 14px,transparent 14px 26px);
+  margin:16px 0;border-radius:2px;opacity:.75}
+
+/* ---------- LOBBY GRID ---------- */
+.gamegrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(246px,1fr));gap:15px;margin-top:6px}
+.gcard{border:0;cursor:pointer;text-align:left;border-radius:18px;padding:21px;
+  color:#1A0B2E;font-family:var(--body);box-shadow:0 6px 0 rgba(0,0,0,.45);
+  transition:transform .12s, box-shadow .12s}
+.gcard:hover{transform:translateY(-4px) rotate(-1deg);box-shadow:0 10px 0 rgba(0,0,0,.45)}
+.gcard h4{font-family:var(--disp);font-size:1.22rem;text-transform:uppercase;line-height:1;margin-bottom:9px}
+.gcard p{font-size:.88rem;font-weight:600;line-height:1.42;opacity:.82}
+.gcard .mins{display:inline-block;margin-top:12px;font-weight:900;font-size:.68rem;
+  letter-spacing:.16em;text-transform:uppercase;background:rgba(0,0,0,.22);
+  padding:5px 10px;border-radius:20px}
+.c1{background:var(--gold)} .c2{background:var(--teal)} .c3{background:var(--mag);color:#fff}
+.c4{background:var(--violet);color:#fff} .c5{background:var(--orange)}
+
+/* ---------- SCOREBOARD ---------- */
+.board{background:var(--ink3);border-radius:18px;padding:19px;box-shadow:0 6px 0 rgba(0,0,0,.45)}
+.teams{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:12px;margin-top:12px}
+.team{background:var(--ink2);border-radius:14px;padding:13px;text-align:center}
+.team input{width:100%;background:transparent;border:0;border-bottom:2px dashed rgba(255,244,224,.28);
+  color:var(--cream);font-family:var(--body);font-weight:900;font-size:.92rem;text-align:center;
+  padding:4px 0 6px;text-transform:uppercase;letter-spacing:.04em}
+.team input:focus{outline:0;border-bottom-color:var(--gold)}
+.score{font-family:var(--disp);font-size:2.5rem;color:var(--gold);line-height:1.1;margin:7px 0}
+.pts{display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.pts button{border:0;cursor:pointer;font-family:var(--body);font-weight:900;font-size:.76rem;
+  padding:7px 10px;border-radius:9px;background:var(--ink);color:var(--cream);
+  box-shadow:0 3px 0 rgba(0,0,0,.5)}
+.pts button:hover{background:var(--mag);color:#fff}
+.pts button.minus:hover{background:#555}
+
+/* ---------- PLAY SURFACE ---------- */
+.stage{background:linear-gradient(165deg,var(--ink3),var(--ink2));border-radius:22px;
+  padding:clamp(22px,4vw,42px);box-shadow:0 8px 0 rgba(0,0,0,.45);text-align:center;
+  min-height:300px;display:flex;flex-direction:column;justify-content:center;align-items:center}
+.qmeta{font-weight:900;letter-spacing:.2em;text-transform:uppercase;font-size:.7rem;
+  color:var(--teal);margin-bottom:16px}
+.qbig{font-family:var(--disp);font-size:clamp(1.6rem,5.2vw,3.1rem);line-height:1.08;
+  text-transform:uppercase;color:var(--cream);max-width:24ch;margin:0 auto}
+.qbig .blank{color:var(--gold);letter-spacing:.06em}
+.qsmall{margin-top:16px;font-size:1.02rem;font-weight:600;color:#D9C9AE;max-width:46ch}
+.answer{display:none;margin-top:24px;padding:20px;background:rgba(0,229,199,.1);
+  border-radius:16px;border:2px dashed rgba(0,229,199,.45);max-width:50ch;width:100%}
+.answer.show{display:block;animation:pop .22s ease}
+.answer .big{font-family:var(--disp);font-size:clamp(1.25rem,3.6vw,2rem);color:var(--teal);
+  text-transform:uppercase;line-height:1.1}
+.answer .det{margin-top:9px;font-weight:600;font-size:.95rem;color:#CFE8E3}
+.controls{display:flex;gap:11px;justify-content:center;flex-wrap:wrap;margin-top:24px}
+.btn{border:0;cursor:pointer;font-family:var(--body);font-weight:900;text-transform:uppercase;
+  letter-spacing:.05em;font-size:.86rem;padding:15px 25px;border-radius:14px;
+  background:var(--gold);color:#2A1348;box-shadow:0 5px 0 #B8821A;transition:transform .1s,box-shadow .1s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 7px 0 #B8821A}
+.btn:active{transform:translateY(3px);box-shadow:0 2px 0 #B8821A}
+.btn.alt{background:var(--teal);color:#0C2E29;box-shadow:0 5px 0 #009B88}
+.btn.alt:hover{box-shadow:0 7px 0 #009B88}
+.btn.ghost{background:var(--ink);color:var(--cream);box-shadow:0 5px 0 rgba(0,0,0,.55)}
+.btn.ghost:hover{box-shadow:0 7px 0 rgba(0,0,0,.55)}
+.btn.play{background:var(--mag);color:#fff;box-shadow:0 5px 0 #A3134F}
+.btn.play:hover{box-shadow:0 7px 0 #A3134F}
+.progress{margin-top:16px;font-weight:700;font-size:.82rem;color:#A694BE;letter-spacing:.05em}
+
+/* ---------- LIBRARY ---------- */
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 20px}
+.chip{border:0;cursor:pointer;font-family:var(--body);font-weight:900;font-size:.74rem;
+  text-transform:uppercase;letter-spacing:.08em;padding:9px 14px;border-radius:30px;
+  background:var(--ink3);color:var(--cream)}
+.chip.on{background:var(--teal);color:#0C2E29}
+.chip:hover{background:var(--violet);color:#fff}
+#search{flex:1;min-width:190px;background:var(--ink3);border:0;border-radius:30px;
+  padding:10px 17px;color:var(--cream);font-family:var(--body);font-weight:600;font-size:.9rem}
+#search:focus{outline:2px solid var(--teal)}
+.cliplist{display:grid;grid-template-columns:repeat(auto-fill,minmax(282px,1fr));gap:13px}
+.clip{background:var(--ink2);border-radius:15px;padding:16px;border-left:5px solid var(--gold);
+  transition:transform .11s}
+.clip:hover{transform:translateY(-3px)}
+.clip .song{font-weight:900;font-size:1.03rem;line-height:1.22;color:var(--cream)}
+.clip .mv{font-size:.87rem;font-weight:600;color:var(--gold);margin-top:5px}
+.clip .pf{font-size:.8rem;color:#AE9FC4;margin-top:4px;line-height:1.35}
+.clip a{display:inline-block;margin-top:11px;background:var(--mag);color:#fff;
+  text-decoration:none;font-weight:900;font-size:.72rem;letter-spacing:.09em;
+  text-transform:uppercase;padding:9px 14px;border-radius:9px;box-shadow:0 3px 0 #A3134F}
+.clip a:hover{transform:translateY(-1px)}
+.clip .src{display:block;margin-top:8px;font-size:.67rem;color:#7A6B93;letter-spacing:.04em}
+.dec{display:inline-block;font-weight:900;font-size:.64rem;letter-spacing:.1em;
+  background:var(--ink3);color:var(--teal);padding:4px 9px;border-radius:20px;margin-bottom:9px}
+
+/* ---------- HOST BOOTH ---------- */
+.booth h4{font-family:var(--disp);text-transform:uppercase;color:var(--gold);
+  font-size:1.1rem;margin:22px 0 9px}
+.booth ol,.booth ul{margin:0 0 6px 20px}
+.booth li{line-height:1.62;margin-bottom:8px;color:#E8DCC8}
+.booth strong{color:var(--teal)}
+.runsheet{width:100%;border-collapse:collapse;margin-top:12px;font-size:.92rem}
+.runsheet th{text-align:left;font-weight:900;text-transform:uppercase;font-size:.7rem;
+  letter-spacing:.11em;color:var(--teal);padding:9px;border-bottom:2px solid var(--ink3)}
+.runsheet td{padding:10px 9px;border-bottom:1px solid var(--ink3);color:#E8DCC8;line-height:1.45}
+.runsheet td:first-child{font-weight:900;color:var(--gold);white-space:nowrap}
+.fact{background:var(--ink3);border-radius:14px;padding:17px;border-left:5px solid var(--teal);
+  margin-bottom:11px;line-height:1.55;font-size:.95rem;color:#E8DCC8}
+.note{background:rgba(255,46,136,.11);border:2px dashed rgba(255,46,136,.4);border-radius:14px;
+  padding:16px;margin-top:14px;font-size:.92rem;line-height:1.55}
+@media print{
+  body{background:#fff;color:#000}
+  nav.tabs,.bulbs,.controls,.filters,.gamegrid,.board{display:none!important}
+  .panel{display:block!important}
+  .card,.stage{box-shadow:none;background:#fff;border:1px solid #999;transform:none!important}
+  h1.logo{color:#000;text-shadow:none}h2.ttl,.booth h4{color:#000}
+  .fact{background:#f4f4f4;color:#000}.booth li,p.lede,.runsheet td{color:#000}
+}
+@media (max-width:640px){.wrap{padding:12px 13px 50px}.card{padding:19px}}
+
+/* ---------- EMBEDDED PLAYER ---------- */
+.pstage{max-width:660px;margin:20px auto 0;width:100%}
+.pmarquee{display:flex;gap:9px;justify-content:center;align-items:center;padding:8px 0 9px;
+  background:var(--ink);border-radius:14px 14px 0 0;border-bottom:3px solid var(--gold)}
+.pmarquee i{width:8px;height:8px;border-radius:50%;background:var(--gold);display:block;
+  box-shadow:0 0 7px var(--gold);animation:blink 1.5s infinite}
+.pwrap{position:relative;width:100%;border-radius:0 0 16px 16px;overflow:hidden;
+  box-shadow:0 6px 0 rgba(0,0,0,.45);background:#000}
+.pframe{position:relative;padding-bottom:56.25%;height:0;cursor:pointer}
+.pwrap.noclick .pframe{pointer-events:none;cursor:default}
+.pframe iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+.pcurtain{position:absolute;top:0;left:0;right:0;bottom:0;
+  background:linear-gradient(160deg,var(--ink3),#0B0416);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:15px;
+  transition:opacity .35s ease, visibility .35s ease;
+  /* clicks pass through to the player underneath: a real click inside the
+     YouTube frame is the only thing browsers accept as permission for sound */
+  pointer-events:none}
+.pcurtain.up{opacity:0;visibility:hidden}
+.eq{display:flex;gap:7px;align-items:flex-end;height:62px}
+.eq i{display:block;width:9px;height:16px;background:var(--gold);border-radius:3px;
+  animation:eqb 1.05s infinite ease-in-out}
+.eq i:nth-child(2){animation-delay:.11s;background:var(--mag)}
+.eq i:nth-child(3){animation-delay:.22s;background:var(--teal)}
+.eq i:nth-child(4){animation-delay:.33s;background:var(--gold)}
+.eq i:nth-child(5){animation-delay:.44s;background:var(--mag)}
+.eq i:nth-child(6){animation-delay:.55s;background:var(--teal)}
+.eq i:nth-child(7){animation-delay:.66s;background:var(--gold)}
+@keyframes eqb{0%,100%{height:15px}50%{height:60px}}
+.plabel{font-weight:900;letter-spacing:.2em;text-transform:uppercase;font-size:.7rem;color:var(--teal);text-align:center;padding:0 16px}
+.phint{font-weight:700;font-size:.74rem;color:#9C8BB8;text-align:center;padding:0 16px;letter-spacing:.03em}
+.linkbox{background:linear-gradient(160deg,var(--ink3),#0B0416);border-radius:0 0 16px 16px;
+  padding:30px 20px 26px;text-align:center;box-shadow:0 6px 0 rgba(0,0,0,.45)}
+.pstatus{text-align:center;margin-top:9px;font-size:.72rem;font-weight:700;letter-spacing:.05em;color:#7A6B93}
+.pstatus.bad{color:var(--gold)}
+.pstatus.good{color:var(--teal)}
+.pctl{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-top:14px}
+.pctl .btn{padding:11px 15px;font-size:.76rem}
+.pfallback{display:block;text-align:center;margin-top:11px;font-size:.7rem;color:#7A6B93;
+  letter-spacing:.05em;text-decoration:none}
+.pfallback:hover{color:var(--teal)}
+/* library lightbox */
+.lightbox{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(8,3,16,.93);z-index:900;
+  display:flex;align-items:center;justify-content:center;padding:22px}
+.lbinner{max-width:760px;width:100%}
+.lbtitle{font-family:var(--disp);text-transform:uppercase;color:var(--gold);font-size:1.3rem;
+  text-align:center;margin-bottom:4px;line-height:1.1}
+.lbsub{text-align:center;color:#AE9FC4;font-size:.86rem;font-weight:600;margin-bottom:14px}
+@media print{.pstage,.pctl,.pfallback,.lightbox{display:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="bulbs" id="bulbs"></div>
+<header class="hero">
+  <h1 class="logo">Showstoppers!</h1>
+  <div class="tag">The Musical Movies Game Portal &nbsp;&bull;&nbsp; The Bristal at Sayville</div>
+</header>
+<nav class="tabs" id="tabs"></nav>
+<main id="panels"></main>
+</div>
+<script>
+/* ===================================================================
+   SHOWSTOPPERS!  —  data
+   Every clip below was verified live against YouTube's oEmbed endpoint
+   on 2026-11-13. tier: 1 = everybody knows it, 2 = medium, 3 = deep cut.
+   =================================================================== */
+const CLIPS=[
+{s:"Over the Rainbow",m:"The Wizard of Oz",y:1939,p:"Judy Garland",ch:"Movieclips",id:"PSZxmZmBfnU",tier:1},
+{s:"Ding-Dong! The Witch Is Dead",m:"The Wizard of Oz",y:1939,p:"Billie Burke & the Munchkins",ch:"Warner Bros. Classics",id:"qwWjST_4zU8",tier:1},
+{s:"If I Only Had a Brain",m:"The Wizard of Oz",y:1939,p:"Ray Bolger",ch:"Movieclips",id:"nauLgZISozs",tier:1},
+{s:"Cheek to Cheek",m:"Top Hat",y:1935,p:"Fred Astaire & Ginger Rogers",ch:"Music Video Vault",id:"P1u2G16fq_Y",tier:2},
+{s:"The Way You Look Tonight",m:"Swing Time",y:1936,p:"Fred Astaire",ch:"Music Video Vault",id:"lfbEpjGuxjU",tier:2},
+{s:"42nd Street (finale)",m:"42nd Street",y:1933,p:"Ruby Keeler & company",ch:"Comic Spirit",id:"1Ok31-VZWg0",tier:3},
+{s:"Someday My Prince Will Come",m:"Snow White and the Seven Dwarfs",y:1937,p:"Adriana Caselotti",ch:"DisneyMusics",id:"HLQ2sYxktMQ",tier:1},
+{s:"When You Wish Upon a Star",m:"Pinocchio",y:1940,p:"Cliff Edwards (Jiminy Cricket)",ch:"Maureen712",id:"HKh6XxYbbIc",tier:1},
+{s:"Ol' Man River",m:"Show Boat",y:1936,p:"Paul Robeson",ch:"New Wave Films",id:"df4VdyGIqJ8",tier:2},
+{s:"The Yankee Doodle Boy",m:"Yankee Doodle Dandy",y:1942,p:"James Cagney",ch:"Gianni D'Anna",id:"MPBrSFOayzA",tier:2},
+{s:"White Christmas",m:"Holiday Inn",y:1942,p:"Bing Crosby",ch:"Universal Pictures",id:"GJ36gbGlm8Y",tier:1},
+{s:"The Trolley Song",m:"Meet Me in St. Louis",y:1944,p:"Judy Garland",ch:"Warner Bros. Classics",id:"OL3EIVwZ60w",tier:2},
+{s:"Have Yourself a Merry Little Christmas",m:"Meet Me in St. Louis",y:1944,p:"Judy Garland",ch:"Warner Bros. Classics",id:"CreWsnhQwzY",tier:1},
+{s:"Jumpin' Jive",m:"Stormy Weather",y:1943,p:"Cab Calloway & the Nicholas Brothers",ch:"laughland",id:"_8yGGtVKrD8",tier:3},
+{s:"Stormy Weather",m:"Stormy Weather",y:1943,p:"Lena Horne",ch:"vintage video clips",id:"DXJ8-E-jvuw",tier:2},
+{s:"The Worry Song (with Jerry the Mouse)",m:"Anchors Aweigh",y:1945,p:"Gene Kelly",ch:"Peter Webb",id:"jHCsOFWuIb4",tier:2},
+{s:"A Couple of Swells",m:"Easter Parade",y:1948,p:"Fred Astaire & Judy Garland",ch:"Warner Bros. Entertainment",id:"J3aUAiLU0TI",tier:2},
+{s:"New York, New York",m:"On the Town",y:1949,p:"Gene Kelly, Frank Sinatra & Jules Munshin",ch:"Night Owl TV",id:"PDprfHu6OcI",tier:2},
+{s:"Hooray for Hollywood",m:"Hollywood Hotel",y:1937,p:"Johnnie Davis & Frances Langford",ch:"Spiffykitchen",id:"QkPkHv8KnBs",tier:3},
+{s:"Get Happy",m:"Summer Stock",y:1950,p:"Judy Garland",ch:"Warner Bros. Classics",id:"q7d0NRewzW4",tier:2},
+{s:"I Got Rhythm",m:"An American in Paris",y:1951,p:"Gene Kelly",ch:"Turner Classic Movies",id:"mM-K2xVFyk0",tier:2},
+{s:"Ol' Man River",m:"Show Boat",y:1951,p:"William Warfield",ch:"andrew67ist",id:"pSzYRo9j7YM",tier:2},
+{s:"Singin' in the Rain",m:"Singin' in the Rain",y:1952,p:"Gene Kelly",ch:"Turner Classic Movies",id:"swloMVFALXw",tier:1},
+{s:"Make 'Em Laugh",m:"Singin' in the Rain",y:1952,p:"Donald O'Connor",ch:"Turner Classic Movies",id:"iGCNBdCvzL4",tier:1},
+{s:"Good Mornin'",m:"Singin' in the Rain",y:1952,p:"Kelly, O'Connor & Debbie Reynolds",ch:"Warner Bros. Entertainment",id:"pyMU8O2B2Vs",tier:2},
+{s:"That's Entertainment!",m:"The Band Wagon",y:1953,p:"Astaire, Buchanan, Fabray & Levant",ch:"Warner Bros. Classics",id:"4KYmkt2fxPU",tier:2},
+{s:"Diamonds Are a Girl's Best Friend",m:"Gentlemen Prefer Blondes",y:1953,p:"Marilyn Monroe",ch:"Marilyn Monroe",id:"H69qXOHVS04",tier:1},
+{s:"Too Darn Hot",m:"Kiss Me Kate",y:1953,p:"Ann Miller",ch:"Classics",id:"WS_YAKZH3lw",tier:3},
+{s:"The Man That Got Away",m:"A Star Is Born",y:1954,p:"Judy Garland",ch:"trumpetboy1955",id:"gNDu75gEiIo",tier:2},
+{s:"White Christmas",m:"White Christmas",y:1954,p:"Crosby, Kaye, Clooney & Vera-Ellen",ch:"Paramount Movies",id:"2QW65Amj0vM",tier:1},
+{s:"Barn Raising",m:"Seven Brides for Seven Brothers",y:1954,p:"Jane Powell, Howard Keel & company",ch:"Movieclips",id:"SqaM88u082Y",tier:2},
+{s:"Luck Be a Lady",m:"Guys and Dolls",y:1955,p:"Marlon Brando",ch:"Marlon Brando",id:"BmEwtWBte84",tier:2},
+{s:"Oh, What a Beautiful Mornin'",m:"Oklahoma!",y:1955,p:"Gordon MacRae",ch:"Rodgers & Hammerstein",id:"O5APc0z49wg",tier:1},
+{s:"Shall We Dance",m:"The King and I",y:1956,p:"Yul Brynner & Deborah Kerr",ch:"Rodgers & Hammerstein",id:"QgVPnWmUqd4",tier:1},
+{s:"You'll Never Walk Alone",m:"Carousel",y:1956,p:"the Carousel film cast",ch:"YoungAtHeart1941",id:"1izigJX1pxI",tier:2},
+{s:"True Love",m:"High Society",y:1956,p:"Bing Crosby & Grace Kelly",ch:"Music Video Vault",id:"zfqFtsINILo",tier:2},
+{s:"Jailhouse Rock",m:"Jailhouse Rock",y:1957,p:"Elvis Presley",ch:"Music Entertainment",id:"G6w6sv2qnFw",tier:1},
+{s:"Some Enchanted Evening",m:"South Pacific",y:1958,p:"Rossano Brazzi (singing dubbed)",ch:"Rodgers & Hammerstein",id:"E5dPtkVCRsg",tier:1},
+{s:"Thank Heaven for Little Girls",m:"Gigi",y:1958,p:"Maurice Chevalier",ch:"Sommer57",id:"2TqSyvdqn9c",tier:2},
+{s:"Summertime",m:"Porgy and Bess",y:1959,p:"Dorothy Dandridge",ch:"58 Dean Street Records",id:"JYIH46FoCBI",tier:2},
+{s:"America",m:"West Side Story",y:1961,p:"Rita Moreno & George Chakiris",ch:"Movieclips",id:"YhSKk-cvblc",tier:1},
+{s:"Tonight",m:"West Side Story",y:1961,p:"Natalie Wood & Richard Beymer",ch:"Amazon MGM Studios",id:"Bv6aTZCCWPk",tier:1},
+{s:"Seventy-Six Trombones",m:"The Music Man",y:1962,p:"Robert Preston",ch:"Turner Classic Movies",id:"FGNgN43oUbg",tier:1},
+{s:"Put On a Happy Face",m:"Bye Bye Birdie",y:1963,p:"Dick Van Dyke & Janet Leigh",ch:"Andrew Moats",id:"I_CE7GqqrvY",tier:2},
+{s:"I Could Have Danced All Night",m:"My Fair Lady",y:1964,p:"Audrey Hepburn",ch:"Jean Belmondo",id:"hA9bEKKxTNU",tier:1},
+{s:"Supercalifragilisticexpialidocious",m:"Mary Poppins",y:1964,p:"Julie Andrews & Dick Van Dyke",ch:"Turner Classic Movies",id:"2Yq9Ebipbb8",tier:1},
+{s:"A Spoonful of Sugar",m:"Mary Poppins",y:1964,p:"Julie Andrews",ch:"Jean Belmondo",id:"_L4qauTiCY4",tier:1},
+{s:"Do-Re-Mi",m:"The Sound of Music",y:1965,p:"Julie Andrews",ch:"Rodgers & Hammerstein",id:"drnBMAEA3AM",tier:1},
+{s:"My Favorite Things",m:"The Sound of Music",y:1965,p:"Julie Andrews",ch:"Movieclips",id:"DGABqdbtQnA",tier:1},
+{s:"Edelweiss",m:"The Sound of Music",y:1965,p:"Christopher Plummer",ch:"Rodgers & Hammerstein",id:"8bL2BCiFkTk",tier:1},
+{s:"Climb Ev'ry Mountain",m:"The Sound of Music",y:1965,p:"Peggy Wood (the Mother Abbess)",ch:"Rodgers & Hammerstein",id:"iu4Tid9AzSM",tier:2},
+{s:"Don't Rain on My Parade",m:"Funny Girl",y:1968,p:"Barbra Streisand",ch:"Movieclips",id:"nDmTGtUPd5g",tier:1},
+{s:"Consider Yourself",m:"Oliver!",y:1968,p:"Jack Wild, Mark Lester & company",ch:"NOW PLAYING",id:"mfRFektoKB4",tier:2},
+{s:"Chitty Chitty Bang Bang",m:"Chitty Chitty Bang Bang",y:1968,p:"Dick Van Dyke",ch:"Turner Classic Movies",id:"ffY3wDF6BGo",tier:2},
+{s:"Hello, Dolly!",m:"Hello, Dolly!",y:1969,p:"Barbra Streisand & Louis Armstrong",ch:"BroadwayInHD",id:"G2MQ_0RUOIA",tier:1},
+{s:"If I Were a Rich Man",m:"Fiddler on the Roof",y:1971,p:"Topol",ch:"Movieclips",id:"D1TC1n9lhXU",tier:1},
+{s:"Pure Imagination",m:"Willy Wonka & the Chocolate Factory",y:1971,p:"Gene Wilder",ch:"TNT",id:"eHdpNLFFEh8",tier:1},
+{s:"Life Is a Cabaret",m:"Cabaret",y:1972,p:"Liza Minnelli",ch:"Warner Bros. Entertainment",id:"BcLUC7yj7vY",tier:1},
+{s:"Stayin' Alive",m:"Saturday Night Fever",y:1977,p:"the Bee Gees / John Travolta",ch:"Sky Avenger",id:"PmEGfJ6PjuE",tier:1},
+{s:"Summer Nights",m:"Grease",y:1978,p:"John Travolta & Olivia Newton-John",ch:"Boxoffice Movie Scenes",id:"drdM5dOkOtM",tier:1},
+{s:"Rainbow Connection",m:"The Muppet Movie",y:1979,p:"Kermit the Frog (Jim Henson)",ch:"The Muppets",id:"awhyiBv-oQc",tier:1}
+];
+
+/* Finish the Title — titles only, no lyrics. [text, answer, hint] */
+const TITLES=[
+["Singin' in the ___","Rain","1952 — Gene Kelly, umbrella, lamppost"],
+["Meet Me in ___","St. Louis","1944 — Judy Garland, the World's Fair"],
+["Seven Brides for Seven ___","Brothers","1954 — the barn raising"],
+["The ___ of Music","Sound","1965 — the hills are alive"],
+["My Fair ___","Lady","1964 — Audrey Hepburn, Covent Garden"],
+["West ___ Story","Side","1961 — Jets and Sharks"],
+["Mary ___","Poppins","1964 — practically perfect in every way"],
+["Fiddler on the ___","Roof","1971 — Tevye and Anatevka"],
+["Hello, ___!","Dolly","1969 — Streisand and Satchmo"],
+["The Wizard of ___","Oz","1939 — follow the yellow brick road"],
+["Guys and ___","Dolls","1955 — Brando rolls the dice"],
+["Kiss Me ___","Kate","1953 — Cole Porter, shot in 3D"],
+["Gentlemen Prefer ___","Blondes","1953 — Marilyn in the pink dress"],
+["An American in ___","Paris","1951 — Gene Kelly and Leslie Caron"],
+["On the ___","Town","1949 — three sailors on shore leave"],
+["The ___ Man","Music","1962 — Professor Harold Hill"],
+["Yankee Doodle ___","Dandy","1942 — Cagney as George M. Cohan"],
+["Funny ___","Girl","1968 — Streisand as Fanny Brice"],
+["A Star Is ___","Born","1954 — Judy Garland's comeback"],
+["Easter ___","Parade","1948 — Astaire and Garland, Irving Berlin"],
+["Top ___","Hat","1935 — Astaire and Rogers, cheek to cheek"],
+["Show ___","Boat","the Mississippi, Ol' Man River"],
+["Summer ___","Stock","1950 — Judy Garland gets happy"],
+["High ___","Society","1956 — Crosby, Kelly and Sinatra"],
+["The Band ___","Wagon","1953 — that's entertainment"],
+["South ___","Pacific","1958 — some enchanted evening"],
+["The King and ___","I","1956 — Yul Brynner and the polka"],
+["Chitty Chitty ___ ___","Bang Bang","1968 — the flying car"],
+["Willy Wonka & the ___ Factory","Chocolate","1971 — Gene Wilder, golden tickets"],
+["Saturday Night ___","Fever","1977 — Travolta and the Bee Gees"],
+["Anchors ___","Aweigh","1945 — Gene Kelly dances with a cartoon mouse"],
+["Porgy and ___","Bess","1959 — Gershwin, Dorothy Dandridge"],
+["Holiday ___","Inn","1942 — where White Christmas was born"],
+["Stormy ___","Weather","1943 — Lena Horne and the Nicholas Brothers"],
+["The Muppet ___","Movie","1979 — Kermit on a log with a banjo"],
+["Swing ___","Time","1936 — Astaire, Rogers and Jerome Kern"],
+["42nd ___","Street","1933 — Busby Berkeley kaleidoscopes"],
+["Snow White and the Seven ___","Dwarfs","1937 — Disney's first feature"],
+["Over the ___","Rainbow","Judy Garland, 1939"],
+["Make 'Em ___","Laugh","Donald O'Connor runs up the wall"],
+["Ding-Dong! The ___ Is Dead","Witch","the Munchkins celebrate"],
+["Diamonds Are a Girl's Best ___","Friend","Marilyn Monroe, 1953"],
+["Thank Heaven for Little ___","Girls","Maurice Chevalier, 1958"],
+["You'll Never Walk ___","Alone","Carousel's finale"],
+["Some Enchanted ___","Evening","South Pacific, 1958"],
+["If I Were a Rich ___","Man","Topol, 1971"],
+["Luck Be a ___","Lady","Marlon Brando sings, 1955"],
+["Seventy-Six ___","Trombones","Robert Preston, 1962"],
+["A Spoonful of ___","Sugar","Julie Andrews, 1964"],
+["Climb Ev'ry ___","Mountain","the Mother Abbess, 1965"],
+["My Favorite ___","Things","raindrops and whiskers, 1965"],
+["Don't Rain on My ___","Parade","Streisand on the tugboat"],
+["I Could Have Danced All ___","Night","Audrey Hepburn, 1964"],
+["Put On a Happy ___","Face","Dick Van Dyke, 1963"],
+["Too Darn ___","Hot","Ann Miller taps, 1953"],
+["The Trolley ___","Song","Judy Garland, clang clang clang"],
+["That's ___!","Entertainment","The Band Wagon, 1953"],
+["When You Wish Upon a ___","Star","Jiminy Cricket, 1940"],
+["Ol' Man ___","River","Paul Robeson and William Warfield"],
+["Stayin' ___","Alive","the Bee Gees, 1977"],
+["Pure ___","Imagination","Gene Wilder, 1971"],
+["The Way You Look ___","Tonight","Fred Astaire, 1936"],
+["Cheek to ___","Cheek","Astaire and Rogers, 1935"],
+["Rainbow ___","Connection","Kermit the Frog, 1979"],
+["Summer ___","Nights","Grease, 1978"],
+["Jailhouse ___","Rock","Elvis Presley, 1957"],
+["Good ___","Mornin'","Singin' in the Rain's three leads"],
+["Get ___","Happy","Judy Garland in the fedora"],
+["I Got ___","Rhythm","Gene Kelly teaches the kids English"],
+["True ___","Love","Crosby and Grace Kelly on a boat"],
+["Shall We ___","Dance","Brynner and Kerr, the polka"],
+["Oh, What a Beautiful ___","Mornin'","Oklahoma! opens cold, no overture"],
+["If I Only Had a ___","Brain","the Scarecrow, 1939"],
+["Someday My ___ Will Come","Prince","Snow White, 1937"],
+["Have Yourself a Merry Little ___","Christmas","Judy Garland, 1944"],
+["Hooray for ___","Hollywood","1937, and every Oscar night since"],
+["A Couple of ___","Swells","Astaire and Garland in tramp costumes"],
+["The Man That Got ___","Away","Judy Garland, 1954"],
+["Life Is a ___","Cabaret","Liza Minnelli, 1972"],
+["Consider ___","Yourself","Oliver!, 1968"]
+];
+
+/* Intermission facts — every one of these is sourced, not folklore. */
+const FACTS=[
+"The American Film Institute ranked “Over the Rainbow” the number one greatest song in American film history — ahead of “As Time Goes By” and “Singin’ in the Rain.”",
+"Bing Crosby sang “White Christmas” on screen in three different movies: Holiday Inn in 1942, Blue Skies in 1946, and finally the film named after the song in 1954.",
+"White Christmas (1954) was the first picture ever released in VistaVision, and it was the highest-grossing film of that year.",
+"Fred Astaire was originally cast opposite Bing Crosby in White Christmas, but he bowed out and got released from his Paramount contract. Danny Kaye took the part.",
+"Shirley Jones made her very first film appearance in Oklahoma! in 1955. She and Gordon MacRae were paired again the next year in Carousel.",
+"Oklahoma! premiered October 11, 1955 at the Rivoli Theatre in New York — a “roadshow” release, reserved seats and an intermission, like going to the theater.",
+"Oklahoma! took in $9.5 million and finished as the fourth highest-grossing film of 1955.",
+"Deborah Kerr starred in The King and I, but she didn’t do her own singing — Marni Nixon dubbed her voice.",
+"In South Pacific, three of the leads had their singing dubbed by other people: Rossano Brazzi, John Kerr and Juanita Hall.",
+"Carousel is the only Rodgers and Hammerstein musical with no overture. Both the stage show and the film open straight into the Carousel Waltz.",
+"In Anchors Aweigh, Gene Kelly danced a full number with Jerry — the cartoon mouse from Tom and Jerry. That film brought Kelly the only Best Actor nomination of his career.",
+"Anchors Aweigh was Frank Sinatra’s first film under his MGM contract, and his motion-picture dancing debut.",
+"Kiss Me Kate was shot in 3D in 1953. If you watch it and wonder why people and objects keep lunging at the camera — that’s why.",
+"Seven Brides for Seven Brothers was added to the National Film Registry in 2004, and the AFI ranked it 21st among the greatest movie musicals.",
+"Milk was added to the water for the “Singin’ in the Rain” number so the rain would actually show up on camera.",
+"“Singin’ in the Rain” was written as a number for all three leads. Gene Kelly reworked it into a solo because he thought it would better show his character’s sheer joy.",
+"The Sound of Music won five Academy Awards, including Best Picture and Best Director for Robert Wise.",
+"Fiddler on the Roof opened November 3, 1971. It was nominated for eight Oscars and won three.",
+"Hello, Dolly! (1969) was directed by Gene Kelly and picked up seven Academy Award nominations, Best Picture among them.",
+"Louis Armstrong’s recording of “Hello, Dolly!” went to number one in May 1964 — five years before he appeared in the movie singing it to Barbra Streisand.",
+"The very first Best Original Song Oscar was handed out for 1934, to “The Continental” from The Gay Divorcee.",
+"“When You Wish Upon a Star” from Pinocchio was the first Disney song ever to win Best Original Song.",
+"After “The Last Time I Saw Paris” won Best Original Song for 1941, the Academy changed the rules — the song had been written and released before the film it won for.",
+"Barbra Streisand became the first woman to win Best Original Song as a composer, for “Evergreen” from A Star Is Born.",
+"Isaac Hayes was the first person to win Best Original Song for a song he both wrote and performed, and the first African American to win the category, for the theme from Shaft."
+];
+</script>
+<script>
+/* =================== EMBEDDED PLAYER =================== */
+/* Clips play inside the module. Two things make this work in a sandboxed page:
+   1. The curtain is click-through, so pressing it is a REAL click inside the
+      YouTube frame. Browsers only allow sound when the gesture happens in the
+      frame that owns the media - a click on our own button doesn't count.
+   2. If the IFrame API can't load at all (CSP, network), we fall back to a
+      plain iframe rather than failing silently. */
+let YTREADY=false, apiFailed=false; const ytQueue=[];
+/* Opened as a local file there is no web origin, which the IFrame API
+   requires - so skip it and go straight to a plain embed, which works. */
+const IS_FILE = location.protocol==='file:';
+/* Some hosts (the Claude artifact sandbox among them) block every outside
+   media source - iframes AND audio. Rather than showing the room a dead
+   player, probe once and fall back to a clean "open the clip" link.
+   MEDIA_OK: null = still checking, true = media plays here, false = blocked. */
+let MEDIA_OK=null;
+(function(){
+  /* A local file can't fetch cross-origin audio, which says nothing about
+     whether an embedded player works there - so don't probe, just allow it. */
+  if(IS_FILE){ MEDIA_OK=true; return; }
+  /* The user can also force the player on if this guess is wrong. */
+  try{ if(store.get('forcePlayer',false)){ MEDIA_OK=true; return; } }catch(e){}
+  try{
+    const a=document.createElement('audio');
+    a.preload='metadata'; a.muted=true;
+    const done=v=>{ if(MEDIA_OK===null){ MEDIA_OK=v; if(GAMES[cur]||cur==='duel') go(cur); } };
+    a.addEventListener('loadedmetadata',()=>done(true));
+    a.addEventListener('canplay',()=>done(true));
+    a.addEventListener('error',()=>done(false));
+    a.src='https://p.scdn.co/mp3-preview/1bac6ffe2b3312b0a6fdb50a3f57c88b4a5562e6.mp3';
+    a.load();
+    setTimeout(()=>done(false),4000);
+  }catch(e){ MEDIA_OK=false; }
+})();
+window.onYouTubeIframeAPIReady=function(){YTREADY=true;ytQueue.splice(0).forEach(f=>{try{f()}catch(e){}})};
+(function(){ const t=document.createElement('script');
+  t.src='https://www.youtube.com/iframe_api';
+  t.onerror=()=>{apiFailed=true};
+  document.head.appendChild(t);
+  setTimeout(()=>{ if(!YTREADY){apiFailed=true;} }, 4500);
+})();
+
+let PL=null, curtainOn=true, plainMode=false;
+
+function playerHTML(id){
+  if(MEDIA_OK!==true) return linkOnlyHTML(id);
+  return '<div class="pstage">'+
+    '<div class="pmarquee"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>'+
+    '<div class="pwrap" data-vid="'+id+'">'+
+      '<div class="pframe" id="pframe"><div id="ytmount"></div></div>'+
+      '<div class="pcurtain" id="pcurtain">'+
+        '<div class="eq"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>'+
+        '<div class="plabel">Audio only &mdash; picture hidden</div>'+
+        '<div class="phint">click anywhere on this panel to play or pause</div></div>'+
+    '</div>'+
+    '<div class="pctl">'+
+      '<button class="btn play" id="pPlay">&#9654; Play</button>'+
+      '<button class="btn ghost" id="pPause">Pause</button>'+
+      '<button class="btn ghost" id="pBack">&#8634; Restart</button>'+
+      '<button class="btn ghost" id="pFwd">Skip +10s</button>'+
+      '<button class="btn alt" id="pShow">Show picture</button>'+
+    '</div>'+
+    '<div class="pctl" id="pOpenRow" style="display:none">'+
+      '<a class="btn play" id="pOpen" href="'+yt(id)+'" target="_blank" rel="noopener" '+
+        'style="text-decoration:none;font-size:.92rem;padding:15px 26px">&#9654; Open the clip &rsaquo;</a>'+
+    '</div>'+
+    '<div class="pstatus" id="pstatus">loading the player\u2026</div>'+
+    '<a class="pfallback" href="'+yt(id)+'" target="_blank" rel="noopener">still nothing? open it on YouTube &rsaquo;</a>'+
+  '</div>';
+}
+function linkOnlyHTML(id){
+  return '<div class="pstage">'+
+    '<div class="pmarquee"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>'+
+    '<div class="linkbox">'+
+      '<div class="eq"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>'+
+      '<a class="btn play" href="'+yt(id)+'" target="_blank" rel="noopener" '+
+        'style="text-decoration:none;font-size:1rem;padding:17px 30px;margin-top:18px;display:inline-block">'+
+        '&#9654; Play the clip</a>'+
+      '<div class="phint" style="margin-top:14px">opens in a new tab \u2014 close it to come back</div>'+
+      '<button class="chip" id="forcePlayer" style="margin-top:16px">try the built-in player anyway &rsaquo;</button>'+
+    '</div></div>';
+}
+function setStatus(t,tone){ const el=document.getElementById('pstatus');
+  if(el){ el.textContent=t; el.className='pstatus'+(tone?' '+tone:''); } }
+function killCaptions(){
+  if(!PL)return;
+  ['captions','cc'].forEach(m=>{
+    try{ PL.unloadModule(m); }catch(e){}
+    try{ PL.setOption(m,'track',{}); }catch(e){}
+  });
+}
+function lockFrame(locked){ const w=document.querySelector('.pwrap');
+  if(w)w.classList.toggle('noclick',!!locked); }
+function dropCurtain(){ const c=document.getElementById('pcurtain');
+  if(c)c.classList.add('up'); curtainOn=false;
+  lockFrame(true);               /* picture is showing: no stray YouTube chrome */
+  const b=document.getElementById('pShow'); if(b)b.textContent='Hide picture'; }
+function raiseCurtain(){ const c=document.getElementById('pcurtain');
+  if(c)c.classList.remove('up'); curtainOn=true;
+  lockFrame(false);              /* curtain back: clicks reach the player again */
+  const b=document.getElementById('pShow'); if(b)b.textContent='Show picture'; }
+
+function plainIframe(vid){
+  if(plainMode)return;
+  const f=document.getElementById('pframe'); if(!f)return;
+  plainMode=true; PL=null;
+  /* Try a plain embed anyway - it works when this page is opened as a local
+     file or served normally. On pages that block third-party frames (the
+     Claude artifact sandbox does) it renders as an empty box, so the
+     Open-the-clip button is promoted at the same time rather than leaving
+     the host staring at a grey square in front of a room. */
+  f.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+vid+
+    '?rel=0&modestbranding=1&iv_load_policy=3&cc_load_policy=0&playsinline=1&controls=1" '+
+    'allow="autoplay; encrypted-media" referrerpolicy="origin" allowfullscreen></iframe>';
+  const row=document.getElementById('pOpenRow'); if(row)row.style.display='';
+  const curt=document.getElementById('pcurtain');
+  if(curt){ const hint=curt.querySelector('.phint');
+    if(hint)hint.textContent='if this panel stays blank, use Open the clip below'; }
+  setStatus(IS_FILE
+    ? 'Click the panel to play. Use the YouTube controls on it \u2014 the buttons above won\u2019t work in this mode.'
+    : 'Video can\u2019t be embedded on this page \u2014 use Open the clip. '+
+      'Run the downloaded file instead, or play the audio from Spotify.','bad');
+}
+function mountPlayer(vid,startHidden){
+  try{ if(PL&&PL.destroy)PL.destroy(); }catch(e){}
+  PL=null; plainMode=false; curtainOn=startHidden!==false;
+  lockFrame(false);
+  const make=()=>{
+    if(!document.getElementById('ytmount'))return;
+    if(IS_FILE||apiFailed||!window.YT||!window.YT.Player){ plainIframe(vid); return; }
+    try{
+      PL=new YT.Player('ytmount',{videoId:vid,host:'https://www.youtube-nocookie.com',
+      playerVars:{controls:0,rel:0,modestbranding:1,iv_load_policy:3,disablekb:1,fs:0,
+        playsinline:1,cc_load_policy:0,cc_lang_pref:'none'},
+      events:{
+        onReady:()=>{ killCaptions(); setStatus('Ready \u2014 press Play, or click the panel','good'); },
+        onError:e=>{ setStatus('This clip wouldn\u2019t load (code '+e.data+'). Hit Skip.','bad'); },
+        onStateChange:e=>{
+          /* Auto-captions transcribe the lyrics and hand over the answer in text
+             while the room is still guessing. They reload on state changes, so
+             they get killed again every time. */
+          killCaptions();
+          if(e.data===YT.PlayerState.PLAYING) setStatus('Playing','good');
+          if(e.data===YT.PlayerState.PAUSED)  setStatus('Paused','');
+          if(e.data===YT.PlayerState.ENDED){ raiseCurtain(); setStatus('Clip finished','') }
+        }}});
+    }catch(e){ plainIframe(vid); }
+  };
+  if(IS_FILE){ make(); return; }
+  if(YTREADY) make();
+  else { ytQueue.push(make);
+    setTimeout(()=>{ if(!PL && !document.querySelector('.pframe iframe')) plainIframe(vid); },5000); }
+}
+function wirePlayer(root,startHidden){
+  const fp=root.querySelector('#forcePlayer');
+  if(fp)fp.addEventListener('click',()=>{
+    store.set('forcePlayer',true); MEDIA_OK=true; go(cur);
+  });
+  const w=root.querySelector('.pwrap'); if(!w)return;
+  mountPlayer(w.dataset.vid,startHidden);
+  const on=(id,fn)=>{const b=root.querySelector('#'+id); if(b)b.addEventListener('click',fn)};
+  on('pPlay',()=>{
+    if(plainMode){ setStatus('Simple mode \u2014 click the dark panel itself to start','bad'); return; }
+    try{ PL&&PL.playVideo(); }catch(e){}
+    /* If the browser refused, say so plainly and point at the thing that works. */
+    setTimeout(()=>{ try{
+      if(PL&&PL.getPlayerState&&PL.getPlayerState()!==1)
+        setStatus('Browser blocked it \u2014 click the dark panel above to start','bad');
+    }catch(e){} },1400);
+  });
+  on('pPause',()=>{try{PL&&PL.pauseVideo()}catch(e){}});
+  on('pBack',()=>{try{PL.seekTo(0,true);PL.playVideo()}catch(e){}});
+  on('pFwd',()=>{try{PL.seekTo(PL.getCurrentTime()+10,true)}catch(e){}});
+  on('pShow',()=>{curtainOn?dropCurtain():raiseCurtain()});
+  if(startHidden===false)dropCurtain();
+}
+</script>
+<script>
+/* =================== storage (safe) =================== */
+const store={
+  get(k,d){try{const v=localStorage.getItem('ssx_'+k);return v?JSON.parse(v):d}catch(e){return d}},
+  set(k,v){try{localStorage.setItem('ssx_'+k,JSON.stringify(v))}catch(e){}}
+};
+let teams=store.get('teams',[{n:'TABLE 1',s:0},{n:'TABLE 2',s:0},{n:'TABLE 3',s:0},{n:'TABLE 4',s:0}]);
+let played=store.get('played',{});
+const saveTeams=()=>store.set('teams',teams);
+const savePlayed=()=>store.set('played',played);
+
+/* =================== helpers =================== */
+const yt=id=>'https://www.youtube.com/watch?v='+id;
+const decade=y=>y<1940?"1930s":y<1950?"1940s":y<1960?"1950s":y<1970?"1960s":"1970s";
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function shuffle(a){a=a.slice();for(let i=a.length-1;i>0;i--){const j=Math.random()*(i+1)|0;[a[i],a[j]]=[a[j],a[i]]}return a}
+
+/* Draws from a pool, exhausting unplayed items first so a repeat
+   session serves fresh content without any rebuilding. */
+function makeDeck(gameKey,pool){
+  const seen=new Set(played[gameKey]||[]);
+  const fresh=shuffle(pool.map((_,i)=>i).filter(i=>!seen.has(i)));
+  const old=shuffle(pool.map((_,i)=>i).filter(i=>seen.has(i)));
+  return fresh.concat(old);
+}
+function markPlayed(gameKey,idx){
+  played[gameKey]=played[gameKey]||[];
+  if(!played[gameKey].includes(idx))played[gameKey].push(idx);
+  savePlayed();
+}
+
+/* =================== game definitions =================== */
+const GAMES={
+  nameThat:{
+    title:"Name That Musical", color:"c1", tabClass:"g1", mins:"8–10 min",
+    blurb:"Play the clip. First table to call out the movie takes the points.",
+    rules:["1 point for the movie, 1 bonus point for the song title, 1 more for the year.",
+           "Easy round first. Save the deep cuts for when the room is warm."],
+    pool:()=>CLIPS,
+    render(c){return{
+      meta:"Tier "+c.tier+" &nbsp;·&nbsp; "+decade(c.y),
+      q:"What movie<br>is this from?",
+      small:"Play the clip, let it run 30–45 seconds, then pause and take answers.",
+      clip:c.id,
+      aBig:esc(c.m)+" ("+c.y+")",
+      aDet:"“"+esc(c.s)+"” &nbsp;·&nbsp; "+esc(c.p)
+    }}
+  },
+  title:{
+    title:"Finish the Title", color:"c2", tabClass:"g2", mins:"5–7 min",
+    blurb:"One word is missing. They shout it. Fastest game in the set.",
+    rules:["1 point per correct word. No conferring — first voice wins.",
+           "Great opener and great closer. Run it fast and keep it loud."],
+    pool:()=>TITLES,
+    render(t){return{
+      meta:"Fill in the blank",
+      q:esc(t[0]).replace(/___/g,'<span class="blank">______</span>'),
+      small:t[2]?"Hint if they stall: "+esc(t[2]):"",
+      aBig:esc(t[1]), aDet:t[2]?esc(t[2]):""
+    }}
+  },
+  whoSang:{
+    title:"Who Sang It?", color:"c3", tabClass:"", mins:"7–9 min",
+    blurb:"Name the song and the film. Now name who performed it.",
+    rules:["2 points for the performer. 1 point for a near miss (right film, wrong name).",
+           "Play the clip afterward as the reveal — that's the payoff."],
+    pool:()=>CLIPS.filter(c=>c.tier<=2),
+    render(c){return{
+      meta:"Who performed it?",
+      q:"“"+esc(c.s)+"”",
+      small:"from "+esc(c.m)+" ("+c.y+")",
+      aBig:esc(c.p),
+      aDet:"Play the clip to confirm it — and let them sing along.",
+      clip:c.id
+    }}
+  },
+  ballpark:{
+    title:"Ballpark Years", color:"c4", tabClass:"g3", mins:"7–9 min",
+    blurb:"Guess the year it came out. Closest table wins it — no need to be exact.",
+    rules:["Every table writes a year. Closest wins 2 points. Dead on wins 4.",
+           "Ties split the points. Nobody is ever out of this one."],
+    pool:()=>{const seen=new Set();return CLIPS.filter(c=>{const k=c.m+c.y;if(seen.has(k))return false;seen.add(k);return true})},
+    render(c){return{
+      meta:"What year?",
+      q:esc(c.m),
+      small:"Every table commits to a year before you reveal. Closest one takes it.",
+      aBig:String(c.y),
+      aDet:"“"+esc(c.s)+"” &nbsp;·&nbsp; "+esc(c.p),
+      clip:c.id
+    }}
+  },
+  showdown:{
+    title:"Showstopper Showdown", color:"c5", tabClass:"g4", mins:"6–8 min",
+    blurb:"The closer. Everything mixed together, double points, no hints.",
+    rules:["All points are doubled. Hands up, first hand answers.",
+           "A wrong answer passes the question to the next table.",
+           "Run it until someone's caught up or time's gone. Then crown the table."],
+    pool:()=>{
+      const a=CLIPS.filter(c=>c.tier===1).map(c=>({k:'c',d:c}));
+      const b=TITLES.map(t=>({k:'t',d:t}));
+      return a.concat(b);
+    },
+    render(x){
+      if(x.k==='c'){const c=x.d;return{
+        meta:"Double points &nbsp;·&nbsp; name the movie",
+        q:"“"+esc(c.s)+"”",
+        small:"Sung by "+esc(c.p)+". Which movie?",
+        aBig:esc(c.m)+" ("+c.y+")", aDet:esc(c.p),
+        clip:c.id
+      }}
+      const t=x.d;return{
+        meta:"Double points &nbsp;·&nbsp; finish the title",
+        q:esc(t[0]).replace(/___/g,'<span class="blank">______</span>'),
+        small:"", aBig:esc(t[1]), aDet:t[2]?esc(t[2]):""
+      }
+    }
+  }
+};
+const GKEYS=Object.keys(GAMES);
+</script>
+<script>
+/* =================== marquee bulbs =================== */
+(function(){const b=document.getElementById('bulbs');let h='';
+ for(let i=0;i<26;i++)h+='<span class="bulb" style="animation-delay:'+(i*0.09).toFixed(2)+'s"></span>';
+ b.innerHTML=h})();
+
+/* =================== scoreboard =================== */
+function boardHTML(){
+  return '<div class="board"><h3 class="sub" style="margin-bottom:0">Scoreboard</h3>'+
+    '<div class="teams">'+teams.map((t,i)=>
+      '<div class="team"><input value="'+esc(t.n)+'" data-ti="'+i+'" aria-label="Team name">'+
+      '<div class="score" id="sc'+i+'">'+t.s+'</div>'+
+      '<div class="pts">'+
+        '<button data-ti="'+i+'" data-d="1">+1</button>'+
+        '<button data-ti="'+i+'" data-d="2">+2</button>'+
+        '<button data-ti="'+i+'" data-d="4">+4</button>'+
+        '<button class="minus" data-ti="'+i+'" data-d="-1">&minus;1</button>'+
+      '</div></div>').join('')+'</div>'+
+    '<div class="controls" style="margin-top:16px">'+
+      '<button class="btn ghost" id="resetScores">Reset scores</button>'+
+      '<button class="btn ghost" id="resetPlayed">Clear played history</button>'+
+    '</div></div>';
+}
+function wireBoard(root){
+  root.querySelectorAll('.team input').forEach(inp=>{
+    inp.addEventListener('input',e=>{teams[+e.target.dataset.ti].n=e.target.value;saveTeams()});
+  });
+  root.querySelectorAll('.pts button').forEach(b=>{
+    b.addEventListener('click',e=>{
+      const i=+e.target.dataset.ti;teams[i].s+=+e.target.dataset.d;
+      if(teams[i].s<0)teams[i].s=0;
+      const el=document.getElementById('sc'+i);if(el)el.textContent=teams[i].s;saveTeams();
+    });
+  });
+  const rs=root.querySelector('#resetScores');
+  if(rs)rs.addEventListener('click',()=>{teams.forEach(t=>t.s=0);saveTeams();renderAll();go(cur)});
+  const rp=root.querySelector('#resetPlayed');
+  if(rp)rp.addEventListener('click',()=>{played={};savePlayed();decks={};renderAll();go(cur)});
+}
+
+/* =================== lobby =================== */
+const SOUNDTEST=[
+ {n:"Make \u2019Em Laugh \u2014 Singin\u2019 in the Rain",u:"https://p.scdn.co/mp3-preview/1bac6ffe2b3312b0a6fdb50a3f57c88b4a5562e6.mp3"},
+ {n:"Over the Rainbow \u2014 The Wizard of Oz",u:"https://p.scdn.co/mp3-preview/61c35aaa761af490ded7356501a463c185eed352.mp3"},
+ {n:"Tonight \u2014 West Side Story",u:"https://p.scdn.co/mp3-preview/ef56097b9c70e5b49f1174a88c504081e8b9df00.mp3"},
+ {n:"I Could Have Danced All Night \u2014 My Fair Lady",u:"https://p.scdn.co/mp3-preview/5738dea8e9746af69092ff85a3a5a9a220f0c7fc.mp3"}
+];
+function soundTestHTML(){
+  return '<div class="card" style="border:4px solid var(--teal)">'+
+    '<h3 class="sub" style="color:var(--teal)">Sound test \u2014 read this first</h3>'+
+    '<h2 class="ttl" style="font-size:1.6rem">Does audio play here?</h2>'+
+    '<p class="lede" style="margin-top:9px">These are 30-second audio clips, no video and no YouTube. '+
+    'If these play, the whole module can run on audio \u2014 which also means no titles, no thumbnails '+
+    'and no captions can ever give the answer away. Tap one.</p>'+
+    '<div class="controls" style="justify-content:flex-start;margin-top:16px">'+
+      SOUNDTEST.map((t,i)=>'<button class="btn alt" data-snd="'+i+'">&#9654; Clip '+(i+1)+'</button>').join('')+
+      '<button class="btn ghost" id="sndStop">Stop</button>'+
+    '</div>'+
+    '<div class="pstatus" id="sndStatus" style="text-align:left;margin-top:13px;font-size:.82rem">'+
+      'Tap a clip. You should hear music within a second or two.</div>'+
+  '</div>';
+}
+let SNDA=null;
+function wireSoundTest(root){
+  root.querySelectorAll('[data-snd]').forEach(b=>b.addEventListener('click',e=>{
+    const t=SOUNDTEST[+e.currentTarget.dataset.snd];
+    const st=(m,tone)=>{const el=root.querySelector('#sndStatus');
+      if(el){el.textContent=m;el.className='pstatus'+(tone?' '+tone:'')}};
+    try{ if(SNDA){SNDA.pause();SNDA=null} }catch(err){}
+    st('loading \u2014 '+t.n.split(' \u2014 ')[0]+'\u2026');
+    SNDA=new Audio(t.u);
+    SNDA.addEventListener('playing',()=>st('PLAYING \u2014 if you hear music, audio works. Tell Claude.','good'));
+    SNDA.addEventListener('error',()=>st('BLOCKED \u2014 audio can\u2019t load on this page either. Tell Claude.','bad'));
+    SNDA.play().then(()=>st('Playing\u2026 (if silent, check your volume)','good'))
+      .catch(err=>st('BLOCKED by the browser: '+(err&&err.name||'error')+'. Tell Claude.','bad'));
+  }));
+  const s=root.querySelector('#sndStop');
+  if(s)s.addEventListener('click',()=>{try{if(SNDA){SNDA.pause();SNDA=null}}catch(e){}});
+}
+function lobbyHTML(){
+  const total=CLIPS.length, pool=TITLES.length;
+  return '<div class="card tiltL"><h2 class="ttl">Welcome to the show</h2>'+
+    '<div class="rule"></div>'+
+    '<p class="lede">Five games, a head-to-head duel and one clip library, built to fill forty-five minutes however the room wants to go. '+
+    'Pick a game below. Scores and played-history carry over, so next month’s session serves fresh questions on its own.</p>'+
+    '<div class="gamegrid">'+GKEYS.map(k=>{const g=GAMES[k];
+      return '<button class="gcard '+g.color+'" data-goto="'+k+'">'+
+        '<h4>'+esc(g.title)+'</h4><p>'+esc(g.blurb)+'</p>'+
+        '<span class="mins">'+g.mins+'</span></button>'}).join('')+
+      '<button class="gcard c2" data-goto="duel" style="outline:4px dashed rgba(0,0,0,.3)">'+
+        '<h4>Head&#8209;to&#8209;Head</h4><p>One against one. Alternating turns, steals for half, '+
+        'first to the target wins. Five minutes \u2014 the fastest way to show somebody the whole module.</p>'+
+        '<span class="mins">1:1 &nbsp;\u00b7&nbsp; 5 min</span></button>'+
+      '</div></div>'+
+    '<div class="card tiltR"><h3 class="sub">The 45-minute shape</h3>'+
+    '<table class="runsheet"><tr><th>Time</th><th>What happens</th></tr>'+
+    '<tr><td>0:00</td><td>Welcome, split the room into tables, name the teams on the scoreboard</td></tr>'+
+    '<tr><td>0:03</td><td><strong>Finish the Title</strong> — fast opener, gets everyone’s voice in the room</td></tr>'+
+    '<tr><td>0:10</td><td><strong>Name That Musical</strong> — the main event, clips rolling</td></tr>'+
+    '<tr><td>0:20</td><td>Intermission card — one fact, let them talk, catch your breath</td></tr>'+
+    '<tr><td>0:22</td><td><strong>Ballpark Years</strong> or <strong>Who Sang It?</strong> — pick by the room’s energy</td></tr>'+
+    '<tr><td>0:32</td><td>Intermission card</td></tr>'+
+    '<tr><td>0:34</td><td><strong>Showstopper Showdown</strong> — double points, everyone still in it</td></tr>'+
+    '<tr><td>0:42</td><td>Crown the table, play one last clip and let them sing out on it</td></tr>'+
+    '</table>'+
+    '<div class="note"><strong>Library:</strong> '+total+' clips, every link checked. '+
+    '<strong>Question pools:</strong> '+total+' clip questions + '+pool+' title prompts — three or four sessions deep before anything repeats.</div></div>'+
+    boardHTML();
+}
+
+/* =================== library =================== */
+let libFilter='all', libSearch='';
+function libraryHTML(){
+  const decs=['all','1930s','1940s','1950s','1960s','1970s'];
+  return '<div class="card"><h2 class="ttl">The Library</h2>'+
+    '<div class="rule"></div>'+
+    '<p class="lede">Every clip plays right here inside the module. All '+CLIPS.length+' were verified live and checked for embedding. '+
+    'Official studio uploads — Warner, Paramount, Universal, Rodgers &amp; Hammerstein, TCM, Disney, Movieclips — wherever one exists.</p>'+
+    '<div class="filters">'+decs.map(d=>'<button class="chip'+(libFilter===d?' on':'')+'" data-dec="'+d+'">'+
+      (d==='all'?'All '+CLIPS.length:d)+'</button>').join('')+
+    '<input id="search" placeholder="Search a song, movie or star…" value="'+esc(libSearch)+'"></div>'+
+    '<div class="cliplist" id="cliplist">'+clipCards()+'</div></div>';
+}
+function clipCards(){
+  const q=libSearch.toLowerCase();
+  const list=CLIPS.filter(c=>(libFilter==='all'||decade(c.y)===libFilter)&&
+    (!q||(c.s+' '+c.m+' '+c.p).toLowerCase().includes(q)));
+  if(!list.length)return '<p class="lede">Nothing matches that. Try a different word.</p>';
+  return list.map(c=>'<div class="clip"><span class="dec">'+decade(c.y)+'</span>'+
+    '<div class="song">'+esc(c.s)+'</div>'+
+    '<div class="mv">'+esc(c.m)+' &nbsp;·&nbsp; '+c.y+'</div>'+
+    '<div class="pf">'+esc(c.p)+'</div>'+
+    '<a href="#" class="lbopen" data-vid="'+c.id+'" data-s="'+esc(c.s)+'" data-m="'+esc(c.m)+' · '+c.y+'">▶ Play it here</a>'+
+    '<span class="src">uploaded by '+esc(c.ch)+'</span></div>').join('');
+}
+function wireLibrary(root){
+  root.querySelectorAll('.chip').forEach(b=>b.addEventListener('click',e=>{
+    libFilter=e.target.dataset.dec;go('library')}));
+  const s=root.querySelector('#search');
+  if(s)s.addEventListener('input',e=>{libSearch=e.target.value;
+    const l=document.getElementById('cliplist');if(l){l.innerHTML=clipCards();bindLB(l)}});
+  bindLB(root);
+}
+/* Library clips open in a lightbox inside the module \u2014 picture showing,
+   since nothing is being guessed here. */
+function bindLB(root){
+  root.querySelectorAll('.lbopen').forEach(a=>a.addEventListener('click',e=>{
+    e.preventDefault();
+    const d=e.currentTarget.dataset;
+    openLightbox(d.vid,d.s,d.m);
+  }));
+}
+function openLightbox(vid,song,sub){
+  closeLightbox();
+  const lb=document.createElement('div');
+  lb.className='lightbox'; lb.id='lightbox';
+  lb.innerHTML='<div class="lbinner">'+
+    '<div class="lbtitle">'+song+'</div><div class="lbsub">'+sub+'</div>'+
+    playerHTML(vid)+
+    '<div class="controls" style="margin-top:14px"><button class="btn ghost" id="lbClose">Close</button></div></div>';
+  document.body.appendChild(lb);
+  wirePlayer(lb,false);
+  lb.querySelector('#lbClose').addEventListener('click',closeLightbox);
+  lb.addEventListener('click',e=>{if(e.target===lb)closeLightbox()});
+  document.addEventListener('keydown',escLB);
+  try{ setTimeout(()=>{PL&&PL.playVideo&&PL.playVideo()},900); }catch(e){}
+}
+function escLB(e){ if(e.key==='Escape')closeLightbox(); }
+function closeLightbox(){
+  const lb=document.getElementById('lightbox');
+  if(lb){ try{ if(PL&&PL.destroy)PL.destroy(); }catch(e){} PL=null; lb.remove(); }
+  document.removeEventListener('keydown',escLB);
+}
+
+/* =================== game runner =================== */
+let decks={}, pos={}, cur='lobby';
+function gameHTML(key){
+  const g=GAMES[key], poolArr=g.pool();
+  if(!decks[key]){decks[key]=makeDeck(key,poolArr);pos[key]=0}
+  const deck=decks[key];
+  if(pos[key]>=deck.length){pos[key]=0;decks[key]=makeDeck(key,poolArr)}
+  const idx=decks[key][pos[key]];
+  const v=g.render(poolArr[idx]);
+  const seenCount=(played[key]||[]).length;
+  return '<div class="card tiltL" style="padding:21px 26px"><h2 class="ttl">'+esc(g.title)+'</h2>'+
+    '<p class="lede" style="margin-top:7px">'+esc(g.blurb)+'</p>'+
+    '<div class="rule"></div><ul style="margin-left:19px">'+
+    g.rules.map(r=>'<li style="line-height:1.6;color:#E8DCC8;margin-bottom:5px">'+r+'</li>').join('')+
+    '</ul></div>'+
+    '<div class="stage">'+
+      '<div class="qmeta">'+v.meta+'</div>'+
+      '<div class="qbig">'+v.q+'</div>'+
+      (v.small?'<div class="qsmall">'+v.small+'</div>':'')+
+      (v.clip?playerHTML(v.clip):'')+
+      '<div class="answer" id="ans"><div class="big">'+v.aBig+'</div>'+
+        (v.aDet?'<div class="det">'+v.aDet+'</div>':'')+
+      '</div>'+
+      '<div class="controls">'+
+        '<button class="btn" id="revealBtn">Reveal answer</button>'+
+        '<button class="btn alt" id="nextBtn">Next &rsaquo;</button>'+
+        '<button class="btn ghost" id="skipBtn">Skip</button>'+
+      '</div>'+
+      '<div class="progress">Question '+(pos[key]+1)+' of '+deck.length+
+        ' in this round &nbsp;&middot;&nbsp; '+seenCount+' of '+poolArr.length+' used across all sessions</div>'+
+    '</div>'+ boardHTML();
+}
+function wireGame(root,key){
+  wirePlayer(root,true);
+  const ans=root.querySelector('#ans');
+  const rev=root.querySelector('#revealBtn');
+  // Reveal updates the DOM in place rather than re-rendering, so the clip
+  // keeps playing straight through the reveal instead of restarting.
+  if(rev)rev.addEventListener('click',()=>{
+    ans.classList.add('show'); dropCurtain();
+    rev.textContent='Answer shown'; rev.disabled=true; rev.style.opacity=.55;
+  });
+  const nx=root.querySelector('#nextBtn');
+  if(nx)nx.addEventListener('click',()=>{markPlayed(key,decks[key][pos[key]]);pos[key]++;go(key)});
+  const sk=root.querySelector('#skipBtn');
+  if(sk)sk.addEventListener('click',()=>{pos[key]++;go(key)});
+}
+</script>
+<script>
+/* =================== HEAD-TO-HEAD (1:1) =================== */
+let duel=store.get('duel',null);
+function newDuel(n1,n2,target){
+  const pool=[].concat(
+    CLIPS.filter(c=>c.tier<=2).map(c=>({k:'clip',d:c})),
+    TITLES.map(t=>({k:'title',d:t})),
+    CLIPS.filter(c=>c.tier<=2).map(c=>({k:'year',d:c}))
+  );
+  duel={p:[{n:n1||'PLAYER 1',s:0},{n:n2||'PLAYER 2',s:0}],turn:0,target:target||10,
+        deck:shuffle(pool.map((_,i)=>i)),pos:0,phase:'ask',winner:null,
+        pool:pool.map(x=>x.k==='title'?{k:x.k,d:x.d}:{k:x.k,d:x.d}),log:[]};
+  store.set('duel',duel);
+}
+function duelQ(){
+  const x=duel.pool[duel.deck[duel.pos%duel.deck.length]];
+  if(x.k==='clip')return{
+    tagline:'Name the movie',
+    q:'“'+esc(x.d.s)+'”',
+    small:'Sung by '+esc(x.d.p),
+    a:esc(x.d.m)+' ('+x.d.y+')',
+    det:'“'+esc(x.d.s)+'” · '+esc(x.d.p),
+    clip:x.d.id, worth:2};
+  if(x.k==='year')return{
+    tagline:'Name the year — within two counts',
+    q:esc(x.d.m),
+    small:'Closest guess inside two years takes it.',
+    a:String(x.d.y),
+    det:esc(x.d.m)+' · “'+esc(x.d.s)+'”',
+    clip:x.d.id, worth:2};
+  const t=x.d;return{
+    tagline:'Finish the title',
+    q:esc(t[0]).replace(/___/g,'<span class="blank">______</span>'),
+    small:t[2]?'':'',
+    a:esc(t[1]), det:t[2]?esc(t[2]):'', worth:1};
+}
+function duelHTML(){
+  if(!duel) return `<div class="card tiltL"><h2 class="ttl">Head&#8209;to&#8209;Head</h2>
+    <div class="rule"></div>
+    <p class="lede">One against one. Players alternate turns \u2014 miss your question and your opponent
+    can steal it for half. First to the target wins. Takes about five minutes, which makes it
+    the right way to test-drive the whole module with one other person.</p>
+    <div style="margin-top:22px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px">
+      <div class="team"><label style="font-size:.7rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:var(--teal)">Player 1</label>
+        <input id="d1" placeholder="Name" value="A.J." aria-label="Player 1 name"></div>
+      <div class="team"><label style="font-size:.7rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:var(--teal)">Player 2</label>
+        <input id="d2" placeholder="Name" value="" aria-label="Player 2 name"></div>
+      <div class="team"><label style="font-size:.7rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:var(--teal)">Play to</label>
+        <input id="dt" value="10" aria-label="Target score"></div>
+    </div>
+    <div class="controls" style="margin-top:20px"><button class="btn" id="startDuel">Start the duel</button></div>
+    <div class="note" style="margin-top:18px"><strong>How a turn works:</strong> the clip plays with the
+    picture hidden. The player whose turn it is answers out loud, you hit Reveal, then mark it.
+    A miss opens a steal for the other player at half points. Either way the turn passes.</div></div>`;
+
+  const [a,b]=duel.p, q=duelQ(), hot=duel.turn, cold=1-duel.turn;
+  if(duel.winner!==null){
+    const w=duel.p[duel.winner];
+    return `<div class="stage" style="border:4px solid var(--gold)">
+      <div class="qmeta">We have a winner</div>
+      <div class="qbig" style="color:var(--gold)">${esc(w.n)}<br>takes it</div>
+      <div class="qsmall" style="font-size:1.5rem;font-weight:900;margin-top:20px">
+        ${esc(a.n)} ${a.s} &nbsp;&mdash;&nbsp; ${b.s} ${esc(b.n)}</div>
+      <div class="controls"><button class="btn" id="rematch">Rematch</button>
+      <button class="btn ghost" id="endDuel">New players</button></div></div>`;
+  }
+  const steal=Math.max(1,Math.round(q.worth/2));
+  return `<div class="card tiltL" style="padding:19px 24px">
+    <h2 class="ttl" style="font-size:1.5rem">Head&#8209;to&#8209;Head</h2>
+    <p class="lede" style="margin-top:5px;font-size:.93rem">First to ${duel.target}. A miss can be stolen for half.</p></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-bottom:17px">
+    ${duel.p.map((pl,i)=>`<div class="team" style="${i===hot?'outline:4px solid var(--gold);background:var(--ink3)':''}">
+      <div style="font-weight:900;text-transform:uppercase;letter-spacing:.05em;font-size:.9rem">${esc(pl.n)}</div>
+      <div class="score">${pl.s}</div>
+      <div style="font-size:.68rem;font-weight:900;letter-spacing:.14em;text-transform:uppercase;color:${i===hot?'var(--gold)':'#6B5B85'}">
+        ${i===hot?'&#9654; Their turn':'waiting'}</div></div>`).join('')}
+  </div>
+  <div class="stage">
+    <div class="qmeta">${esc(duel.p[hot].n)} &nbsp;&middot;&nbsp; ${q.tagline} &nbsp;&middot;&nbsp; ${q.worth} pt${q.worth>1?'s':''}</div>
+    <div class="qbig">${q.q}</div>
+    ${q.small?`<div class="qsmall">${q.small}</div>`:''}
+    ${q.clip?playerHTML(q.clip):''}
+    <div class="answer${duel.phase!=='ask'?' show':''}" id="ans">
+      <div class="big">${q.a}</div>${q.det?`<div class="det">${q.det}</div>`:''}</div>
+    <div class="controls" id="cAsk" style="${duel.phase!=='ask'?'display:none':''}">
+      <button class="btn" id="revealBtn">Reveal answer</button></div>
+    <div class="controls" id="cRev" style="${duel.phase!=='revealed'?'display:none':''}">
+      <button class="btn alt" id="gotIt">${esc(duel.p[hot].n)} got it &nbsp;+${q.worth}</button>
+      <button class="btn ghost" id="missed">Missed \u2014 open the steal</button></div>
+    <div class="controls" id="cSteal" style="${duel.phase!=='steal'?'display:none':''}">
+      <button class="btn play" id="stole">${esc(duel.p[cold].n)} stole it &nbsp;+${steal}</button>
+      <button class="btn ghost" id="noSteal">Nobody got it</button></div>
+    <div class="progress" id="stealBanner" style="color:var(--mag);font-weight:900;${duel.phase!=='steal'?'display:none':''}">
+      STEAL IS OPEN &mdash; ${esc(duel.p[cold].n)} can take it for half</div>
+    <div class="progress">Question ${duel.pos+1} &nbsp;&middot;&nbsp; playing to ${duel.target}</div>
+  </div>
+  <div class="controls" style="margin-top:15px"><button class="btn ghost" id="endDuel">End duel / new players</button></div>`;
+}
+function duelAdvance(){
+  duel.pos++; duel.turn=1-duel.turn; duel.phase='ask';
+  // Someone wins only by reaching the target AND being strictly ahead.
+  // Level at the target means sudden death — play on until one pulls clear.
+  const [x,y]=duel.p.map(p=>p.s);
+  if((x>=duel.target||y>=duel.target) && x!==y) duel.winner = x>y?0:1;
+  store.set('duel',duel); go('duel');
+}
+function wireDuel(root){
+  if(duel && duel.winner===null && duelQ().clip) wirePlayer(root,true);
+  const show=(id,on)=>{const el=root.querySelector('#'+id); if(el)el.style.display=on?'':'none'};
+  const sd=root.querySelector('#startDuel');
+  if(sd)sd.addEventListener('click',()=>{
+    newDuel(root.querySelector('#d1').value.trim(),root.querySelector('#d2').value.trim(),
+      Math.max(2,parseInt(root.querySelector('#dt').value,10)||10));
+    go('duel');
+  });
+  const ed=root.querySelector('#endDuel');
+  if(ed)ed.addEventListener('click',()=>{duel=null;store.set('duel',null);go('duel')});
+  const rm=root.querySelector('#rematch');
+  if(rm)rm.addEventListener('click',()=>{newDuel(duel.p[0].n,duel.p[1].n,duel.target);go('duel')});
+  // reveal + steal change the DOM in place; the clip plays straight through
+  const rv=root.querySelector('#revealBtn');
+  if(rv)rv.addEventListener('click',()=>{
+    duel.phase='revealed'; store.set('duel',duel);
+    root.querySelector('#ans').classList.add('show'); dropCurtain();
+    show('cAsk',false); show('cRev',true);
+  });
+  const ms=root.querySelector('#missed');
+  if(ms)ms.addEventListener('click',()=>{
+    duel.phase='steal'; store.set('duel',duel);
+    show('cRev',false); show('cSteal',true); show('stealBanner',true);
+  });
+  const gi=root.querySelector('#gotIt');
+  if(gi)gi.addEventListener('click',()=>{duel.p[duel.turn].s+=duelQ().worth;duelAdvance()});
+  const st=root.querySelector('#stole');
+  if(st)st.addEventListener('click',()=>{duel.p[1-duel.turn].s+=Math.max(1,Math.round(duelQ().worth/2));duelAdvance()});
+  const ns=root.querySelector('#noSteal');
+  if(ns)ns.addEventListener('click',()=>duelAdvance());
+}
+</script>
+
+<script>
+/* =================== MUSIC ROUND (Spotify-driven) =================== */
+/* Browsers on this page can't play media, so the sound comes from Spotify
+   on a phone or laptop. The setlist keeps both sides in lockstep: you build
+   it before the session, queue the same songs in Spotify, then advance the
+   module and the queue together. */
+let setlist = store.get('setlist', []);
+let srPos   = store.get('srPos', 0);
+let srMode  = 'build';
+const saveSet=()=>store.set('setlist',setlist);
+const spotifySearch=c=>'https://open.spotify.com/search/'+encodeURIComponent(c.s+' '+c.m);
+
+function musicHTML(){
+  if(srMode==='play' && setlist.length) return musicPlayHTML();
+  return musicBuildHTML();
+}
+function musicBuildHTML(){
+  const chosen=setlist.map(i=>CLIPS[i]).filter(Boolean);
+  const q=(window.__srSearch||'').toLowerCase();
+  const pool=CLIPS.map((c,i)=>({c,i}))
+    .filter(({c,i})=>!setlist.includes(i) && (!q||(c.s+' '+c.m+' '+c.p).toLowerCase().includes(q)));
+  return '<div class="card tiltL"><h2 class="ttl">Music Round</h2><div class="rule"></div>'+
+    '<p class="lede">The sound comes from Spotify, not from this page. Build your setlist here '+
+    '<strong>before the session</strong>, queue the same songs in Spotify, then run the round — '+
+    'the module and your queue step forward together.</p>'+
+    '<div class="note" style="margin-top:14px"><strong>Why this is the spoiler-free way:</strong> '+
+    'audio has no title card, no thumbnail and no captions. Keep Spotify on your phone into the room '+
+    'speaker and the screen never gives anything away.</div></div>'+
+
+    '<div class="card"><h3 class="sub">Your setlist — '+chosen.length+' song'+(chosen.length===1?'':'s')+'</h3>'+
+    (chosen.length
+      ? '<ol style="margin-left:20px">'+chosen.map((c,n)=>
+          '<li style="line-height:1.6;color:#E8DCC8;margin-bottom:7px">'+
+          '<strong style="color:var(--gold)">'+esc(c.s)+'</strong> — '+esc(c.m)+' ('+c.y+') '+
+          '<button class="chip" data-rm="'+n+'" style="margin-left:7px;padding:4px 10px">remove</button></li>').join('')+'</ol>'+
+        '<div class="controls" style="justify-content:flex-start;margin-top:16px">'+
+          '<button class="btn" id="srStart">Start the round</button>'+
+          '<button class="btn alt" id="srQueue">Show the Spotify queue list</button>'+
+          '<button class="btn ghost" id="srClear">Clear setlist</button></div>'
+      : '<p class="lede">Nothing picked yet. Tap the button for a ready-made round, or add songs below — eight to twelve is about right.</p>'+
+        '<div class="controls" style="justify-content:flex-start;margin-top:14px">'+
+        '<button class="btn" id="srFill">Fill with 10 crowd-pleasers</button></div>')+
+    '</div>'+
+
+    '<div class="card"><h3 class="sub">Add songs</h3>'+
+    '<div class="filters"><input id="srSearch" placeholder="Search the library…" value="'+esc(window.__srSearch||'')+'"></div>'+
+    '<div class="cliplist" id="srPool">'+
+      pool.slice(0,40).map(({c,i})=>'<div class="clip"><span class="dec">'+decade(c.y)+'</span>'+
+        '<div class="song">'+esc(c.s)+'</div>'+
+        '<div class="mv">'+esc(c.m)+' &nbsp;·&nbsp; '+c.y+'</div>'+
+        '<button class="btn alt" data-add="'+i+'" style="margin-top:10px;padding:9px 15px;font-size:.74rem">+ Add to setlist</button>'+
+      '</div>').join('')+
+    '</div></div>';
+}
+function musicPlayHTML(){
+  const n=setlist.length;
+  if(srPos>=n) return '<div class="stage" style="border:4px solid var(--gold)">'+
+    '<div class="qmeta">Round complete</div>'+
+    '<div class="qbig" style="color:var(--gold)">That’s the<br>music round</div>'+
+    '<div class="controls"><button class="btn" id="srAgain">Run it again</button>'+
+    '<button class="btn ghost" id="srEdit">Back to the setlist</button></div></div>';
+  const c=CLIPS[setlist[srPos]];
+  return '<div class="card tiltL" style="padding:19px 24px">'+
+    '<h2 class="ttl" style="font-size:1.5rem">Music Round</h2>'+
+    '<p class="lede" style="margin-top:5px;font-size:.93rem">Play song '+(srPos+1)+' in your Spotify queue, '+
+    'let it run, then take answers.</p></div>'+
+    '<div class="stage">'+
+      '<div class="qmeta">Song '+(srPos+1)+' of '+n+'</div>'+
+      '<div class="qbig">What movie<br>is this from?</div>'+
+      '<div class="qsmall">The answer stays hidden until you reveal it — nothing on this screen gives it away.</div>'+
+      '<div class="answer" id="ans"><div class="big">'+esc(c.m)+' ('+c.y+')</div>'+
+        '<div class="det">“'+esc(c.s)+'” &nbsp;·&nbsp; '+esc(c.p)+'</div>'+
+        '<div class="controls" style="margin-top:13px">'+
+          '<a class="btn ghost" href="'+yt(c.id)+'" target="_blank" rel="noopener" '+
+          'style="text-decoration:none;font-size:.76rem">watch the number on YouTube</a></div>'+
+      '</div>'+
+      '<div class="controls">'+
+        '<button class="btn" id="srReveal">Reveal answer</button>'+
+        '<button class="btn alt" id="srNext">Next song &rsaquo;</button>'+
+        '<button class="btn ghost" id="srEdit">Edit setlist</button>'+
+      '</div>'+
+    '</div>'+boardHTML();
+}
+function queueListHTML(){
+  return '<div class="card"><h2 class="ttl">Spotify queue list</h2><div class="rule"></div>'+
+  '<p class="lede">Queue these in Spotify in this order before the session, then the module’s '+
+  '“Song 1, 2, 3…” matches your queue exactly. Each title links to it in Spotify.</p>'+
+  '<ol style="margin-left:20px;margin-top:14px">'+
+  setlist.map(i=>CLIPS[i]).filter(Boolean).map(c=>
+    '<li style="line-height:1.7;color:#E8DCC8;margin-bottom:9px">'+
+    '<a href="'+spotifySearch(c)+'" target="_blank" rel="noopener" '+
+    'style="color:var(--teal);font-weight:900;text-decoration:none">'+esc(c.s)+'</a> — '+
+    esc(c.p)+' &nbsp;·&nbsp; <span style="color:#9C8BB8">'+esc(c.m)+' ('+c.y+')</span></li>').join('')+
+  '</ol><div class="controls" style="justify-content:flex-start;margin-top:16px">'+
+  '<button class="btn" id="srBack">Back</button>'+
+  '<button class="btn ghost" onclick="window.print()">Print this list</button></div></div>';
+}
+function wireMusic(root){
+  const re=()=>go('music');
+  root.querySelectorAll('[data-add]').forEach(b=>b.addEventListener('click',e=>{
+    setlist.push(+e.currentTarget.dataset.add); saveSet(); re(); }));
+  root.querySelectorAll('[data-rm]').forEach(b=>b.addEventListener('click',e=>{
+    setlist.splice(+e.currentTarget.dataset.rm,1); saveSet(); re(); }));
+  const s=root.querySelector('#srSearch');
+  if(s)s.addEventListener('input',e=>{window.__srSearch=e.target.value;
+    const p=document.getElementById('srPool');
+    if(p){const q=e.target.value.toLowerCase();
+      p.innerHTML=CLIPS.map((c,i)=>({c,i})).filter(({c,i})=>!setlist.includes(i)&&
+        (!q||(c.s+' '+c.m+' '+c.p).toLowerCase().includes(q))).slice(0,40)
+        .map(({c,i})=>'<div class="clip"><span class="dec">'+decade(c.y)+'</span>'+
+          '<div class="song">'+esc(c.s)+'</div><div class="mv">'+esc(c.m)+' &nbsp;·&nbsp; '+c.y+'</div>'+
+          '<button class="btn alt" data-add="'+i+'" style="margin-top:10px;padding:9px 15px;font-size:.74rem">+ Add to setlist</button></div>').join('');
+      p.querySelectorAll('[data-add]').forEach(b=>b.addEventListener('click',ev=>{
+        setlist.push(+ev.currentTarget.dataset.add); saveSet(); re(); }));
+    }});
+  const on=(id,fn)=>{const b=root.querySelector('#'+id); if(b)b.addEventListener('click',fn)};
+  on('srFill',()=>{
+    const want=["Over the Rainbow","Singin' in the Rain","Do-Re-Mi","Oh, What a Beautiful Mornin'",
+      "Supercalifragilisticexpialidocious","If I Were a Rich Man","Jailhouse Rock","Hello, Dolly!",
+      "Seventy-Six Trombones","Summer Nights"];
+    setlist=want.map(s=>CLIPS.findIndex(c=>c.s===s)).filter(i=>i>=0);
+    saveSet(); re();
+  });
+  on('srStart',()=>{srMode='play';srPos=0;store.set('srPos',0);re()});
+  on('srClear',()=>{setlist=[];saveSet();srPos=0;store.set('srPos',0);re()});
+  on('srEdit',()=>{srMode='build';re()});
+  on('srAgain',()=>{srPos=0;store.set('srPos',0);re()});
+  on('srNext',()=>{srPos++;store.set('srPos',srPos);re()});
+  on('srReveal',()=>{const a=root.querySelector('#ans'); if(a)a.classList.add('show');
+    const b=root.querySelector('#srReveal'); if(b){b.textContent='Answer shown';b.disabled=true;b.style.opacity=.55}});
+  on('srQueue',()=>{srMode='queue';re()});
+  on('srBack',()=>{srMode='build';re()});
+}
+</script>
+
+<script>
+/* =================== host booth =================== */
+function boothHTML(){
+  return '<div class="card booth"><h2 class="ttl">Host Booth</h2>'+
+  '<div class="rule"></div>'+
+  '<p class="lede">Everything you need to run this cold. If you only read one thing, read the six rules.</p>'+
+
+  '<h4>The six rules of running this room</h4><ol>'+
+  '<li><strong>Teams, not individuals.</strong> Tables compete. Nobody sits exposed, and the quiet ones still get carried along by their table.</li>'+
+  '<li><strong>Never correct a wrong answer flatly.</strong> \u201CThat\u2019s the right era \u2014 anyone want to go a year or two either side?\u201D keeps them in it.</li>'+
+  '<li><strong>Let the clip run longer than you think.</strong> Recognition often lands eight or ten seconds in. Resist cutting it early.</li>'+
+  '<li><strong>Points are yours to award.</strong> If a table earns something the rules don\u2019t cover, give it. The scoreboard is a prop, not a referee.</li>'+
+  '<li><strong>If they start singing, stop the game.</strong> Let the clip play out and let them sing. That\u2019s the actual program \u2014 the game is the excuse.</li>'+
+  '<li><strong>End on a clip, not a score.</strong> Crown the table, then play one last number and walk out on it.</li>'+
+  '</ol>'+
+
+  '<h4>Before you start</h4><ul>'+
+  '<li>Clips play inside this page \u2014 you never open a tab or leave the portal.</li>'+
+  '<li>Test your sound on one clip before residents are in the room. Volume higher than feels right to you.</li>'+
+  '<li>Click Play once yourself before the room fills \u2014 browsers block audio until the page has been clicked.</li>'+
+  '<li>Name the tables on the scoreboard as they settle in. Let them pick their own names if they want it.</li>'+
+  '<li>Have water. You\u2019ll talk more than you expect.</li>'+
+  '</ul>'+
+
+  '<h4>The player</h4>'+'<p class="lede" style="margin-bottom:11px">Clips play in the page. While they\u2019re guessing the picture sits behind a curtain and only the sound plays \u2014 a YouTube player otherwise gives the answer away through the thumbnail, the title bar, the channel watermark and the auto-captions. Reveal drops the curtain without restarting the clip, and the curtain comes back up at the end so no suggested videos appear.</p>'+'<ul><li><strong>Play / Pause / Restart</strong> \u2014 the basics.</li>'+'<li><strong>Skip +10s</strong> \u2014 jump a studio logo or a slow intro.</li>'+'<li><strong>Show picture</strong> \u2014 drop the curtain early when a table is close.</li></ul>'+'<h4>If something goes wrong</h4><ul>'+
+  '<li><strong>A clip won\u2019t load.</strong> Hit Skip and move on \u2014 don\u2019t troubleshoot in front of the room. There\u2019s an \u201copen it on YouTube\u201d link under every player as a last resort.</li>'+
+  '<li><strong>No sound.</strong> Click anywhere on the page once, then press Play again. That\u2019s nearly always it.</li>'+
+  '<li><strong>Room\u2019s too quiet.</strong> Switch to Finish the Title. It\u2019s the easiest buy-in in the set.</li>'+
+  '<li><strong>Room\u2019s too loud and rowdy.</strong> Go to Ballpark Years \u2014 writing a year down settles people.</li>'+
+  '<li><strong>One table is running away with it.</strong> Go to the Showdown early. Double points erases any lead.</li>'+
+  '<li><strong>You\u2019re running long.</strong> Cut a game, not the ending. The crowning matters more than the questions.</li>'+
+  '</ul>'+
+
+  '<h4>Intermission cards</h4>'+
+  '<p class="lede" style="margin-bottom:11px">Read one between rounds. They buy you a breather and they\u2019re genuinely interesting \u2014 these are sourced facts, not folklore.</p>'+
+  FACTS.map((f,i)=>'<div class="fact"><strong>'+(i+1)+'.</strong> '+f+'</div>').join('')+
+
+  '<h4>Answer key \u2014 full clip library</h4>'+
+  '<table class="runsheet"><tr><th>Song</th><th>Movie</th><th>Year</th><th>Performed by</th></tr>'+
+  CLIPS.map(c=>'<tr><td>'+esc(c.s)+'</td><td>'+esc(c.m)+'</td><td>'+c.y+'</td><td>'+esc(c.p)+'</td></tr>').join('')+
+  '</table>'+
+
+  '<h4>Answer key \u2014 Finish the Title</h4>'+
+  '<table class="runsheet"><tr><th>Prompt</th><th>Answer</th></tr>'+
+  TITLES.map(t=>'<tr><td>'+esc(t[0])+'</td><td>'+esc(t[1])+'</td></tr>').join('')+
+  '</table>'+
+
+  '<div class="note" style="margin-top:20px"><strong>A note on the sing-along.</strong> '+
+  'There are no printed lyric sheets in this module, by design \u2014 song lyrics are copyrighted and '+
+  'reprinting fifty of them isn\u2019t something to put in a binder. It works better this way anyway: '+
+  'the singing happens with the clip playing, with the original voice carrying the room. '+
+  'Finish the Title gives you the shout-it-out energy without needing a word of lyric on paper.</div>'+
+
+  '<div class="controls" style="margin-top:22px;justify-content:flex-start">'+
+  '<button class="btn" onclick="window.print()">Print the guide book</button></div></div>';
+}
+
+/* =================== tabs & routing =================== */
+const TABS=[{k:'lobby',label:'Marquee',cls:''}]
+  .concat(GKEYS.map(k=>({k:k,label:GAMES[k].title,cls:GAMES[k].tabClass})))
+  .concat([{k:'music',label:'Music Round',cls:'g1'},{k:'duel',label:'Head-to-Head',cls:''},{k:'library',label:'The Library',cls:'g2'},{k:'booth',label:'Host Booth',cls:'g3'}]);
+
+function renderAll(){
+  document.getElementById('tabs').innerHTML=TABS.map(t=>
+    '<button class="tab '+(t.k===cur?'on '+t.cls:'')+'" data-tab="'+t.k+'">'+esc(t.label)+'</button>').join('');
+  document.getElementById('tabs').querySelectorAll('.tab').forEach(b=>
+    b.addEventListener('click',e=>go(e.target.dataset.tab)));
+}
+function go(key){
+  cur=key;
+  const p=document.getElementById('panels');
+  let html;
+  if(key==='lobby')html=lobbyHTML();
+  else if(key==='library')html=libraryHTML();
+  else if(key==='booth')html=boothHTML();
+  else if(key==='duel')html=duelHTML();
+  else if(key==='music')html=(srMode==='queue'?queueListHTML():musicHTML());
+  else html=gameHTML(key);
+  p.innerHTML='<div class="panel on">'+html+'</div>';
+  renderAll();
+  if(key!=='duel'&&key!=='music')wireBoard(p);
+  if(key==='lobby')p.querySelectorAll('[data-goto]').forEach(b=>
+    b.addEventListener('click',e=>go(e.currentTarget.dataset.goto)));
+  if(key==='library')wireLibrary(p);
+  if(key==='duel')wireDuel(p);
+  if(key==='music'){wireMusic(p); if(srMode==='play')wireBoard(p);}
+  if(GAMES[key])wireGame(p,key);
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+go('lobby');
+</script>
+</body>
+</html>
