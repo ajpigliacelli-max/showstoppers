@@ -213,6 +213,19 @@ p.lede{font-size:1.03rem;line-height:1.6;color:#E8DCC8;max-width:62ch}
 @keyframes eqb{0%,100%{height:15px}50%{height:60px}}
 .plabel{font-weight:900;letter-spacing:.2em;text-transform:uppercase;font-size:.7rem;color:var(--teal);text-align:center;padding:0 16px}
 .phint{font-weight:700;font-size:.74rem;color:#9C8BB8;text-align:center;padding:0 16px;letter-spacing:.03em}
+/* Presenter notes: host-facing text, hidden while the screen faces the room */
+body.audience .hostonly{display:none!important}
+.notetoggle{display:flex;justify-content:center;margin:-10px 0 22px}
+.notetoggle button{border:0;cursor:pointer;font-family:var(--body);font-weight:900;
+  font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;padding:8px 15px;
+  border-radius:30px;background:var(--ink2);color:#6B5B85}
+.notetoggle button:hover{color:var(--cream)}
+.notetoggle button.on{background:var(--teal);color:#0C2E29}
+.hostnote{margin-top:14px;padding:11px 15px;border-radius:12px;
+  background:rgba(255,199,44,.09);border-left:4px solid var(--gold);
+  font-size:.86rem;font-weight:600;color:#E0CFA8;max-width:52ch;text-align:left}
+.hostnote b{display:block;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:4px}
 .linkbox{background:linear-gradient(160deg,var(--ink3),#0B0416);border-radius:0 0 16px 16px;
   padding:30px 20px 26px;text-align:center;box-shadow:0 6px 0 rgba(0,0,0,.45)}
 .pstatus{text-align:center;margin-top:9px;font-size:.72rem;font-weight:700;letter-spacing:.05em;color:#7A6B93}
@@ -241,6 +254,7 @@ p.lede{font-size:1.03rem;line-height:1.6;color:#E8DCC8;max-width:62ch}
   <div class="tag">The Musical Movies Game Portal &nbsp;&bull;&nbsp; The Bristal at Sayville</div>
 </header>
 <nav class="tabs" id="tabs"></nav>
+<div class="notetoggle"><button id="noteBtn"></button></div>
 <main id="panels"></main>
 </div>
 <script>
@@ -646,7 +660,7 @@ const GAMES={
     render(c){return{
       meta:"Tier "+c.tier+" &nbsp;·&nbsp; "+decade(c.y),
       q:"What movie<br>is this from?",
-      small:"Play the clip, let it run 30–45 seconds, then pause and take answers.",
+      note:"Play the clip, let it run 30–45 seconds, then pause and take answers.",
       clip:c.id,
       aBig:esc(c.m)+" ("+c.y+")",
       aDet:"“"+esc(c.s)+"” &nbsp;·&nbsp; "+esc(c.p)
@@ -661,7 +675,7 @@ const GAMES={
     render(t){return{
       meta:"Fill in the blank",
       q:esc(t[0]).replace(/___/g,'<span class="blank">______</span>'),
-      small:t[2]?"Hint if they stall: "+esc(t[2]):"",
+      note:t[2]?"Hint if they stall: "+esc(t[2]):"",
       aBig:esc(t[1]), aDet:t[2]?esc(t[2]):""
     }}
   },
@@ -689,7 +703,7 @@ const GAMES={
     render(c){return{
       meta:"What year?",
       q:esc(c.m),
-      small:"Every table commits to a year before you reveal. Closest one takes it.",
+      note:"Every table commits to a year before you reveal. Closest one takes it.",
       aBig:String(c.y),
       aDet:"“"+esc(c.s)+"” &nbsp;·&nbsp; "+esc(c.p),
       clip:c.id
@@ -818,7 +832,7 @@ function lobbyHTML(){
         'first to the target wins. Five minutes \u2014 the fastest way to show somebody the whole module.</p>'+
         '<span class="mins">1:1 &nbsp;\u00b7&nbsp; 5 min</span></button>'+
       '</div></div>'+
-    '<div class="card tiltR"><h3 class="sub">The 45-minute shape</h3>'+
+    '<div class="card tiltR hostonly"><h3 class="sub">The 45-minute shape</h3>'+
     '<table class="runsheet"><tr><th>Time</th><th>What happens</th></tr>'+
     '<tr><td>0:00</td><td>Welcome, split the room into tables, name the teams on the scoreboard</td></tr>'+
     '<tr><td>0:03</td><td><strong>Finish the Title</strong> — fast opener, gets everyone’s voice in the room</td></tr>'+
@@ -909,14 +923,15 @@ function gameHTML(key){
   const v=g.render(poolArr[idx]);
   const seenCount=(played[key]||[]).length;
   return '<div class="card tiltL" style="padding:21px 26px"><h2 class="ttl">'+esc(g.title)+'</h2>'+
-    '<p class="lede" style="margin-top:7px">'+esc(g.blurb)+'</p>'+
+    '<div class="hostonly"><p class="lede" style="margin-top:7px">'+esc(g.blurb)+'</p>'+
     '<div class="rule"></div><ul style="margin-left:19px">'+
     g.rules.map(r=>'<li style="line-height:1.6;color:#E8DCC8;margin-bottom:5px">'+r+'</li>').join('')+
-    '</ul></div>'+
+    '</ul></div></div>'+
     '<div class="stage">'+
       '<div class="qmeta">'+v.meta+'</div>'+
       '<div class="qbig">'+v.q+'</div>'+
       (v.small?'<div class="qsmall">'+v.small+'</div>':'')+
+      (v.note?'<div class="hostnote hostonly"><b>Presenter</b>'+v.note+'</div>':'')+
       (v.clip?playerHTML(v.clip):'')+
       '<div class="answer" id="ans"><div class="big">'+v.aBig+'</div>'+
         (v.aDet?'<div class="det">'+v.aDet+'</div>':'')+
@@ -926,7 +941,7 @@ function gameHTML(key){
         '<button class="btn alt" id="nextBtn">Next &rsaquo;</button>'+
         '<button class="btn ghost" id="skipBtn">Skip</button>'+
       '</div>'+
-      '<div class="progress">Question '+(pos[key]+1)+' of '+deck.length+
+      '<div class="progress hostonly">Question '+(pos[key]+1)+' of '+deck.length+
         ' in this round &nbsp;&middot;&nbsp; '+seenCount+' of '+poolArr.length+' used across all sessions</div>'+
     '</div>'+ boardHTML();
 }
@@ -997,7 +1012,7 @@ function duelHTML(){
         <input id="dt" value="10" aria-label="Target score"></div>
     </div>
     <div class="controls" style="margin-top:20px"><button class="btn" id="startDuel">Start the duel</button></div>
-    <div class="note" style="margin-top:18px"><strong>How a turn works:</strong> the clip plays with the
+    <div class="note hostonly" style="margin-top:18px"><strong>How a turn works:</strong> the clip plays with the
     picture hidden. The player whose turn it is answers out loud, you hit Reveal, then mark it.
     A miss opens a steal for the other player at half points. Either way the turn passes.</div></div>`;
 
@@ -1111,7 +1126,7 @@ function musicBuildHTML(){
     '<p class="lede">The sound comes from Spotify, not from this page. Build your setlist here '+
     '<strong>before the session</strong>, queue the same songs in Spotify, then run the round — '+
     'the module and your queue step forward together.</p>'+
-    '<div class="note" style="margin-top:14px"><strong>Why this is the spoiler-free way:</strong> '+
+    '<div class="note hostonly" style="margin-top:14px"><strong>Why this is the spoiler-free way:</strong> '+
     'audio has no title card, no thumbnail and no captions. Keep Spotify on your phone into the room '+
     'speaker and the screen never gives anything away.</div></div>'+
 
@@ -1283,6 +1298,13 @@ const TABS=[{k:'lobby',label:'Marquee',cls:''}]
   .concat(GKEYS.map(k=>({k:k,label:GAMES[k].title,cls:GAMES[k].tabClass})))
   .concat([{k:'music',label:'Music Round',cls:'g1'},{k:'duel',label:'Head-to-Head',cls:''},{k:'library',label:'The Library',cls:'g2'},{k:'booth',label:'Host Booth',cls:'g3'}]);
 
+let showNotes=store.get('showNotes',false);
+function applyNotes(){
+  document.body.classList.toggle('audience',!showNotes);
+  const b=document.getElementById('noteBtn');
+  if(b){ b.textContent = showNotes ? 'Presenter notes: on' : 'Presenter notes: off';
+         b.classList.toggle('on',showNotes); }
+}
 function renderAll(){
   document.getElementById('tabs').innerHTML=TABS.map(t=>
     '<button class="tab '+(t.k===cur?'on '+t.cls:'')+'" data-tab="'+t.k+'">'+esc(t.label)+'</button>').join('');
@@ -1301,6 +1323,7 @@ function go(key){
   else html=gameHTML(key);
   p.innerHTML='<div class="panel on">'+html+'</div>';
   renderAll();
+  applyNotes();
   if(key!=='duel'&&key!=='music')wireBoard(p);
   if(key==='lobby')p.querySelectorAll('[data-goto]').forEach(b=>
     b.addEventListener('click',e=>go(e.currentTarget.dataset.goto)));
@@ -1310,6 +1333,10 @@ function go(key){
   if(GAMES[key])wireGame(p,key);
   window.scrollTo({top:0,behavior:'smooth'});
 }
+document.getElementById('noteBtn').addEventListener('click',()=>{
+  showNotes=!showNotes; store.set('showNotes',showNotes); applyNotes();
+});
+applyNotes();
 go('lobby');
 </script>
 </body>
