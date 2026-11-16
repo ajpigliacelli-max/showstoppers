@@ -238,36 +238,49 @@ function goTo(n,autoplay){
 
 function paintControls(){
   const p=document.getElementById('btnPlay');
-  if(p)p.textContent = playing ? '❙❙ Pause' : (started ? '▶ Play' : '▶ Start the show');
+  if(p)p.textContent = playing ? '\u2759\u2759 Pause' : (started ? '\u25B6 Play' : '\u25B6 Start the show');
 }
-function stageHTML(){
-  const c=clips()[idx], done=elapsedBefore(idx), total=totalSecs();
-  return '<div class="stage">'+
-    '<div class="nowmeta">Now playing &nbsp;·&nbsp; scene '+(idx+1)+' of '+order.length+'</div>'+
-    '<div class="nowshow">'+esc(c.show)+'</div>'+
-    '<div class="nowtitle">'+esc(c.t)+'</div>'+
-    '<div class="pmarquee"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>'+
-    '<div class="pwrap"><div class="pframe" id="pframe"><div id="ytmount"></div></div>'+
-      '<div class="pidle'+(started?' gone':'')+'">'+
-        '<div class="big">Press Start the show</div>'+
-        '<div class="sub">one press and the scenes roll on their own</div></div>'+
-    '</div>'+
-    '<div class="ctl">'+
-      '<button class="btn play" id="btnPlay">▶ Start the show</button>'+
-      '<button class="btn ghost" id="btnPrev">‹ Back</button>'+
-      '<button class="btn alt" id="btnNext">Skip ahead ›</button>'+
-      '<button class="btn ghost" id="btnReplay">↺ Replay scene</button>'+
-    '</div>'+
-    '<div class="prog">'+
-      '<div class="bar"><span id="barfill" style="width:'+Math.round(done/total*100)+'%"></span></div>'+
-      '<div class="progline">'+
-        '<span>Scene <b>'+(idx+1)+'</b> of '+order.length+'</span>'+
-        '<span><b>'+mmss(done)+'</b> in · '+mmss(total-done)+' to go</span>'+
-        '<span>Full programme <b>'+mmss(total)+'</b></span>'+
+
+/* The player is built ONCE and never re-rendered. Rebuilding the page around
+   it destroys the iframe, which killed both skip and every scene after the
+   first. Everything else updates in place. */
+function buildOnce(){
+  document.getElementById('main').innerHTML =
+    '<div class="stage">'+
+      '<div class="nowmeta" id="nowmeta"></div>'+
+      '<div class="nowshow" id="nowshow"></div>'+
+      '<div class="nowtitle" id="nowtitle"></div>'+
+      '<div class="pmarquee"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>'+
+      '<div class="pwrap"><div class="pframe" id="pframe"><div id="ytmount"></div></div>'+
+        '<div class="pidle" id="pidle">'+
+          '<div class="big">Press Start the show</div>'+
+          '<div class="sub">one press and the scenes roll on their own</div></div>'+
       '</div>'+
-      '<div class="pstatus" id="pstatus">loading the player…</div>'+
-    '</div></div>';
+      '<div class="ctl">'+
+        '<button class="btn play" id="btnPlay">\u25B6 Start the show</button>'+
+        '<button class="btn ghost" id="btnPrev">\u2039 Back</button>'+
+        '<button class="btn alt" id="btnNext">Skip ahead \u203A</button>'+
+        '<button class="btn ghost" id="btnReplay">\u21BA Replay scene</button>'+
+      '</div>'+
+      '<div class="prog">'+
+        '<div class="bar"><span id="barfill"></span></div>'+
+        '<div class="progline"><span id="progA"></span><span id="progB"></span><span id="progC"></span></div>'+
+        '<div class="pstatus" id="pstatus">loading the player\u2026</div>'+
+      '</div>'+
+    '</div>'+
+    '<div id="listHost"></div>';
+  const on=(id,fn)=>{const b=document.getElementById(id); if(b)b.addEventListener('click',fn)};
+  on('btnPlay',()=>{
+    if(!PL){ setStatus('Player still loading \u2014 give it a second','bad'); return; }
+    try{ playing ? PL.pauseVideo() : PL.playVideo(); }catch(e){}
+    setTimeout(()=>{ try{ if(PL.getPlayerState&&PL.getPlayerState()!==1&&!playing)
+      setStatus('Browser blocked it \u2014 click the picture itself to start','bad'); }catch(e){} },1500);
+  });
+  on('btnNext',()=>goTo(idx+1,true));
+  on('btnPrev',()=>goTo(idx-1,true));
+  on('btnReplay',()=>{try{PL.seekTo(0,true);PL.playVideo()}catch(e){}});
 }
+
 function rowHTML(c,n,cur,state){
   return '<div class="row'+(cur?' on':'')+(state==='done'?' done':'')+'" data-jump="'+n+'">'+
     '<div class="rnum">'+(n+1)+'</div>'+
@@ -280,14 +293,14 @@ function lineupHTML(){
   return '<div class="card"><h2 class="ttl">The running order</h2>'+
     '<div class="rule"></div>'+
     '<p class="lede hostonly">Tap any scene to jump straight to it. When one finishes the next '+
-    'starts on its own — you only need to touch this if you want to skip or go back.</p>'+
+    'starts on its own \u2014 you only need to touch this if you want to skip or go back.</p>'+
     '<div style="margin-top:14px">'+
       clips().map((c,n)=>rowHTML(c,n,n===idx,n<idx?'done':'')).join('')+
     '</div>'+
     '<div class="hostnote hostonly"><b>Presenter</b>'+
-    'Ten scenes, '+mmss(totalSecs())+' in all. Press <strong>Start the show</strong> once at the top — '+
-    'browsers need one press before they’ll play sound, and after that everything runs by itself. '+
-    'The Dentist and Carnac are the long ones; if you’re running over, skip ahead from the Andy Griffith '+
+    order.length+' scenes, '+mmss(totalSecs())+' in all. Press <strong>Start the show</strong> once at the top \u2014 '+
+    'browsers need one press before they\u2019ll play sound, and after that everything runs by itself. '+
+    'The Dentist and Carnac are the long ones; if you\u2019re running over, skip ahead from the Andy Griffith '+
     'haircut and finish on Archie.</div></div>'+
 
     '<div class="card hostonly"><h3 class="sub">Swap-ins</h3>'+
@@ -305,19 +318,30 @@ function lineupHTML(){
     '<div class="card hostonly"><h3 class="sub">If something goes wrong</h3>'+
     '<ul style="margin-left:19px">'+
     '<li style="line-height:1.6;color:#E8DCC8;margin-bottom:7px"><strong>No sound.</strong> Press Start the show once more. One press on the page is all a browser wants.</li>'+
-    '<li style="line-height:1.6;color:#E8DCC8;margin-bottom:7px"><strong>A clip won’t load.</strong> Press Skip ahead. Don’t troubleshoot in front of the room — there are eight spares below.</li>'+
+    '<li style="line-height:1.6;color:#E8DCC8;margin-bottom:7px"><strong>A clip won\u2019t load.</strong> Press Skip ahead. Don\u2019t troubleshoot in front of the room \u2014 there are spares below.</li>'+
     '<li style="line-height:1.6;color:#E8DCC8;margin-bottom:7px"><strong>Running long.</strong> Skip from scene seven; the Archie scene is the one to end on.</li>'+
-    '<li style="line-height:1.6;color:#E8DCC8"><strong>They’re talking over it.</strong> That’s the programme working. Let them.</li>'+
+    '<li style="line-height:1.6;color:#E8DCC8"><strong>They\u2019re talking over it.</strong> That\u2019s the programme working. Let them.</li>'+
     '</ul></div>';
 }
+
+/* in-place update: never touches the player */
 function render(){
-  document.getElementById('main').innerHTML = stageHTML() + lineupHTML();
-  applyNotes(); wire();
+  const c=clips()[idx], done=elapsedBefore(idx), total=totalSecs();
+  const set=(id,txt)=>{const el=document.getElementById(id); if(el)el.innerHTML=txt};
+  set('nowmeta','Now playing &nbsp;\u00b7&nbsp; scene '+(idx+1)+' of '+order.length);
+  set('nowshow',esc(c.show));
+  set('nowtitle',esc(c.t));
+  set('progA','Scene <b>'+(idx+1)+'</b> of '+order.length);
+  set('progB','<b>'+mmss(done)+'</b> in \u00b7 '+mmss(total-done)+' to go');
+  set('progC','Full programme <b>'+mmss(total)+'</b>');
   const f=document.getElementById('barfill');
-  if(f)f.style.width=(finished?100:Math.round(elapsedBefore(idx)/totalSecs()*100))+'%';
+  if(f)f.style.width=(finished?100:Math.round(done/total*100))+'%';
+  const idle=document.getElementById('pidle');
+  if(idle)idle.classList.toggle('gone',started);
+  document.getElementById('listHost').innerHTML=lineupHTML();
   if(lastStatus){const el=document.getElementById('pstatus');
     if(el){el.textContent=lastStatus.t;el.className='pstatus'+(lastStatus.tone?' '+lastStatus.tone:'')}}
-  paintControls();
+  applyNotes(); wireList(); paintControls();
 }
 function applyNotes(){
   document.body.classList.toggle('audience',!showNotes);
@@ -325,17 +349,7 @@ function applyNotes(){
   if(b){b.textContent = showNotes ? 'Presenter notes: on' : 'Presenter notes: off';
         b.classList.toggle('on',showNotes);}
 }
-function wire(){
-  const on=(id,fn)=>{const b=document.getElementById(id); if(b)b.addEventListener('click',fn)};
-  on('btnPlay',()=>{
-    if(!PL){ setStatus('Player still loading — give it a second','bad'); return; }
-    try{ playing ? PL.pauseVideo() : PL.playVideo(); }catch(e){}
-    setTimeout(()=>{ try{ if(PL.getPlayerState&&PL.getPlayerState()!==1&&!playing)
-      setStatus('Browser blocked it — click the picture itself to start','bad'); }catch(e){} },1500);
-  });
-  on('btnNext',()=>goTo(idx+1,true));
-  on('btnPrev',()=>goTo(idx-1,true));
-  on('btnReplay',()=>{try{PL.seekTo(0,true);PL.playVideo()}catch(e){}});
+function wireList(){
   document.querySelectorAll('[data-jump]').forEach(r=>r.addEventListener('click',e=>
     goTo(+e.currentTarget.dataset.jump,true)));
   document.querySelectorAll('[data-extra]').forEach(r=>r.addEventListener('click',e=>{
@@ -347,6 +361,7 @@ function wire(){
 document.getElementById('noteBtn').addEventListener('click',()=>{
   showNotes=!showNotes; store.set('showNotes',showNotes); applyNotes();
 });
+buildOnce();
 render();
 mountPlayer();
 </script>
