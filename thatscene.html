@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>THAT SCENE! — Iconic Movie Moments</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Outfit:wght@400;600;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#130821; --ink2:#1E0D36; --ink3:#2A1348;
+  --gold:#FFC72C; --mag:#FF2E88; --teal:#00E5C7; --cream:#FFF4E0;
+  --violet:#8B5CF6; --orange:#FF8A3D;
+  --disp:'Archivo Black',system-ui,sans-serif;
+  --body:'Outfit',system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--ink);color:var(--cream);font-family:var(--body);min-height:100vh;
+  -webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(ellipse 120% 60% at 50% -10%, #3B1A5C 0%, transparent 60%)}
+body.audience .hostonly{display:none!important}
+.wrap{max-width:1180px;margin:0 auto;padding:18px 20px 70px}
+.bulbs{display:flex;gap:10px;justify-content:center;padding:6px 0 14px;flex-wrap:wrap}
+.bulb{width:11px;height:11px;border-radius:50%;background:var(--gold);
+  box-shadow:0 0 10px var(--gold),0 0 20px rgba(255,199,44,.5);animation:blink 1.4s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+header.hero{text-align:center;padding:4px 0 18px}
+h1.logo{font-family:var(--disp);font-size:clamp(2.4rem,8.5vw,5rem);line-height:.92;
+  letter-spacing:-.02em;color:var(--gold);text-transform:uppercase;
+  text-shadow:5px 5px 0 var(--mag),10px 10px 0 rgba(0,0,0,.45);transform:rotate(-1.6deg)}
+.tag{margin-top:16px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;
+  font-size:.78rem;color:var(--teal)}
+.notetoggle{display:flex;justify-content:center;gap:9px;margin:4px 0 18px;flex-wrap:wrap}
+.notetoggle button{border:0;cursor:pointer;font-family:var(--body);font-weight:900;font-size:.66rem;
+  letter-spacing:.14em;text-transform:uppercase;padding:8px 15px;border-radius:30px;
+  background:var(--ink2);color:#6B5B85}
+.notetoggle button:hover{color:var(--cream)}
+.notetoggle button.on{background:var(--teal);color:#0C2E29}
+
+.tabs{display:flex;gap:9px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
+.tab{border:0;cursor:pointer;font-family:var(--body);font-weight:900;text-transform:uppercase;
+  letter-spacing:.1em;font-size:.76rem;padding:13px 22px;border-radius:14px;
+  background:var(--ink2);color:#9C8BB8;box-shadow:0 5px 0 rgba(0,0,0,.5)}
+.tab.on{background:var(--gold);color:#2A1348;box-shadow:0 5px 0 #B8821A}
+.panel{display:none} .panel.on{display:block}
+
+.stage{background:linear-gradient(165deg,var(--ink3),var(--ink2));border-radius:22px;
+  padding:clamp(16px,2.6vw,26px);box-shadow:0 8px 0 rgba(0,0,0,.45);margin-bottom:20px}
+.reelhead{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:4px}
+.reelno{font-weight:900;letter-spacing:.2em;text-transform:uppercase;font-size:.66rem;color:var(--teal)}
+.reelname{font-family:var(--disp);font-size:clamp(1.4rem,4vw,2.3rem);text-transform:uppercase;color:var(--cream)}
+.reelblurb{font-size:.95rem;color:#B9A9D1;margin-bottom:16px}
+
+.clip{background:var(--ink);border-radius:16px;padding:14px 16px;margin-bottom:11px;
+  box-shadow:0 5px 0 rgba(0,0,0,.45);border-left:6px solid var(--gold)}
+.clip.v{border-left-color:var(--violet)} .clip.m{border-left-color:var(--mag)}
+.clip.t{border-left-color:var(--teal)} .clip.o{border-left-color:var(--orange)}
+.cliptop{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.cliptitle{font-family:var(--disp);font-size:1.05rem;text-transform:uppercase;color:var(--cream);line-height:1.15}
+.clipyear{color:var(--gold)}
+.clipmoment{font-size:.88rem;color:#B9A9D1;margin-top:3px}
+.clipbtns{display:flex;gap:7px;flex-wrap:wrap}
+.mini{border:0;cursor:pointer;font-family:var(--body);font-weight:900;text-transform:uppercase;
+  letter-spacing:.06em;font-size:.68rem;padding:10px 14px;border-radius:11px;
+  background:var(--gold);color:#2A1348;box-shadow:0 4px 0 #B8821A;text-decoration:none;display:inline-block}
+.mini.alt{background:var(--teal);color:#0C2E29;box-shadow:0 4px 0 #009B88}
+.mini.ghost{background:var(--ink3);color:#C9B8E0;box-shadow:0 4px 0 rgba(0,0,0,.5)}
+.mini:active{transform:translateY(2px)}
+.hostnote{margin-top:10px;font-size:.82rem;color:var(--orange);background:rgba(255,138,61,.09);
+  border-radius:9px;padding:9px 11px;line-height:1.45}
+.setrow{margin-top:10px;display:flex;gap:7px;flex-wrap:wrap;align-items:center}
+.setrow input{flex:1;min-width:200px;background:var(--ink2);border:1px solid #3C2560;border-radius:10px;
+  color:var(--cream);font-family:var(--body);font-size:.82rem;padding:9px 11px}
+.setrow input::placeholder{color:#6B5B85}
+.pwrap{margin-top:12px;border-radius:14px;overflow:hidden;box-shadow:0 6px 0 rgba(0,0,0,.45);background:#000;display:none}
+.pwrap.on{display:block}
+.pframe{position:relative;padding-bottom:56.25%;height:0}
+.pframe iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+
+/* ---------- TIMER ---------- */
+.timerbox{text-align:center}
+.catpick{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
+.catpick button{border:0;cursor:pointer;font-family:var(--body);font-weight:900;font-size:.7rem;
+  letter-spacing:.08em;text-transform:uppercase;padding:11px 16px;border-radius:12px;
+  background:var(--ink);color:#9C8BB8;box-shadow:0 4px 0 rgba(0,0,0,.5)}
+.catpick button.on{background:var(--mag);color:#fff;box-shadow:0 4px 0 #A3134F}
+.catlabel{font-family:var(--disp);font-size:clamp(1.3rem,4.2vw,2.5rem);text-transform:uppercase;
+  color:var(--cream);line-height:1.1;margin-bottom:6px;min-height:1.1em}
+.clock{font-family:var(--disp);font-size:clamp(5rem,22vw,13rem);line-height:.9;color:var(--teal);
+  text-shadow:6px 6px 0 rgba(0,0,0,.5);margin:6px 0 2px;font-variant-numeric:tabular-nums}
+.clock.warn{color:var(--orange)} .clock.hot{color:var(--mag);animation:pulse .5s infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
+.targetrow{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin:14px 0 18px}
+.pill{background:var(--ink);border-radius:16px;padding:14px 26px;box-shadow:0 5px 0 rgba(0,0,0,.45);min-width:150px}
+.pill .lab{font-weight:900;letter-spacing:.18em;text-transform:uppercase;font-size:.62rem;color:var(--teal);margin-bottom:5px}
+.pill .val{font-family:var(--disp);font-size:2.6rem;line-height:1;color:var(--gold);font-variant-numeric:tabular-nums}
+.pill.count .val{color:var(--cream)}
+.ctl{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.btn{border:0;cursor:pointer;font-family:var(--body);font-weight:900;text-transform:uppercase;
+  letter-spacing:.05em;font-size:.86rem;padding:16px 26px;border-radius:14px;
+  background:var(--gold);color:#2A1348;box-shadow:0 5px 0 #B8821A}
+.btn:active{transform:translateY(3px);box-shadow:0 2px 0 #B8821A}
+.btn.go{background:var(--teal);color:#0C2E29;box-shadow:0 5px 0 #009B88}
+.btn.add{background:var(--mag);color:#fff;box-shadow:0 5px 0 #A3134F;font-size:1.1rem;padding:18px 34px}
+.btn.ghost{background:var(--ink);color:var(--cream);box-shadow:0 5px 0 rgba(0,0,0,.55)}
+.verdict{margin-top:18px;font-family:var(--disp);font-size:clamp(1.3rem,5vw,2.6rem);text-transform:uppercase;min-height:1.2em}
+.verdict.win{color:var(--teal)} .verdict.lose{color:var(--gold)}
+
+/* ---------- SCORE ---------- */
+.scores{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+.team{background:var(--ink);border-radius:18px;padding:18px 14px;text-align:center;box-shadow:0 6px 0 rgba(0,0,0,.45)}
+.team .name{font-family:var(--disp);font-size:1.1rem;text-transform:uppercase;color:var(--teal);margin-bottom:8px}
+.team .num{font-family:var(--disp);font-size:3.6rem;line-height:1;color:var(--gold);font-variant-numeric:tabular-nums}
+.team .row{display:flex;gap:7px;justify-content:center;margin-top:12px}
+.team .row button{border:0;cursor:pointer;font-family:var(--disp);font-size:1.1rem;width:50px;height:44px;
+  border-radius:11px;background:var(--ink3);color:var(--cream);box-shadow:0 4px 0 rgba(0,0,0,.5)}
+.team .row button.plus{background:var(--mag);color:#fff;box-shadow:0 4px 0 #A3134F}
+.foot{text-align:center;margin-top:26px;font-size:.74rem;color:#6B5B85;letter-spacing:.1em;text-transform:uppercase;font-weight:800}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="bulbs" id="b1"></div>
+  <header class="hero">
+    <h1 class="logo">That Scene!</h1>
+    <div class="tag">Iconic Movie Moments &nbsp;&bull;&nbsp; The Bistro</div>
+  </header>
+
+  <div class="notetoggle">
+    <button id="audbtn" onclick="toggleAudience()">Audience Mode: Off</button>
+    <button onclick="location.reload()">Reset Everything</button>
+  </div>
+
+  <div class="tabs">
+    <button class="tab on" data-p="reels" onclick="tab(this)">The Reels</button>
+    <button class="tab" data-p="beat" onclick="tab(this)">Beat the Reel</button>
+    <button class="tab" data-p="score" onclick="tab(this)">Scoreboard</button>
+  </div>
+
+  <!-- ============ REELS ============ -->
+  <div class="panel on" id="reels"></div>
+
+  <!-- ============ BEAT THE REEL ============ -->
+  <div class="panel" id="beat">
+    <div class="stage timerbox">
+      <div class="catpick" id="catpick"></div>
+      <div class="catlabel" id="catlabel">Pick a category</div>
+      <div class="clock" id="clock">60</div>
+      <div class="targetrow">
+        <div class="pill"><div class="lab">Target</div><div class="val" id="target">&mdash;</div></div>
+        <div class="pill count"><div class="lab">They've named</div><div class="val" id="count">0</div></div>
+      </div>
+      <div class="ctl">
+        <button class="btn go" id="startbtn" onclick="startTimer()">Start the Clock</button>
+        <button class="btn add" onclick="bump(1)">+1 Answer</button>
+        <button class="btn ghost" onclick="bump(-1)">&minus;1</button>
+        <button class="btn ghost" onclick="resetTimer()">Reset</button>
+      </div>
+      <div class="verdict" id="verdict"></div>
+      <div class="hostnote hostonly" id="unlock" style="margin-top:18px;text-align:left"></div>
+    </div>
+  </div>
+
+  <!-- ============ SCORE ============ -->
+  <div class="panel" id="score">
+    <div class="stage">
+      <div class="reelhead"><span class="reelno">Scoreboard</span></div>
+      <div class="reelname" style="margin-bottom:16px">How We Stand</div>
+      <div class="scores" id="scores"></div>
+      <div style="text-align:center;margin-top:20px">
+        <button class="btn ghost" onclick="resetScores()">Clear All Scores</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="foot">That Scene! &bull; The Bristal at Sayville &bull; A.J. Pigliacelli</div>
+</div>
+
+<script>
+/* ---------------- DATA ---------------- */
+const REELS=[
+ {n:1,name:"The Gasp",blurb:"The moment the whole theater went quiet.",cls:"v",clips:[
+  {t:"The Wizard of Oz",y:1939,m:"Dorothy opens the door — black & white into color",q:"Wizard of Oz door opens Technicolor scene",note:"Start here — warmest, safest, biggest smile. Ask: who saw this one in a theater?"},
+  {t:"Planet of the Apes",y:1968,m:"The beach — the ending",q:"Planet of the Apes 1968 ending beach scene",note:"Let the reveal land. Do not talk over it."},
+  {t:"Psycho",y:1960,m:"The shower — what 1960 was not ready for",q:"Psycho 1960 shower scene Hitchcock",note:"SAY THE HEADS-UP LINE FIRST: “This next one is famous for being frightening. It's sixty-five years old and it's black and white — but if you'd rather look away for a minute, you go right ahead.” Skip entirely if today's group is fragile."},
+  {t:"The Empire Strikes Back",y:1980,m:"“I am your father”",q:"Empire Strikes Back I am your father scene",note:"Grandkid currency. Ask who had to have this explained to them by a grandchild."},
+  {t:"The Sixth Sense",y:1999,m:"The reveal",q:"Sixth Sense ending reveal scene",note:"SPARE — only if you're running early.",spare:1}]},
+ {n:2,name:"The Swoon",blurb:"Romance, and the comedy of it.",cls:"m",clips:[
+  {t:"From Here to Eternity",y:1953,m:"The beach — Lancaster & Kerr",q:"From Here to Eternity beach kiss scene 1953",note:"Ask the room: scandalous in 1953. Was it?"},
+  {t:"The Seven Year Itch",y:1955,m:"Marilyn over the subway grate",q:"Seven Year Itch Marilyn Monroe subway grate scene",note:"Pure image recognition — they'll react before the clip even starts."},
+  {t:"Breakfast at Tiffany's",y:1961,m:"The finale, in the rain",q:"Breakfast at Tiffanys ending rain scene",note:"Audrey Hepburn gets the biggest sigh in the room. Reliable."},
+  {t:"When Harry Met Sally…",y:1989,m:"New Year's Eve — the finale",q:"When Harry Met Sally New Years Eve ending scene",note:"DEFAULT = the New Year's finale. The deli scene is funnier and they all know it — your call on the room. Decide before you walk in, not mid-program."},
+  {t:"Pillow Talk",y:1959,m:"Doris Day & Rock Hudson — the split-screen phone call",q:"Pillow Talk 1959 split screen phone scene",note:"SPARE — only if you're running early.",spare:1}]},
+ {n:3,name:"Say the Line",blurb:"Four lines that outlived their movies.",cls:"",clips:[
+  {t:"Gone with the Wind",y:1939,m:"The last word at the door — AFI's #1",q:"Gone with the Wind frankly my dear final scene",note:"AFI ranked this the #1 movie quote in American film. Say that out loud — they love a ranking."},
+  {t:"Casablanca",y:1942,m:"The airfield goodbye — AFI's #5",q:"Casablanca airport final scene heres looking at you kid",note:"Casablanca has SIX lines in AFI's top 100 — more than any other film. Good fact to drop."},
+  {t:"On the Waterfront",y:1954,m:"The back of the taxi — AFI's #3",q:"On the Waterfront taxi scene Brando contender",note:"Brando. Some of the men in the room will mouth along with this one."},
+  {t:"Jaws",y:1975,m:"Off the back of the boat — AFI's #35",q:"Jaws bigger boat scene",note:"Roy Scheider made that line up on set — it wasn't in the script. Sets up Reel Numbers later."},
+  {t:"Sunset Boulevard",y:1950,m:"The staircase — AFI's #7",q:"Sunset Boulevard ready for my closeup final scene",note:"SPARE — only if you're running early.",spare:1}]},
+ {n:4,name:"Hang On",blurb:"Edge of your seat, before computers.",cls:"t",clips:[
+  {t:"North by Northwest",y:1959,m:"The crop duster in the cornfield",q:"North by Northwest crop duster scene",note:"AFI ranked this the #4 most thrilling American film. Hitchcock has nine films on that list — more than anyone."},
+  {t:"Bullitt",y:1968,m:"The San Francisco car chase",q:"Bullitt car chase scene San Francisco",note:"The chase every chase since is measured against. McQueen did much of his own driving."},
+  {t:"Butch Cassidy and the Sundance Kid",y:1969,m:"The cliff",q:"Butch Cassidy Sundance Kid cliff jump scene",note:"Newman and Redford. The laugh line before the jump always gets the room."},
+  {t:"Raiders of the Lost Ark",y:1981,m:"The boulder",q:"Raiders of the Lost Ark boulder opening scene",note:"The youngest clip in the program. Good bridge to their grandchildren."},
+  {t:"Rocky",y:1976,m:"The steps",q:"Rocky running up steps training scene",note:"SPARE — only if you're running early.",spare:1}]},
+ {n:5,name:"The Big Finish",blurb:"Everybody sings. Nobody is excused.",cls:"o",clips:[
+  {t:"Singin' in the Rain",y:1952,m:"The title number, in the puddle",q:"Singin in the Rain title number Gene Kelly",note:"Kelly did it with a 103° fever. Say it before you roll — it changes how they watch."},
+  {t:"The Sound of Music",y:1965,m:"The hilltop",q:"Sound of Music opening hilltop scene",note:"They will sing. Let them. Do not shush."},
+  {t:"Mary Poppins",y:1964,m:"Supercalifragilisticexpialidocious",q:"Mary Poppins Supercalifragilisticexpialidocious scene",note:"End the program on this. Invite the room to try the word with you. Big, silly, easy win."},
+  {t:"White Christmas",y:1954,m:"The finale",q:"White Christmas 1954 finale scene",note:"SPARE — swap in if one of the three above repeats last week's Showstoppers.",spare:1}]}
+];
+const ROUNDS=[
+ {cat:"Name a movie with a NUMBER in the title",target:8,ex:"12 Angry Men • Seven Brides for Seven Brothers • The Magnificent Seven • 101 Dalmatians • Ocean's Eleven • The Three Musketeers • 20,000 Leagues Under the Sea • Apollo 13"},
+ {cat:"Name a movie with a COLOR in the title",target:7,ex:"The Color Purple • White Christmas • The Pink Panther • Yellow Submarine • Black Beauty • The Green Mile • Blue Hawaii • Red River"},
+ {cat:"Name a JOHN WAYNE picture",target:6,ex:"True Grit • The Searchers • Stagecoach • Rio Bravo • The Quiet Man • The Alamo • She Wore a Yellow Ribbon • Red River"},
+ {cat:"Name a movie set in NEW YORK",target:10,ex:"King Kong • Breakfast at Tiffany's • West Side Story • On the Town • Miracle on 34th Street • The Godfather • Annie Hall • Saturday Night Fever"}
+];
+
+/* ---------------- CHROME ---------------- */
+function mkBulbs(el,n){for(let i=0;i<n;i++){const d=document.createElement('div');d.className='bulb';
+  d.style.animationDelay=(i*0.11)+'s';el.appendChild(d);}}
+mkBulbs(document.getElementById('b1'),16);
+function tab(b){document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));b.classList.add('on');
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('on'));
+  document.getElementById(b.dataset.p).classList.add('on');window.scrollTo({top:0,behavior:'smooth'});}
+let aud=false;
+function toggleAudience(){aud=!aud;document.body.classList.toggle('audience',aud);
+  const b=document.getElementById('audbtn');b.textContent='Audience Mode: '+(aud?'On':'Off');b.classList.toggle('on',aud);}
+
+/* ---------------- CLIP IDS (saved locally after you paste them once) ---------------- */
+const KEY='thatscene_ids_v1';
+let IDS={};try{IDS=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){IDS={}}
+function saveIDs(){try{localStorage.setItem(KEY,JSON.stringify(IDS))}catch(e){}}
+function vid(u){if(!u)return'';u=u.trim();
+  let m=u.match(/[?&]v=([\w-]{11})/)||u.match(/youtu\.be\/([\w-]{11})/)||u.match(/embed\/([\w-]{11})/)||u.match(/^([\w-]{11})$/);
+  return m?m[1]:'';}
+function ytSearch(q){return'https://www.youtube.com/results?search_query='+encodeURIComponent(q);}
+
+function buildReels(){
+  const host=document.getElementById('reels');
+  REELS.forEach(r=>{
+    const s=document.createElement('div');s.className='stage';
+    let h='<div class="reelhead"><span class="reelno">Reel '+r.n+' of 5</span>'+
+          '<span class="reelname">'+r.name+'</span></div>'+
+          '<div class="reelblurb">'+r.blurb+'</div>';
+    r.clips.forEach((c,i)=>{
+      const id='r'+r.n+'c'+i, saved=IDS[id]||'';
+      h+='<div class="clip '+r.cls+'"'+(c.spare?' style="opacity:.78"':'')+'>'+
+         '<div class="cliptop"><div><div class="cliptitle">'+(c.spare?'Spare &mdash; ':'')+c.t+
+         ' <span class="clipyear">'+c.y+'</span></div><div class="clipmoment">'+c.m+'</div></div>'+
+         '<div class="clipbtns">'+
+         (saved?'<button class="mini alt" onclick="play(\''+id+'\')">Play Here</button>':'')+
+         '<a class="mini" href="'+ytSearch(c.q)+'" target="_blank" rel="noopener">Find on YouTube</a>'+
+         '</div></div>'+
+         '<div class="hostnote hostonly">'+c.note+'</div>'+
+         '<div class="setrow hostonly"><input id="in_'+id+'" placeholder="Paste the YouTube link here during prep — then it plays right in this page" value="'+saved+'">'+
+         '<button class="mini ghost" onclick="setId(\''+id+'\')">Save</button></div>'+
+         '<div class="pwrap" id="p_'+id+'"><div class="pframe" id="f_'+id+'"></div></div>'+
+         '</div>';
+    });
+    s.innerHTML=h;host.appendChild(s);
+  });
+}
+function setId(id){const v=vid(document.getElementById('in_'+id).value);
+  if(!v){alert('That does not look like a YouTube link. Paste the whole address from the browser bar.');return;}
+  IDS[id]=v;saveIDs();document.getElementById('reels').innerHTML='';buildReels();}
+function play(id){
+  document.querySelectorAll('.pwrap').forEach(p=>{if(p.id!=='p_'+id){p.classList.remove('on');
+    const f=p.querySelector('.pframe');if(f)f.innerHTML='';}});
+  const w=document.getElementById('p_'+id),f=document.getElementById('f_'+id);
+  f.innerHTML='<iframe src="https://www.youtube.com/embed/'+IDS[id]+'?autoplay=1&rel=0&modestbranding=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+  w.classList.add('on');w.scrollIntoView({behavior:'smooth',block:'center'});
+}
+buildReels();
+
+/* ---------------- TIMER ---------------- */
+let cur=null,t=60,iv=null,count=0,running=false,AC=null;
+function ac(){if(!AC)AC=new (window.AudioContext||window.webkitAudioContext)();return AC;}
+function beep(f,d,type,vol){try{const c=ac(),o=c.createOscillator(),g=c.createGain();
+  o.type=type||'sine';o.frequency.value=f;g.gain.value=vol||0.14;o.connect(g);g.connect(c.destination);
+  o.start();o.stop(c.currentTime+d);}catch(e){}}
+function buzzer(){try{const c=ac();[0,0.22,0.44].forEach(off=>{const o=c.createOscillator(),g=c.createGain();
+  o.type='sawtooth';o.frequency.value=150;g.gain.value=0.2;o.connect(g);g.connect(c.destination);
+  o.start(c.currentTime+off);o.stop(c.currentTime+off+0.18);});}catch(e){}}
+function buildCats(){const p=document.getElementById('catpick');
+  ROUNDS.forEach((r,i)=>{const b=document.createElement('button');
+    b.textContent=(i<2?'Round '+(i+1):'Spare '+(i-1));b.onclick=()=>pick(i);p.appendChild(b);});}
+buildCats();
+function pick(i){cur=i;resetTimer();
+  document.querySelectorAll('#catpick button').forEach((b,j)=>b.classList.toggle('on',j===i));
+  document.getElementById('catlabel').textContent=ROUNDS[i].cat;
+  document.getElementById('target').textContent=ROUNDS[i].target;
+  document.getElementById('unlock').innerHTML='<b>If they stall, feed them one of these:</b><br>'+ROUNDS[i].ex;}
+function render(){const c=document.getElementById('clock');c.textContent=t;
+  c.className='clock'+(t<=5?' hot':(t<=15?' warn':''));}
+function startTimer(){
+  if(cur===null){alert('Pick a round first.');return;}
+  if(running)return; running=true;
+  document.getElementById('startbtn').textContent='Running…';
+  iv=setInterval(()=>{t--;render();
+    if(t<=10&&t>0)beep(t<=3?1100:850,0.07,'square',0.11);
+    if(t<=0){clearInterval(iv);running=false;buzzer();finish();
+      document.getElementById('startbtn').textContent='Start the Clock';}},1000);
+}
+function finish(){const v=document.getElementById('verdict'),tg=ROUNDS[cur].target;
+  if(count>=tg){v.textContent='TIME! They got '+count+' — the room wins it.';v.className='verdict win';}
+  else{v.textContent="TIME! "+count+" — just short of "+tg+".";v.className='verdict lose';}}
+function bump(n){count=Math.max(0,count+n);document.getElementById('count').textContent=count;}
+function resetTimer(){clearInterval(iv);running=false;t=60;count=0;render();
+  document.getElementById('count').textContent='0';
+  document.getElementById('verdict').textContent='';document.getElementById('verdict').className='verdict';
+  document.getElementById('startbtn').textContent='Start the Clock';}
+render();
+
+/* ---------------- SCOREBOARD ---------------- */
+let S=[0,0,0,0];
+function drawScores(){const h=document.getElementById('scores');h.innerHTML='';
+  S.forEach((v,i)=>{const d=document.createElement('div');d.className='team';
+    d.innerHTML='<div class="name">Table '+(i+1)+'</div><div class="num">'+v+'</div>'+
+      '<div class="row"><button onclick="sc('+i+',-1)">&minus;</button>'+
+      '<button class="plus" onclick="sc('+i+',1)">+</button></div>';h.appendChild(d);});}
+function sc(i,n){S[i]=Math.max(0,S[i]+n);drawScores();}
+function resetScores(){S=[0,0,0,0];drawScores();}
+drawScores();
+</script>
+</body>
+</html>
