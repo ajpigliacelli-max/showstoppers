@@ -13,15 +13,15 @@ can face the room.
 ### That Scene! — iconic movie moments
 https://htmlpreview.github.io/?https://raw.githubusercontent.com/ajpigliacelli-max/showstoppers/main/thatscene.html
 
-Five clip reels with four games between them, built to run 45 minutes with a
-presenter and a mic. A 60-second shout-out timer with ticking and a buzzer, a
-four-table scoreboard, and 19 clips across twists, romance, famous lines, chases
-and musical finales. Presenter notes and setup fields hide in Audience Mode so
-the screen can face the room.
+A 45-minute presenter-led program: ten clips across four reels, two narrated history
+segments, and two games. The running order sits across the top with its clock times,
+and the host script sits inside each segment — what to say before each clip, the two
+history talks in full, and the answer keys. Audience Mode hides all of it so the screen
+can face the room.
 
-Unlike the two modules above, its clips ship as YouTube search buttons rather
-than pre-checked embeds. Paste a clip's link into its field once during prep and
-the module plays it inline from then on, saved in the browser.
+Clips are embedded and trimmed to start and stop where they should. Nine more verified
+clips sit in the spare library. Every clip was checked live: it resolves, and its owner
+allows embedding.
 
 ### The Laugh Track — classic TV montage
 https://htmlpreview.github.io/?https://raw.githubusercontent.com/ajpigliacelli-max/showstoppers/main/laughtrack.html

@@ -3,326 +3,193 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>THAT SCENE! — Iconic Movie Moments</title>
+<title>THAT SCENE! &mdash; Iconic Movie Moments</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Outfit:wght@400;600;800;900&display=swap" rel="stylesheet">
 <style>
-:root{
-  --ink:#130821; --ink2:#1E0D36; --ink3:#2A1348;
-  --gold:#FFC72C; --mag:#FF2E88; --teal:#00E5C7; --cream:#FFF4E0;
-  --violet:#8B5CF6; --orange:#FF8A3D;
-  --disp:'Archivo Black',system-ui,sans-serif;
-  --body:'Outfit',system-ui,-apple-system,sans-serif;
-}
+:root{--ink:#130821;--ink2:#1E0D36;--ink3:#2A1348;--gold:#FFC72C;--mag:#FF2E88;--teal:#00E5C7;
+ --cream:#FFF4E0;--violet:#8B5CF6;--orange:#FF8A3D;
+ --disp:'Archivo Black',system-ui,sans-serif;--body:'Outfit',system-ui,-apple-system,sans-serif}
 *{box-sizing:border-box;margin:0;padding:0}
 body{background:var(--ink);color:var(--cream);font-family:var(--body);min-height:100vh;
-  -webkit-font-smoothing:antialiased;
-  background-image:radial-gradient(ellipse 120% 60% at 50% -10%, #3B1A5C 0%, transparent 60%)}
+ -webkit-font-smoothing:antialiased;
+ background-image:radial-gradient(ellipse 120% 60% at 50% -10%,#3B1A5C 0%,transparent 60%)}
 body.audience .hostonly{display:none!important}
-.wrap{max-width:1180px;margin:0 auto;padding:18px 20px 70px}
-.bulbs{display:flex;gap:10px;justify-content:center;padding:6px 0 14px;flex-wrap:wrap}
+.wrap{max-width:1180px;margin:0 auto;padding:16px 20px 70px}
+.bulbs{display:flex;gap:10px;justify-content:center;padding:6px 0 12px;flex-wrap:wrap}
 .bulb{width:11px;height:11px;border-radius:50%;background:var(--gold);
-  box-shadow:0 0 10px var(--gold),0 0 20px rgba(255,199,44,.5);animation:blink 1.4s infinite}
+ box-shadow:0 0 10px var(--gold),0 0 20px rgba(255,199,44,.5);animation:blink 1.4s infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
-header.hero{text-align:center;padding:4px 0 18px}
-h1.logo{font-family:var(--disp);font-size:clamp(2.4rem,8.5vw,5rem);line-height:.92;
-  letter-spacing:-.02em;color:var(--gold);text-transform:uppercase;
-  text-shadow:5px 5px 0 var(--mag),10px 10px 0 rgba(0,0,0,.45);transform:rotate(-1.6deg)}
-.tag{margin-top:16px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;
-  font-size:.78rem;color:var(--teal)}
-.notetoggle{display:flex;justify-content:center;gap:9px;margin:4px 0 18px;flex-wrap:wrap}
-.notetoggle button{border:0;cursor:pointer;font-family:var(--body);font-weight:900;font-size:.66rem;
-  letter-spacing:.14em;text-transform:uppercase;padding:8px 15px;border-radius:30px;
-  background:var(--ink2);color:#6B5B85}
-.notetoggle button:hover{color:var(--cream)}
-.notetoggle button.on{background:var(--teal);color:#0C2E29}
-
-.tabs{display:flex;gap:9px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
-.tab{border:0;cursor:pointer;font-family:var(--body);font-weight:900;text-transform:uppercase;
-  letter-spacing:.1em;font-size:.76rem;padding:13px 22px;border-radius:14px;
-  background:var(--ink2);color:#9C8BB8;box-shadow:0 5px 0 rgba(0,0,0,.5)}
-.tab.on{background:var(--gold);color:#2A1348;box-shadow:0 5px 0 #B8821A}
-.panel{display:none} .panel.on{display:block}
-
+header.hero{text-align:center;padding:2px 0 14px}
+h1.logo{font-family:var(--disp);font-size:clamp(2.2rem,8vw,4.6rem);line-height:.92;letter-spacing:-.02em;
+ color:var(--gold);text-transform:uppercase;text-shadow:5px 5px 0 var(--mag),10px 10px 0 rgba(0,0,0,.45);
+ transform:rotate(-1.6deg)}
+.tag{margin-top:15px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;font-size:.76rem;color:var(--teal)}
+.bar{display:flex;gap:9px;justify-content:center;margin:2px 0 16px;flex-wrap:wrap}
+.bar button{border:0;cursor:pointer;font-family:var(--body);font-weight:900;font-size:.66rem;
+ letter-spacing:.14em;text-transform:uppercase;padding:9px 16px;border-radius:30px;background:var(--ink2);color:#6B5B85}
+.bar button:hover{color:var(--cream)} .bar button.on{background:var(--teal);color:#0C2E29}
+.rail{display:flex;gap:7px;flex-wrap:wrap;justify-content:center;margin-bottom:20px}
+.rail button{border:0;cursor:pointer;font-family:var(--body);font-weight:900;text-transform:uppercase;
+ letter-spacing:.07em;font-size:.64rem;padding:10px 12px;border-radius:11px;background:var(--ink2);
+ color:#9C8BB8;box-shadow:0 4px 0 rgba(0,0,0,.5);line-height:1.25;text-align:center}
+.rail button b{display:block;font-size:.58rem;color:#6B5B85;letter-spacing:.1em}
+.rail button.on{background:var(--gold);color:#2A1348;box-shadow:0 4px 0 #B8821A}
+.rail button.on b{color:#7A5A10}
 .stage{background:linear-gradient(165deg,var(--ink3),var(--ink2));border-radius:22px;
-  padding:clamp(16px,2.6vw,26px);box-shadow:0 8px 0 rgba(0,0,0,.45);margin-bottom:20px}
-.reelhead{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:4px}
-.reelno{font-weight:900;letter-spacing:.2em;text-transform:uppercase;font-size:.66rem;color:var(--teal)}
-.reelname{font-family:var(--disp);font-size:clamp(1.4rem,4vw,2.3rem);text-transform:uppercase;color:var(--cream)}
-.reelblurb{font-size:.95rem;color:#B9A9D1;margin-bottom:16px}
-
-.clip{background:var(--ink);border-radius:16px;padding:14px 16px;margin-bottom:11px;
-  box-shadow:0 5px 0 rgba(0,0,0,.45);border-left:6px solid var(--gold)}
-.clip.v{border-left-color:var(--violet)} .clip.m{border-left-color:var(--mag)}
-.clip.t{border-left-color:var(--teal)} .clip.o{border-left-color:var(--orange)}
-.cliptop{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
-.cliptitle{font-family:var(--disp);font-size:1.05rem;text-transform:uppercase;color:var(--cream);line-height:1.15}
-.clipyear{color:var(--gold)}
-.clipmoment{font-size:.88rem;color:#B9A9D1;margin-top:3px}
-.clipbtns{display:flex;gap:7px;flex-wrap:wrap}
-.mini{border:0;cursor:pointer;font-family:var(--body);font-weight:900;text-transform:uppercase;
-  letter-spacing:.06em;font-size:.68rem;padding:10px 14px;border-radius:11px;
-  background:var(--gold);color:#2A1348;box-shadow:0 4px 0 #B8821A;text-decoration:none;display:inline-block}
-.mini.alt{background:var(--teal);color:#0C2E29;box-shadow:0 4px 0 #009B88}
-.mini.ghost{background:var(--ink3);color:#C9B8E0;box-shadow:0 4px 0 rgba(0,0,0,.5)}
-.mini:active{transform:translateY(2px)}
-.hostnote{margin-top:10px;font-size:.82rem;color:var(--orange);background:rgba(255,138,61,.09);
-  border-radius:9px;padding:9px 11px;line-height:1.45}
-.setrow{margin-top:10px;display:flex;gap:7px;flex-wrap:wrap;align-items:center}
-.setrow input{flex:1;min-width:200px;background:var(--ink2);border:1px solid #3C2560;border-radius:10px;
-  color:var(--cream);font-family:var(--body);font-size:.82rem;padding:9px 11px}
-.setrow input::placeholder{color:#6B5B85}
+ padding:clamp(16px,2.6vw,26px);box-shadow:0 8px 0 rgba(0,0,0,.45);margin-bottom:18px}
+.kick{font-weight:900;letter-spacing:.2em;text-transform:uppercase;font-size:.66rem;color:var(--teal);margin-bottom:7px}
+.big{font-family:var(--disp);font-size:clamp(1.5rem,4.4vw,2.6rem);text-transform:uppercase;color:var(--cream);line-height:1.08}
+.sub{font-size:.98rem;color:#B9A9D1;margin-top:8px}
+.script{margin-top:16px;background:rgba(0,229,199,.07);border-left:5px solid var(--teal);
+ border-radius:0 14px 14px 0;padding:15px 18px}
+.script .lab{font-weight:900;letter-spacing:.18em;text-transform:uppercase;font-size:.6rem;color:var(--teal);margin-bottom:9px}
+.script p{font-size:1.12rem;line-height:1.6;margin-bottom:11px;color:var(--cream)}
+.script p:last-child{margin-bottom:0}
+.script p:before{content:'\201C'} .script p:after{content:'\201D'}
+.cues{margin-top:12px;font-size:.84rem;color:var(--orange);line-height:1.5}
+.cues li{margin-left:17px;margin-bottom:4px}
+.beat{margin-top:15px;background:var(--ink);border-radius:15px;padding:15px 17px;box-shadow:0 5px 0 rgba(0,0,0,.45)}
+.beat h4{font-family:var(--disp);font-size:1.02rem;text-transform:uppercase;color:var(--gold);margin-bottom:9px}
+.clip{background:var(--ink);border-radius:16px;padding:14px 16px;margin-bottom:12px;
+ box-shadow:0 5px 0 rgba(0,0,0,.45);border-left:6px solid var(--gold)}
+.clip.violet{border-left-color:var(--violet)} .clip.mag{border-left-color:var(--mag)}
+.clip.teal{border-left-color:var(--teal)} .clip.orange{border-left-color:var(--orange)}
+.ctop{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.ctitle{font-family:var(--disp);font-size:1.05rem;text-transform:uppercase;color:var(--cream);line-height:1.15}
+.cyear{color:var(--gold)} .cmom{font-size:.87rem;color:#B9A9D1;margin-top:3px}
+.meta{font-size:.62rem;font-weight:900;letter-spacing:.11em;text-transform:uppercase;color:#6B5B85;margin-top:5px}
+.btn{border:0;cursor:pointer;font-family:var(--body);font-weight:900;text-transform:uppercase;
+ letter-spacing:.06em;font-size:.72rem;padding:12px 18px;border-radius:12px;background:var(--gold);
+ color:#2A1348;box-shadow:0 4px 0 #B8821A;white-space:nowrap}
+.btn.alt{background:var(--teal);color:#0C2E29;box-shadow:0 4px 0 #009B88}
+.btn.ghost{background:var(--ink3);color:#C9B8E0;box-shadow:0 4px 0 rgba(0,0,0,.5)}
+.btn:active{transform:translateY(2px)}
+.fact{margin-top:11px;background:rgba(255,199,44,.09);border-left:5px solid var(--gold);
+ border-radius:0 12px 12px 0;padding:12px 15px;font-size:1.04rem;line-height:1.55}
+.fact .lab{font-weight:900;letter-spacing:.16em;text-transform:uppercase;font-size:.58rem;color:var(--gold);margin-bottom:7px}
+.note{margin-top:9px;font-size:.81rem;color:var(--orange);line-height:1.45}
 .pwrap{margin-top:12px;border-radius:14px;overflow:hidden;box-shadow:0 6px 0 rgba(0,0,0,.45);background:#000;display:none}
 .pwrap.on{display:block}
 .pframe{position:relative;padding-bottom:56.25%;height:0}
 .pframe iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
-
-/* ---------- TIMER ---------- */
-.timerbox{text-align:center}
-.catpick{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:20px}
-.catpick button{border:0;cursor:pointer;font-family:var(--body);font-weight:900;font-size:.7rem;
-  letter-spacing:.08em;text-transform:uppercase;padding:11px 16px;border-radius:12px;
-  background:var(--ink);color:#9C8BB8;box-shadow:0 4px 0 rgba(0,0,0,.5)}
-.catpick button.on{background:var(--mag);color:#fff;box-shadow:0 4px 0 #A3134F}
-.catlabel{font-family:var(--disp);font-size:clamp(1.3rem,4.2vw,2.5rem);text-transform:uppercase;
-  color:var(--cream);line-height:1.1;margin-bottom:6px;min-height:1.1em}
-.clock{font-family:var(--disp);font-size:clamp(5rem,22vw,13rem);line-height:.9;color:var(--teal);
-  text-shadow:6px 6px 0 rgba(0,0,0,.5);margin:6px 0 2px;font-variant-numeric:tabular-nums}
-.clock.warn{color:var(--orange)} .clock.hot{color:var(--mag);animation:pulse .5s infinite}
-@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.04)}}
-.targetrow{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin:14px 0 18px}
-.pill{background:var(--ink);border-radius:16px;padding:14px 26px;box-shadow:0 5px 0 rgba(0,0,0,.45);min-width:150px}
-.pill .lab{font-weight:900;letter-spacing:.18em;text-transform:uppercase;font-size:.62rem;color:var(--teal);margin-bottom:5px}
-.pill .val{font-family:var(--disp);font-size:2.6rem;line-height:1;color:var(--gold);font-variant-numeric:tabular-nums}
-.pill.count .val{color:var(--cream)}
-.ctl{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
-.btn{border:0;cursor:pointer;font-family:var(--body);font-weight:900;text-transform:uppercase;
-  letter-spacing:.05em;font-size:.86rem;padding:16px 26px;border-radius:14px;
-  background:var(--gold);color:#2A1348;box-shadow:0 5px 0 #B8821A}
-.btn:active{transform:translateY(3px);box-shadow:0 2px 0 #B8821A}
-.btn.go{background:var(--teal);color:#0C2E29;box-shadow:0 5px 0 #009B88}
-.btn.add{background:var(--mag);color:#fff;box-shadow:0 5px 0 #A3134F;font-size:1.1rem;padding:18px 34px}
-.btn.ghost{background:var(--ink);color:var(--cream);box-shadow:0 5px 0 rgba(0,0,0,.55)}
-.verdict{margin-top:18px;font-family:var(--disp);font-size:clamp(1.3rem,5vw,2.6rem);text-transform:uppercase;min-height:1.2em}
-.verdict.win{color:var(--teal)} .verdict.lose{color:var(--gold)}
-
-/* ---------- SCORE ---------- */
-.scores{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
-.team{background:var(--ink);border-radius:18px;padding:18px 14px;text-align:center;box-shadow:0 6px 0 rgba(0,0,0,.45)}
-.team .name{font-family:var(--disp);font-size:1.1rem;text-transform:uppercase;color:var(--teal);margin-bottom:8px}
-.team .num{font-family:var(--disp);font-size:3.6rem;line-height:1;color:var(--gold);font-variant-numeric:tabular-nums}
-.team .row{display:flex;gap:7px;justify-content:center;margin-top:12px}
-.team .row button{border:0;cursor:pointer;font-family:var(--disp);font-size:1.1rem;width:50px;height:44px;
-  border-radius:11px;background:var(--ink3);color:var(--cream);box-shadow:0 4px 0 rgba(0,0,0,.5)}
-.team .row button.plus{background:var(--mag);color:#fff;box-shadow:0 4px 0 #A3134F}
-.foot{text-align:center;margin-top:26px;font-size:.74rem;color:#6B5B85;letter-spacing:.1em;text-transform:uppercase;font-weight:800}
+.q{text-align:center;padding:14px 0 6px}
+.qline{font-family:var(--disp);font-size:clamp(1.6rem,5.2vw,3.1rem);color:var(--cream);line-height:1.15;margin:16px 0}
+.qans{font-family:var(--disp);font-size:clamp(1.7rem,5.6vw,3.3rem);color:var(--gold);line-height:1.15;margin:16px 0;display:none}
+.qans.on{display:block}
+.role{margin-top:11px;background:var(--ink);border-radius:13px;padding:12px 15px;box-shadow:0 4px 0 rgba(0,0,0,.45)}
+.role b{font-family:var(--disp);font-size:.95rem;text-transform:uppercase;color:var(--mag);display:block;margin-bottom:3px}
+.role span{font-size:.86rem;color:#B9A9D1}
+.scores{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-top:6px}
+.team{background:var(--ink);border-radius:16px;padding:15px 11px;text-align:center;box-shadow:0 5px 0 rgba(0,0,0,.45)}
+.team .nm{font-family:var(--disp);font-size:.95rem;text-transform:uppercase;color:var(--teal);margin-bottom:6px}
+.team .nu{font-family:var(--disp);font-size:2.9rem;line-height:1;color:var(--gold)}
+.team .rw{display:flex;gap:6px;justify-content:center;margin-top:10px}
+.team .rw button{border:0;cursor:pointer;font-family:var(--disp);font-size:1rem;width:46px;height:40px;
+ border-radius:10px;background:var(--ink3);color:var(--cream);box-shadow:0 4px 0 rgba(0,0,0,.5)}
+.team .rw button.p{background:var(--mag);color:#fff;box-shadow:0 4px 0 #A3134F}
+.nav{display:flex;gap:9px;justify-content:space-between;margin-top:4px}
+.foot{text-align:center;margin-top:22px;font-size:.7rem;color:#6B5B85;letter-spacing:.1em;text-transform:uppercase;font-weight:800}
+.lib{display:grid;grid-template-columns:repeat(auto-fit,minmax(265px,1fr));gap:11px}
 </style>
 </head>
 <body>
 <div class="wrap">
-  <div class="bulbs" id="b1"></div>
-  <header class="hero">
-    <h1 class="logo">That Scene!</h1>
-    <div class="tag">Iconic Movie Moments &nbsp;&bull;&nbsp; The Bistro</div>
-  </header>
-
-  <div class="notetoggle">
-    <button id="audbtn" onclick="toggleAudience()">Audience Mode: Off</button>
-    <button onclick="location.reload()">Reset Everything</button>
-  </div>
-
-  <div class="tabs">
-    <button class="tab on" data-p="reels" onclick="tab(this)">The Reels</button>
-    <button class="tab" data-p="beat" onclick="tab(this)">Beat the Reel</button>
-    <button class="tab" data-p="score" onclick="tab(this)">Scoreboard</button>
-  </div>
-
-  <!-- ============ REELS ============ -->
-  <div class="panel on" id="reels"></div>
-
-  <!-- ============ BEAT THE REEL ============ -->
-  <div class="panel" id="beat">
-    <div class="stage timerbox">
-      <div class="catpick" id="catpick"></div>
-      <div class="catlabel" id="catlabel">Pick a category</div>
-      <div class="clock" id="clock">60</div>
-      <div class="targetrow">
-        <div class="pill"><div class="lab">Target</div><div class="val" id="target">&mdash;</div></div>
-        <div class="pill count"><div class="lab">They've named</div><div class="val" id="count">0</div></div>
-      </div>
-      <div class="ctl">
-        <button class="btn go" id="startbtn" onclick="startTimer()">Start the Clock</button>
-        <button class="btn add" onclick="bump(1)">+1 Answer</button>
-        <button class="btn ghost" onclick="bump(-1)">&minus;1</button>
-        <button class="btn ghost" onclick="resetTimer()">Reset</button>
-      </div>
-      <div class="verdict" id="verdict"></div>
-      <div class="hostnote hostonly" id="unlock" style="margin-top:18px;text-align:left"></div>
-    </div>
-  </div>
-
-  <!-- ============ SCORE ============ -->
-  <div class="panel" id="score">
-    <div class="stage">
-      <div class="reelhead"><span class="reelno">Scoreboard</span></div>
-      <div class="reelname" style="margin-bottom:16px">How We Stand</div>
-      <div class="scores" id="scores"></div>
-      <div style="text-align:center;margin-top:20px">
-        <button class="btn ghost" onclick="resetScores()">Clear All Scores</button>
-      </div>
-    </div>
-  </div>
-
-  <div class="foot">That Scene! &bull; The Bristal at Sayville &bull; A.J. Pigliacelli</div>
+ <div class="bulbs" id="b1"></div>
+ <header class="hero"><h1 class="logo">That Scene!</h1>
+ <div class="tag">Iconic Movie Moments &nbsp;&bull;&nbsp; 45.3 minutes</div></header>
+ <div class="bar">
+  <button id="aud" onclick="tog()">Audience Mode: Off</button>
+  <button onclick="show('lib')">Spare Clips</button>
+  <button onclick="show('score')">Scoreboard</button>
+ </div>
+ <div class="rail" id="rail"></div>
+ <div id="panel"></div>
+ <div class="nav"><button class="btn ghost" onclick="step(-1)">&larr; Back</button>
+  <button class="btn" onclick="step(1)">Next &rarr;</button></div>
+ <div class="foot">That Scene! &bull; The Bristal at Sayville &bull; A.J. Pigliacelli</div>
 </div>
-
 <script>
-/* ---------------- DATA ---------------- */
-const REELS=[
- {n:1,name:"The Gasp",blurb:"The moment the whole theater went quiet.",cls:"v",clips:[
-  {t:"The Wizard of Oz",y:1939,m:"Dorothy opens the door — black & white into color",q:"Wizard of Oz door opens Technicolor scene",note:"Start here — warmest, safest, biggest smile. Ask: who saw this one in a theater?"},
-  {t:"Planet of the Apes",y:1968,m:"The beach — the ending",q:"Planet of the Apes 1968 ending beach scene",note:"Let the reveal land. Do not talk over it."},
-  {t:"Psycho",y:1960,m:"The shower — what 1960 was not ready for",q:"Psycho 1960 shower scene Hitchcock",note:"SAY THE HEADS-UP LINE FIRST: “This next one is famous for being frightening. It's sixty-five years old and it's black and white — but if you'd rather look away for a minute, you go right ahead.” Skip entirely if today's group is fragile."},
-  {t:"The Empire Strikes Back",y:1980,m:"“I am your father”",q:"Empire Strikes Back I am your father scene",note:"Grandkid currency. Ask who had to have this explained to them by a grandchild."},
-  {t:"The Sixth Sense",y:1999,m:"The reveal",q:"Sixth Sense ending reveal scene",note:"SPARE — only if you're running early.",spare:1}]},
- {n:2,name:"The Swoon",blurb:"Romance, and the comedy of it.",cls:"m",clips:[
-  {t:"From Here to Eternity",y:1953,m:"The beach — Lancaster & Kerr",q:"From Here to Eternity beach kiss scene 1953",note:"Ask the room: scandalous in 1953. Was it?"},
-  {t:"The Seven Year Itch",y:1955,m:"Marilyn over the subway grate",q:"Seven Year Itch Marilyn Monroe subway grate scene",note:"Pure image recognition — they'll react before the clip even starts."},
-  {t:"Breakfast at Tiffany's",y:1961,m:"The finale, in the rain",q:"Breakfast at Tiffanys ending rain scene",note:"Audrey Hepburn gets the biggest sigh in the room. Reliable."},
-  {t:"When Harry Met Sally…",y:1989,m:"New Year's Eve — the finale",q:"When Harry Met Sally New Years Eve ending scene",note:"DEFAULT = the New Year's finale. The deli scene is funnier and they all know it — your call on the room. Decide before you walk in, not mid-program."},
-  {t:"Pillow Talk",y:1959,m:"Doris Day & Rock Hudson — the split-screen phone call",q:"Pillow Talk 1959 split screen phone scene",note:"SPARE — only if you're running early.",spare:1}]},
- {n:3,name:"Say the Line",blurb:"Four lines that outlived their movies.",cls:"",clips:[
-  {t:"Gone with the Wind",y:1939,m:"The last word at the door — AFI's #1",q:"Gone with the Wind frankly my dear final scene",note:"AFI ranked this the #1 movie quote in American film. Say that out loud — they love a ranking."},
-  {t:"Casablanca",y:1942,m:"The airfield goodbye — AFI's #5",q:"Casablanca airport final scene heres looking at you kid",note:"Casablanca has SIX lines in AFI's top 100 — more than any other film. Good fact to drop."},
-  {t:"On the Waterfront",y:1954,m:"The back of the taxi — AFI's #3",q:"On the Waterfront taxi scene Brando contender",note:"Brando. Some of the men in the room will mouth along with this one."},
-  {t:"Jaws",y:1975,m:"Off the back of the boat — AFI's #35",q:"Jaws bigger boat scene",note:"Roy Scheider made that line up on set — it wasn't in the script. Sets up Reel Numbers later."},
-  {t:"Sunset Boulevard",y:1950,m:"The staircase — AFI's #7",q:"Sunset Boulevard ready for my closeup final scene",note:"SPARE — only if you're running early.",spare:1}]},
- {n:4,name:"Hang On",blurb:"Edge of your seat, before computers.",cls:"t",clips:[
-  {t:"North by Northwest",y:1959,m:"The crop duster in the cornfield",q:"North by Northwest crop duster scene",note:"AFI ranked this the #4 most thrilling American film. Hitchcock has nine films on that list — more than anyone."},
-  {t:"Bullitt",y:1968,m:"The San Francisco car chase",q:"Bullitt car chase scene San Francisco",note:"The chase every chase since is measured against. McQueen did much of his own driving."},
-  {t:"Butch Cassidy and the Sundance Kid",y:1969,m:"The cliff",q:"Butch Cassidy Sundance Kid cliff jump scene",note:"Newman and Redford. The laugh line before the jump always gets the room."},
-  {t:"Raiders of the Lost Ark",y:1981,m:"The boulder",q:"Raiders of the Lost Ark boulder opening scene",note:"The youngest clip in the program. Good bridge to their grandchildren."},
-  {t:"Rocky",y:1976,m:"The steps",q:"Rocky running up steps training scene",note:"SPARE — only if you're running early.",spare:1}]},
- {n:5,name:"The Big Finish",blurb:"Everybody sings. Nobody is excused.",cls:"o",clips:[
-  {t:"Singin' in the Rain",y:1952,m:"The title number, in the puddle",q:"Singin in the Rain title number Gene Kelly",note:"Kelly did it with a 103° fever. Say it before you roll — it changes how they watch."},
-  {t:"The Sound of Music",y:1965,m:"The hilltop",q:"Sound of Music opening hilltop scene",note:"They will sing. Let them. Do not shush."},
-  {t:"Mary Poppins",y:1964,m:"Supercalifragilisticexpialidocious",q:"Mary Poppins Supercalifragilisticexpialidocious scene",note:"End the program on this. Invite the room to try the word with you. Big, silly, easy win."},
-  {t:"White Christmas",y:1954,m:"The finale",q:"White Christmas 1954 finale scene",note:"SPARE — swap in if one of the three above repeats last week's Showstoppers.",spare:1}]}
-];
-const ROUNDS=[
- {cat:"Name a movie with a NUMBER in the title",target:8,ex:"12 Angry Men • Seven Brides for Seven Brothers • The Magnificent Seven • 101 Dalmatians • Ocean's Eleven • The Three Musketeers • 20,000 Leagues Under the Sea • Apollo 13"},
- {cat:"Name a movie with a COLOR in the title",target:7,ex:"The Color Purple • White Christmas • The Pink Panther • Yellow Submarine • Black Beauty • The Green Mile • Blue Hawaii • Red River"},
- {cat:"Name a JOHN WAYNE picture",target:6,ex:"True Grit • The Searchers • Stagecoach • Rio Bravo • The Quiet Man • The Alamo • She Wore a Yellow Ribbon • Red River"},
- {cat:"Name a movie set in NEW YORK",target:10,ex:"King Kong • Breakfast at Tiffany's • West Side Story • On the Town • Miracle on 34th Street • The Godfather • Annie Hall • Saturday Night Fever"}
-];
-
-/* ---------------- CHROME ---------------- */
-function mkBulbs(el,n){for(let i=0;i<n;i++){const d=document.createElement('div');d.className='bulb';
-  d.style.animationDelay=(i*0.11)+'s';el.appendChild(d);}}
-mkBulbs(document.getElementById('b1'),16);
-function tab(b){document.querySelectorAll('.tab').forEach(t=>t.classList.remove('on'));b.classList.add('on');
-  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('on'));
-  document.getElementById(b.dataset.p).classList.add('on');window.scrollTo({top:0,behavior:'smooth'});}
-let aud=false;
-function toggleAudience(){aud=!aud;document.body.classList.toggle('audience',aud);
-  const b=document.getElementById('audbtn');b.textContent='Audience Mode: '+(aud?'On':'Off');b.classList.toggle('on',aud);}
-
-/* ---------------- CLIP IDS (saved locally after you paste them once) ---------------- */
-const KEY='thatscene_ids_v1';
-let IDS={};try{IDS=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){IDS={}}
-function saveIDs(){try{localStorage.setItem(KEY,JSON.stringify(IDS))}catch(e){}}
-function vid(u){if(!u)return'';u=u.trim();
-  let m=u.match(/[?&]v=([\w-]{11})/)||u.match(/youtu\.be\/([\w-]{11})/)||u.match(/embed\/([\w-]{11})/)||u.match(/^([\w-]{11})$/);
-  return m?m[1]:'';}
-function ytSearch(q){return'https://www.youtube.com/results?search_query='+encodeURIComponent(q);}
-
-function buildReels(){
-  const host=document.getElementById('reels');
-  REELS.forEach(r=>{
-    const s=document.createElement('div');s.className='stage';
-    let h='<div class="reelhead"><span class="reelno">Reel '+r.n+' of 5</span>'+
-          '<span class="reelname">'+r.name+'</span></div>'+
-          '<div class="reelblurb">'+r.blurb+'</div>';
-    r.clips.forEach((c,i)=>{
-      const id='r'+r.n+'c'+i, saved=IDS[id]||'';
-      h+='<div class="clip '+r.cls+'"'+(c.spare?' style="opacity:.78"':'')+'>'+
-         '<div class="cliptop"><div><div class="cliptitle">'+(c.spare?'Spare &mdash; ':'')+c.t+
-         ' <span class="clipyear">'+c.y+'</span></div><div class="clipmoment">'+c.m+'</div></div>'+
-         '<div class="clipbtns">'+
-         (saved?'<button class="mini alt" onclick="play(\''+id+'\')">Play Here</button>':'')+
-         '<a class="mini" href="'+ytSearch(c.q)+'" target="_blank" rel="noopener">Find on YouTube</a>'+
-         '</div></div>'+
-         '<div class="hostnote hostonly">'+c.note+'</div>'+
-         '<div class="setrow hostonly"><input id="in_'+id+'" placeholder="Paste the YouTube link here during prep — then it plays right in this page" value="'+saved+'">'+
-         '<button class="mini ghost" onclick="setId(\''+id+'\')">Save</button></div>'+
-         '<div class="pwrap" id="p_'+id+'"><div class="pframe" id="f_'+id+'"></div></div>'+
-         '</div>';
-    });
-    s.innerHTML=h;host.appendChild(s);
-  });
-}
-function setId(id){const v=vid(document.getElementById('in_'+id).value);
-  if(!v){alert('That does not look like a YouTube link. Paste the whole address from the browser bar.');return;}
-  IDS[id]=v;saveIDs();document.getElementById('reels').innerHTML='';buildReels();}
-function play(id){
-  document.querySelectorAll('.pwrap').forEach(p=>{if(p.id!=='p_'+id){p.classList.remove('on');
-    const f=p.querySelector('.pframe');if(f)f.innerHTML='';}});
-  const w=document.getElementById('p_'+id),f=document.getElementById('f_'+id);
-  f.innerHTML='<iframe src="https://www.youtube.com/embed/'+IDS[id]+'?autoplay=1&rel=0&modestbranding=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
-  w.classList.add('on');w.scrollIntoView({behavior:'smooth',block:'center'});
-}
-buildReels();
-
-/* ---------------- TIMER ---------------- */
-let cur=null,t=60,iv=null,count=0,running=false,AC=null;
-function ac(){if(!AC)AC=new (window.AudioContext||window.webkitAudioContext)();return AC;}
-function beep(f,d,type,vol){try{const c=ac(),o=c.createOscillator(),g=c.createGain();
-  o.type=type||'sine';o.frequency.value=f;g.gain.value=vol||0.14;o.connect(g);g.connect(c.destination);
-  o.start();o.stop(c.currentTime+d);}catch(e){}}
-function buzzer(){try{const c=ac();[0,0.22,0.44].forEach(off=>{const o=c.createOscillator(),g=c.createGain();
-  o.type='sawtooth';o.frequency.value=150;g.gain.value=0.2;o.connect(g);g.connect(c.destination);
-  o.start(c.currentTime+off);o.stop(c.currentTime+off+0.18);});}catch(e){}}
-function buildCats(){const p=document.getElementById('catpick');
-  ROUNDS.forEach((r,i)=>{const b=document.createElement('button');
-    b.textContent=(i<2?'Round '+(i+1):'Spare '+(i-1));b.onclick=()=>pick(i);p.appendChild(b);});}
-buildCats();
-function pick(i){cur=i;resetTimer();
-  document.querySelectorAll('#catpick button').forEach((b,j)=>b.classList.toggle('on',j===i));
-  document.getElementById('catlabel').textContent=ROUNDS[i].cat;
-  document.getElementById('target').textContent=ROUNDS[i].target;
-  document.getElementById('unlock').innerHTML='<b>If they stall, feed them one of these:</b><br>'+ROUNDS[i].ex;}
-function render(){const c=document.getElementById('clock');c.textContent=t;
-  c.className='clock'+(t<=5?' hot':(t<=15?' warn':''));}
-function startTimer(){
-  if(cur===null){alert('Pick a round first.');return;}
-  if(running)return; running=true;
-  document.getElementById('startbtn').textContent='Running…';
-  iv=setInterval(()=>{t--;render();
-    if(t<=10&&t>0)beep(t<=3?1100:850,0.07,'square',0.11);
-    if(t<=0){clearInterval(iv);running=false;buzzer();finish();
-      document.getElementById('startbtn').textContent='Start the Clock';}},1000);
-}
-function finish(){const v=document.getElementById('verdict'),tg=ROUNDS[cur].target;
-  if(count>=tg){v.textContent='TIME! They got '+count+' — the room wins it.';v.className='verdict win';}
-  else{v.textContent="TIME! "+count+" — just short of "+tg+".";v.className='verdict lose';}}
-function bump(n){count=Math.max(0,count+n);document.getElementById('count').textContent=count;}
-function resetTimer(){clearInterval(iv);running=false;t=60;count=0;render();
-  document.getElementById('count').textContent='0';
-  document.getElementById('verdict').textContent='';document.getElementById('verdict').className='verdict';
-  document.getElementById('startbtn').textContent='Start the Clock';}
-render();
-
-/* ---------------- SCOREBOARD ---------------- */
-let S=[0,0,0,0];
-function drawScores(){const h=document.getElementById('scores');h.innerHTML='';
-  S.forEach((v,i)=>{const d=document.createElement('div');d.className='team';
-    d.innerHTML='<div class="name">Table '+(i+1)+'</div><div class="num">'+v+'</div>'+
-      '<div class="row"><button onclick="sc('+i+',-1)">&minus;</button>'+
-      '<button class="plus" onclick="sc('+i+',1)">+</button></div>';h.appendChild(d);});}
-function sc(i,n){S[i]=Math.max(0,S[i]+n);drawScores();}
-function resetScores(){S=[0,0,0,0];drawScores();}
-drawScores();
+const D={"seg": [{"type": "open", "name": "WELCOME", "mins": 2, "say": ["Last week we did the musicals. Today we're doing the moments — the scenes you can still see in your head right now, forty, fifty, sixty years later.", "But we're not just watching. In between, I'm going to tell you how some of these were actually made, because the stories behind them are better than you think.", "There are two games in here too. And at some point a few of you are getting handed a script and a hat."], "cues": ["Point at the tables when you say “your table is your team.”", "Do not explain the scoring. Nobody cares and it eats a minute.", "Be in Reel One by 2:00."], "at": "0:00"}, {"type": "reel", "n": 1, "name": "THE GASP", "blurb": "The moment the whole theater went quiet.", "color": "violet", "intro": "Four of these stopped a room cold. Some of you saw them in a theater the week they opened.", "clips": [{"k": "oz", "t": "The Wizard of Oz", "y": 1939, "m": "Dorothy opens the door — into color", "v": "YvQ7HiJkUJ4", "ch": "Warner Bros. Entertainment", "s": 0, "e": 126, "run": 126, "note": "Warmest opener you have. Ask who saw it in a theater before you roll.", "fact": "Oz cost about $2.8 million in 1939 — a fortune. The Technicolor camera needed so much light the sets were punishing to stand on, and the picture was only possible at that scale because Technicolor had just released a faster film stock."}, {"k": "psycho", "t": "Psycho", "y": 1960, "m": "The shower — what 1960 was not ready for", "v": "BYnPGS9Ev8w", "ch": "Universal Pictures", "s": 0, "e": 95, "run": 95, "note": "SAY THE HEADS-UP LINE FIRST. Skip entirely if today's group is fragile.", "fact": "Seven days of shooting for about forty-five seconds of film: 78 camera set-ups and 52 cuts. The blood is chocolate syrup — Hitchcock shot in black and white partly because real blood would have been too much. The stabbing sound is a knife going into a melon."}, {"k": "apes", "t": "Planet of the Apes", "y": 1968, "m": "The beach — the ending", "v": "mDLS12_a-fk", "ch": "Movieclips", "s": 55, "e": 160, "run": 105, "note": "Let the reveal land. Do not talk over it. No fact needed here — ask the question instead.", "fact": "ASK, don't tell: “How many of you saw this one cold, with no idea what was coming?”"}], "mins": 6.6, "at": "2:00"}, {"type": "story", "name": "BEFORE THE COMPUTERS", "mins": 3, "kicker": "How they actually did it", "stand": "Everything you just watched was done with light, paint, cardboard and patience.", "beats": [{"h": "The color cost a fortune", "say": "That doorway you just watched was one of the most expensive shots in Hollywood. Oz cost about two point eight million dollars in 1939. The Technicolor camera was enormous and it drank light — the sets were so hot under those lamps that people genuinely suffered on them. The only reason the picture could be made at that size is that Technicolor had just put out a faster film stock. The movie arrived at exactly the moment the technology could carry it."}, {"h": "Forty-five seconds, seven days", "say": "The shower scene runs about forty-five seconds. It took seven days to shoot. Seventy-eight separate camera set-ups and fifty-two cuts — for forty-five seconds. The knife never touches anybody. The blood is chocolate syrup, and Hitchcock shot the whole film in black and white partly because real blood on screen would have been too much to take. The sound of the stabbing is a knife going into a melon. He auditioned melons for it."}, {"h": "The shark that would not work", "say": "And then Jaws. Three mechanical sharks, and they broke constantly — saltwater and machinery do not get along. So Spielberg shot around it: the music, the barrels, the point of view from underneath. In a two-hour movie the shark is on screen about four minutes. Three percent. The thing everybody remembers is the thing that barely appears, and it is scarier because the equipment failed."}], "close": "Every one of those was a problem solved with no computer anywhere in the building.", "at": "8:36"}, {"type": "finish", "name": "FINISH THE LINE", "mins": 5, "tagline": "I start it. You finish it. Out loud.", "how": ["The line comes up with the end missing.", "Shout the ending — together is fine.", "I click. We find out."], "items": [{"film": "Gone with the Wind", "y": 1939, "setup": "Frankly, my dear,", "answer": "…I don’t give a damn.", "fact": "AFI’s number one movie line of all time."}, {"film": "The Wizard of Oz", "y": 1939, "setup": "Toto, I’ve a feeling we’re", "answer": "…not in Kansas anymore.", "fact": "AFI’s number four."}, {"film": "Jaws", "y": 1975, "setup": "You’re gonna need", "answer": "…a bigger boat.", "fact": "AFI’s number thirty-five — and it was improvised on the boat."}, {"film": "Sunset Boulevard", "y": 1950, "setup": "All right, Mr. DeMille, I’m ready for my", "answer": "…close-up.", "fact": "AFI’s number seven."}], "spares": [{"film": "Love Story", "y": 1970, "setup": "Love means never having to", "answer": "…say you’re sorry.", "fact": "AFI’s number thirteen."}, {"film": "Field of Dreams", "y": 1989, "setup": "If you build it,", "answer": "…he will come.", "fact": "AFI’s number thirty-nine."}], "note": "Four lines in five minutes. The talking between them IS the program — don't rush to finish.", "at": "11:36"}, {"type": "story", "name": "WHAT THEY WERE ALLOWED TO SHOW", "mins": 3, "kicker": "The rules nobody told the audience", "stand": "For thirty-four years, American movies were made under a written rulebook.", "beats": [{"h": "The Code", "say": "From 1934 to 1968 — thirty-four years — every major American studio made films under the Production Code. People called it the Hays Code. It was written in 1930, but nobody really enforced it until '34. It was not a government law. The studios wrote it themselves, to keep the government from writing one for them."}, {"h": "Twin beds, twenty-seven inches apart", "say": "Some of the rules sound made up and they are not. A married couple could not be shown in one bed. Twin beds — and they had to be at least twenty-seven inches apart. During a kiss, at least one foot had to stay on the floor. And there was a three-second limit on the kiss itself."}, {"h": "You can watch it happen", "say": "You can see it land in real time. In The Thin Man, 1934, Nick and Nora share a bed. Two years later, in After the Thin Man, the same married couple are in twin beds. Nothing changed about them. The rule changed. And when television got going, it adopted its own version of the same code — which is exactly why Lucy and Ricky had two beds."}], "close": "The Code ended in 1968 and was replaced by the ratings system we still use. So when you watch something from the fifties and think they were being coy — they were not being coy. They were being audited.", "at": "16:36"}, {"type": "reel", "n": 2, "name": "THE SWOON", "blurb": "Romance, under the rules of the day.", "color": "mag", "intro": "Now watch what they did with the rules we just talked about.", "clips": [{"k": "itch", "t": "The Seven Year Itch", "y": 1955, "m": "Marilyn over the subway grate", "v": "fIh6HDeXKGY", "ch": "Movieclips", "s": 0, "e": 110, "run": 110, "note": "Pure recognition — they react before it starts.", "fact": "This is the image that got around the Code: no kiss, no bedroom, nothing the censors could point at. Just a skirt and a subway grate — and it became one of the most reproduced pictures of the century."}, {"k": "harry", "t": "When Harry Met Sally…", "y": 1989, "m": "New Year's Eve — the finale", "v": "ovkiChacfc8", "ch": "Movieclips", "s": 0, "e": 160, "run": 160, "note": "DEFAULT = this finale. The deli scene is funnier and they know it — decide before you walk in.", "fact": "Nineteen eighty-nine: the Code is twenty-one years dead. Notice how much longer the camera is allowed to hold on two people than anything you just watched from the fifties."}], "mins": 5.3, "at": "19:36"}, {"type": "scramble", "name": "THE SCENE SCRAMBLE", "mins": 7, "tagline": "You get a script. You get a hat. The room guesses the movie.", "how": ["Three volunteers per scene. Hand out the cards and the props.", "Nobody memorises anything — the cards are big, just read.", "At the end, the rest of the room shouts the movie it’s spoofing."], "scenes": [{"id": "A", "title": "THE SPECIAL ORDER", "answer": "When Harry Met Sally… (1989)", "setting": "A diner booth. A waitress with an order pad and no patience left.", "props": ["Order pad + pencil", "Apron", "Two coffee mugs", "A laminated menu"], "cast": [["WAITRESS", "Holds the pad. Gets wearier with every line."], ["THE PARTICULAR ONE", "Orders with enormous confidence."], ["THE OTHER CUSTOMER", "Says almost nothing. Watches. Gets the last line."]], "lines": [["WAITRESS", "What can I get you?"], ["THE PARTICULAR ONE", "I’ll have the pie."], ["WAITRESS", "Pie. Fine."], ["THE PARTICULAR ONE", "But heated. And the ice cream on the side. Not on top. Beside."], ["WAITRESS", "…Beside."], ["THE PARTICULAR ONE", "And if it’s the strawberry I’d rather have whipped cream, but only if it’s real. Is it real?"], ["WAITRESS", "(flat) It’s something."], ["THE PARTICULAR ONE", "Then no ice cream. But still heated. And a fork, not a spoon. (beat) Perfect. (beams) That’s all."], ["WAITRESS", "(turning to the other customer, defeated) And for you?"], ["THE OTHER CUSTOMER", "(level, deadpan, to the waitress — the big line)", "I’ll have what she’s having."]], "cue": "Hold for the laugh. Then: “What movie are we in?”"}, {"id": "B", "title": "THE SMALL BOAT", "answer": "Jaws (1975)", "setting": "Three people on a boat that is too small. Something is in the water.", "props": ["Sea captain hat", "Toy shark on a stick", "Fishing rod", "Pair of binoculars"], "cast": [["THE CAPTAIN", "Sea captain hat. Fears nothing. Wrong about that."], ["THE SCIENTIST", "Binoculars. Explains things nobody asked about."], ["THE CHIEF", "Nervous. Does not want to be on this boat. Gets the last line."]], "lines": [["THE CAPTAIN", "She’s a fine little boat."], ["THE CHIEF", "It’s a very little boat."], ["THE SCIENTIST", "(through binoculars) Structurally it’s adequate."], ["THE CHIEF", "That is not the same as fine."], ["THE CAPTAIN", "Nothing out here but water and my excellent judgment."], ["THE SCIENTIST", "(lowering binoculars slowly) …Something just went under us."], ["THE CHIEF", "Under us how? Under us how?!"], ["THE CAPTAIN", "(peering over the side, cheerfully) Oh. That’s a big one."], ["[PROP CUE]", "Someone raises the toy shark behind the three of them. The room sees it. They don’t."], ["THE CHIEF", "(turning, seeing it, perfectly calm — the big line)", "We’re gonna need a bigger boat."]], "cue": "Big finish. Have the shark-holder take a bow."}], "spare": {"id": "C", "title": "THE BIG COMEBACK", "answer": "Sunset Boulevard (1950)", "setting": "A grand staircase that is actually two steps and a doorway.", "props": ["Feather boa", "Sunglasses", "A rolled-up magazine as a director’s cone"], "cast": [["THE STAR", "Boa and sunglasses. Enormous. Serene."], ["THE BUTLER", "Devoted. Announces everything."], ["THE DIRECTOR", "Megaphone. Has lost control of this set."]], "lines": [["THE BUTLER", "Madam will be down shortly."], ["THE DIRECTOR", "(into megaphone) We’re losing the light!"], ["THE BUTLER", "Madam does not lose light. Light loses Madam."], ["THE STAR", "(descending two steps as though it were twenty) Is that camera for me?"], ["THE DIRECTOR", "It’s… for the whole scene, ma’am."], ["THE STAR", "(gliding past him, radiant — the big line)", "All right, Mr. DeMille, I’m ready for my close-up."]], "cue": "Only run this if you're ahead of the clock."}, "note": "These are ORIGINAL comic scripts written to set up one famous line — not transcripts of the films. Nothing to get right, nothing to clear. The payoff line is last, in the biggest type.", "at": "24:54"}, {"type": "reel", "n": 3, "name": "SAY THE LINE", "blurb": "Three lines that outlived their movies.", "color": "gold", "intro": "These are lines people quote who have never seen the picture.", "clips": [{"k": "gwtw", "t": "Gone with the Wind", "y": 1939, "m": "The last word at the door", "v": "GQ5ICXMC4xY", "ch": "Movieclips", "s": 50, "e": 163, "run": 113, "note": "Say the ranking out loud before you roll — they love a ranking.", "fact": "The American Film Institute ranked this the number one movie line in American film. Out of every line ever spoken on an American screen, this one came first."}, {"k": "casa", "t": "Casablanca", "y": 1942, "m": "The airfield goodbye", "v": "rEWaqUVac3M", "ch": "Movieclips", "s": 0, "e": 110, "run": 110, "note": "Drop the six-quotes fact before you roll.", "fact": "Casablanca has six separate lines in the AFI's hundred greatest — more than any other film ever made. No other picture comes close."}, {"k": "jaws", "t": "Jaws", "y": 1975, "m": "Off the back of the boat", "v": "2I91DJZKRxs", "ch": "Movieclips", "s": 0, "e": 116, "run": 116, "note": "Sets up the numbers. Save the box office figure for after.", "fact": "The shark is on screen for about four minutes of a two-hour movie — roughly three percent. The mechanical shark kept breaking, so Spielberg hid it. It cost nine million dollars and made about four hundred and seventy-six million."}], "mins": 6.9, "at": "31:54"}, {"type": "reel", "n": 4, "name": "THE BIG FINISH", "blurb": "Everybody sings. Nobody is excused.", "color": "orange", "intro": "We go out on our feet — or at least on our voices.", "clips": [{"k": "singin", "t": "Singin’ in the Rain", "y": 1952, "m": "The title number, in the puddle", "v": "gAI6hhsDNxc", "ch": "Warner Bros. Entertainment", "s": 0, "e": 120, "run": 120, "note": "The myth-buster is the best fact in the program. Deliver it as a correction, warmly.", "fact": "Two things you have heard about this number. Gene Kelly danced it with a 103-degree fever — that one is true, his wife confirmed it. And they put milk in the water so the rain would show up — that one is not. His own co-director said plainly it never happened. It was lighting, done from behind."}, {"k": "poppins", "t": "Mary Poppins", "y": 1964, "m": "Supercalifragilisticexpialidocious", "v": "2Yq9Ebipbb8", "ch": "Turner Classic Movies", "s": 0, "e": 129, "run": 129, "note": "End here. Invite the room to try the word with you. Big, silly, easy win.", "fact": "Last one. Everybody tries the word with me — nobody gets it right and that is the point."}], "mins": 5.0, "at": "38:48"}, {"type": "close", "name": "THAT’S A WRAP", "mins": 1.5, "say": ["Table [X] — you are the champions of iconic movie moments.", "Thank you to our cast. [Name them.] Same time next week. Bring your memory."], "cues": ["Name the volunteers individually. That is the whole payoff for them.", "House lights up, module closed, props bagged before you leave the room."], "at": "43:48"}], "spares": [{"k": "empire", "t": "The Empire Strikes Back", "y": 1980, "m": "“I am your father”", "v": "GLheiLGZ1k8", "ch": "Collective Culture", "s": 0, "e": 150, "run": 150, "note": "Only unofficial upload in the set — fine, but preview it the morning of.", "fact": ""}, {"k": "eternity", "t": "From Here to Eternity", "y": 1953, "m": "The beach — Lancaster & Kerr", "v": "8W1t_N7uwyA", "ch": "CineClips", "s": 0, "e": 110, "run": 110, "note": "Perfect companion to the Hays Code story if you want a third Swoon clip.", "fact": ""}, {"k": "tiffany", "t": "Breakfast at Tiffany’s", "y": 1961, "m": "The finale, in the rain", "v": "YnOfomPgETs", "ch": "Peter Ray", "s": 120, "e": 260, "run": 140, "note": "Audrey gets the biggest sigh in the room. Long clip — trimmed.", "fact": ""}, {"k": "waterfront", "t": "On the Waterfront", "y": 1954, "m": "The back of the taxi", "v": "uBiewQrpBBA", "ch": "Movieclips", "s": 0, "e": 163, "run": 163, "note": "AFI's #3 quote. Some of the men will mouth along with it.", "fact": ""}, {"k": "nxnw", "t": "North by Northwest", "y": 1959, "m": "The crop duster", "v": "sIY7BQkbIT8", "ch": "Movieclips", "s": 0, "e": 140, "run": 140, "note": "AFI ranked it the #4 most thrilling American film; Hitchcock has nine on that list.", "fact": ""}, {"k": "bullitt", "t": "Bullitt", "y": 1968, "m": "The San Francisco car chase", "v": "no7XR7s8Z7o", "ch": "Movieclips", "s": 0, "e": 140, "run": 140, "note": "The chase every chase since is measured against.", "fact": ""}, {"k": "butch", "t": "Butch Cassidy and the Sundance Kid", "y": 1969, "m": "The cliff", "v": "KyR7XB0VBPM", "ch": "Movieclips", "s": 0, "e": 161, "run": 161, "note": "Newman and Redford. The laugh before the jump always lands.", "fact": ""}, {"k": "raiders", "t": "Raiders of the Lost Ark", "y": 1981, "m": "The boulder", "v": "c6XHLe94SJA", "ch": "Movieclips", "s": 0, "e": 162, "run": 162, "note": "Youngest clip in the set. Good bridge to grandchildren.", "fact": ""}, {"k": "sound", "t": "The Sound of Music", "y": 1965, "m": "The hilltop", "v": "6f0T6UV-HiI", "ch": "Rodgers & Hammerstein", "s": 0, "e": 142, "run": 142, "note": "They will sing. Let them. Do not shush.", "fact": ""}], "facts": [["Walt Disney holds the record for most Oscars ever — 22 competitive, plus four honorary, from 59 nominations.", "Oscars"], ["Three films are tied for most Oscars won: Ben-Hur, Titanic, and The Lord of the Rings: The Return of the King — eleven each.", "Oscars"], ["Katharine Hepburn won four acting Oscars, more than any other performer.", "Oscars"], ["Edith Head won eight — the most decorated woman in Oscar history.", "Oscars"], ["John Ford won Best Director four times, a record, and none of them were for a Western.", "Oscars"], ["AFI ranked Psycho the single most thrilling American film ever made. Hitchcock has nine films on that list — more than any other director.", "Hitchcock"], ["Jaws was the highest-grossing film ever made until Star Wars came along two years later.", "Jaws"], ["Oz took in about $29.7 million against a $2.8 million budget.", "Oz"]]};
+const S=D.seg; let cur=0, aud=false, SC=[0,0,0,0];
+const el=id=>document.getElementById(id);
+for(let i=0;i<16;i++){const d=document.createElement('div');d.className='bulb';d.style.animationDelay=(i*.11)+'s';el('b1').appendChild(d);}
+function tog(){aud=!aud;document.body.classList.toggle('audience',aud);
+ const b=el('aud');b.textContent='Audience Mode: '+(aud?'On':'Off');b.classList.toggle('on',aud);}
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+function rail(){el('rail').innerHTML=S.map((s,i)=>
+ '<button class="'+(i===cur?'on':'')+'" onclick="go('+i+')">'+esc(s.name)+'<b>'+s.at+'</b></button>').join('');}
+function go(i){cur=Math.max(0,Math.min(S.length-1,i));rail();draw();window.scrollTo({top:0,behavior:'smooth'});}
+function step(n){go(cur+n);}
+function show(w){el('rail').querySelectorAll('button').forEach(b=>b.classList.remove('on'));
+ el('panel').innerHTML = w==='lib'?libHTML():scoreHTML();window.scrollTo({top:0,behavior:'smooth'});}
+function sayHTML(arr,cues){let h='<div class="script hostonly"><div class="lab">Say this &mdash; your words are fine</div>';
+ h+=arr.map(p=>'<p>'+esc(p)+'</p>').join('');h+='</div>';
+ if(cues&&cues.length)h+='<ul class="cues hostonly">'+cues.map(c=>'<li>'+esc(c)+'</li>').join('')+'</ul>';
+ return h;}
+function clipHTML(c,col){
+ return '<div class="clip '+col+'"><div class="ctop"><div><div class="ctitle">'+esc(c.t)+
+ ' <span class="cyear">'+c.y+'</span></div><div class="cmom">'+esc(c.m)+'</div>'+
+ '<div class="meta">'+esc(c.ch)+' &bull; plays '+Math.floor(c.run/60)+':'+String(c.run%60).padStart(2,'0')+'</div></div>'+
+ '<button class="btn alt" onclick="play(\''+c.k+'\',\''+c.v+'\','+c.s+','+c.e+')">Play</button></div>'+
+ (c.fact?'<div class="fact hostonly"><div class="lab">Before you roll, say this</div>'+esc(c.fact)+'</div>':'')+
+ (c.note?'<div class="note hostonly">'+esc(c.note)+'</div>':'')+
+ '<div class="pwrap" id="p_'+c.k+'"><div class="pframe" id="f_'+c.k+'"></div></div></div>';}
+function play(k,v,s,e){
+ document.querySelectorAll('.pwrap').forEach(p=>{if(p.id!=='p_'+k){p.classList.remove('on');
+  const f=p.querySelector('.pframe'); if(f) f.innerHTML='';}});
+ const w=el('p_'+k), f=el('f_'+k);
+ f.innerHTML='<iframe src="https://www.youtube.com/embed/'+v+'?autoplay=1&rel=0&modestbranding=1&start='+s+'&end='+e+'" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+ w.classList.add('on'); w.scrollIntoView({behavior:'smooth',block:'center'});}
+function draw(){const s=S[cur]; let h='';
+ if(s.type==='open'||s.type==='close'){
+  h='<div class="stage"><div class="kick">'+s.at+' &bull; '+s.mins+' min</div><div class="big">'+esc(s.name)+'</div>'+sayHTML(s.say,s.cues)+'</div>';}
+ else if(s.type==='reel'){
+  h='<div class="stage"><div class="kick">'+s.at+' &bull; Reel '+s.n+' of 4 &bull; '+s.mins+' min</div>'+
+    '<div class="big">'+esc(s.name)+'</div><div class="sub">'+esc(s.blurb)+'</div>'+
+    sayHTML([s.intro])+'</div><div class="stage">'+s.clips.map(c=>clipHTML(c,s.color)).join('')+'</div>';}
+ else if(s.type==='story'){
+  h='<div class="stage"><div class="kick">'+s.at+' &bull; Story &bull; '+s.mins+' min &bull; '+esc(s.kicker)+'</div>'+
+    '<div class="big">'+esc(s.name)+'</div><div class="sub">'+esc(s.stand)+'</div>'+
+    s.beats.map(b=>'<div class="beat hostonly"><h4>'+esc(b.h)+'</h4><div class="script" style="margin:0;background:none;border:0;padding:0"><p>'+esc(b.say)+'</p></div></div>').join('')+
+    '<div class="fact hostonly" style="margin-top:15px"><div class="lab">Land it on this</div>'+esc(s.close)+'</div></div>';}
+ else if(s.type==='finish'){
+  h='<div class="stage"><div class="kick">'+s.at+' &bull; Game 1 &bull; '+s.mins+' min</div><div class="big">'+esc(s.name)+'</div>'+
+    '<div class="sub">'+esc(s.tagline)+'</div><ul class="cues">'+s.how.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul>'+
+    '<div class="note hostonly">'+esc(s.note)+'</div></div>';
+  s.items.forEach((it,i)=>{h+='<div class="stage q"><div class="kick">'+(i+1)+' of '+s.items.length+' &bull; '+esc(it.film)+' ('+it.y+')</div>'+
+   '<div class="qline">&ldquo;'+esc(it.setup)+'&hellip;&rdquo;</div>'+
+   '<div class="qans" id="a'+i+'">'+esc(it.answer)+'</div>'+
+   '<button class="btn" onclick="rev('+i+')">Reveal</button>'+
+   '<div class="fact hostonly" style="text-align:left;margin-top:13px"><div class="lab">Then tell them</div>'+esc(it.fact)+'</div></div>';});
+  h+='<div class="stage hostonly"><div class="kick">Spares if you have time</div>'+
+     s.spares.map(x=>'<div class="note" style="color:#B9A9D1">&ldquo;'+esc(x.setup)+'&hellip;&rdquo; &mdash; '+esc(x.answer)+' ('+esc(x.film)+')</div>').join('')+'</div>';}
+ else if(s.type==='scramble'){
+  h='<div class="stage"><div class="kick">'+s.at+' &bull; Game 2 &bull; '+s.mins+' min</div><div class="big">'+esc(s.name)+'</div>'+
+    '<div class="sub">'+esc(s.tagline)+'</div><ul class="cues">'+s.how.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul>'+
+    '<div class="note hostonly">'+esc(s.note)+'</div></div>';
+  s.scenes.forEach(sc=>{h+='<div class="stage"><div class="kick">Scene '+sc.id+'</div><div class="big">'+esc(sc.title)+'</div>'+
+   '<div class="sub">'+esc(sc.setting)+'</div>'+
+   sc.cast.map(c=>'<div class="role"><b>'+esc(c[0])+'</b><span>'+esc(c[1])+'</span></div>').join('')+
+   '<div class="note hostonly">Props: '+sc.props.map(esc).join(', ')+'</div>'+
+   '<div class="qans" id="s'+sc.id+'">'+esc(sc.answer)+'</div>'+
+   '<div style="text-align:center;margin-top:13px"><button class="btn" onclick="revs(\''+sc.id+'\')">Reveal the movie</button></div>'+
+   '<div class="note hostonly">'+esc(sc.cue)+'</div></div>';});}
+ el('panel').innerHTML=h;}
+function rev(i){el('a'+i).classList.add('on');}
+function revs(i){el('s'+i).classList.add('on');}
+function libHTML(){return '<div class="stage"><div class="kick">Verified spare clips</div><div class="big">Swap-ins</div>'+
+ '<div class="sub">Every one checked live &mdash; it resolves and its owner allows embedding.</div></div>'+
+ '<div class="stage"><div class="lib">'+D.spares.map(c=>clipHTML(c,'teal')).join('')+'</div></div>'+
+ '<div class="stage hostonly"><div class="kick">Spare facts for dead air</div>'+
+ D.facts.map(f=>'<div class="note" style="color:#B9A9D1">'+esc(f[0])+'</div>').join('')+'</div>';}
+function scoreHTML(){return '<div class="stage"><div class="kick">Scoreboard</div><div class="big">How We Stand</div>'+
+ '<div class="scores">'+SC.map((v,i)=>'<div class="team"><div class="nm">Table '+(i+1)+'</div><div class="nu">'+v+'</div>'+
+ '<div class="rw"><button onclick="sc('+i+',-1)">&minus;</button><button class="p" onclick="sc('+i+',1)">+</button></div></div>').join('')+
+ '</div><div style="text-align:center;margin-top:16px"><button class="btn ghost" onclick="SC=[0,0,0,0];show(\'score\')">Clear</button></div></div>';}
+function sc(i,n){SC[i]=Math.max(0,SC[i]+n);show('score');}
+rail();draw();
 </script>
 </body>
 </html>
