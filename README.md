@@ -4,14 +4,14 @@ Five browser modules for 45-minute resident programming. They run from a link,
 need nothing installed, and play their clips in the page.
 
 ### Showstoppers! — musical movies game
-https://htmlpreview.github.io/?https://raw.githubusercontent.com/ajpigliacelli-max/showstoppers/main/index.html
+https://ajpigliacelli-max.github.io/showstoppers/
 
 Five games plus a head-to-head duel, a 61-clip library, a persistent scoreboard
 and 25 sourced intermission facts. Presenter notes hide by default so the screen
 can face the room.
 
 ### That Scene! — iconic movie moments
-https://htmlpreview.github.io/?https://raw.githubusercontent.com/ajpigliacelli-max/showstoppers/main/thatscene.html
+https://ajpigliacelli-max.github.io/showstoppers/thatscene.html
 
 A 45-minute presenter-led program: ten clips across four reels, two narrated history
 segments, and two games. The running order sits across the top with its clock times,
@@ -24,14 +24,14 @@ clips sit in the spare library. Every clip was checked live: it resolves, and it
 allows embedding.
 
 ### The Laugh Track — classic TV montage
-https://htmlpreview.github.io/?https://raw.githubusercontent.com/ajpigliacelli-max/showstoppers/main/laughtrack.html
+https://ajpigliacelli-max.github.io/showstoppers/laughtrack.html
 
 Ten classic TV scenes back to back, about 46 minutes, advancing on their own.
 I Love Lucy, The Honeymooners, Carol Burnett, Johnny Carson, Mary Tyler Moore,
 Andy Griffith, All in the Family — plus eight spares to swap in.
 
 ### Silent Laughs — silent-era comedians (Reflections)
-https://htmlpreview.github.io/?https://raw.githubusercontent.com/ajpigliacelli-max/showstoppers/main/silentlaughs.html
+https://ajpigliacelli-max.github.io/showstoppers/silentlaughs.html
 
 About 47 minutes, roughly 80% film. Intertitle-style title cards introduce the
 Keystone Cops, Chaplin, Harold Lloyd, Buster Keaton and Laurel & Hardy; the show
@@ -39,14 +39,18 @@ stops at each card so the host can talk, and the clips after it roll on their ow
 Host script sits under the player with Presenter notes on. Nine spare clips.
 
 ### Women Who Roast — comedy legends (assisted living)
-https://htmlpreview.github.io/?https://raw.githubusercontent.com/ajpigliacelli-max/showstoppers/main/womenwhoroast.html
+https://ajpigliacelli-max.github.io/showstoppers/womenwhoroast.html
 
-About 47 minutes. Phyllis Diller, the Lucille Ball roast (Ruth Buzzi, Vivian Vance,
-Totie Fields), Betty White, Joan Rivers, Martha Stewart and Nikki Glaser, in TV
-broadcast versions. Five Dais Trivia questions, a three-round Roast Meter that
-crowns a Queen of the Roast, and a Roast the Host finale. Pop-art illustrations
-made in OpenArt live in `womenwhoroast-art/`. Martha Stewart sits behind a Heat
-Check with a skip button.
+About 46 minutes, all roasts. Act One is the Dean Martin Celebrity Roasts: Phyllis
+Diller, the 1975 Lucille Ball roast (Ruth Buzzi, Vivian Vance, Totie Fields, Lucy)
+and Betty White's 1978 roast, playing in the module. Act Two is the Comedy Central
+roasts: Betty White, Cloris Leachman, Joan Rivers, Martha Stewart and Nikki Glaser,
+in Comedy Central's bleeped versions. Comedy Central blocks its clips from playing
+inside other sites, so those open on YouTube in a new tab. A Heat Check can skip
+the whole act. Five trivia questions, a two-act Roast Meter that crowns a Queen of
+the Roast, Roast the Host, and an Encore board for extra time. Full-screen button
+(or F), a clip check that flags blocked clips, and auto-skip if one fails mid-show.
+Pop-art illustrations made in OpenArt live in `womenwhoroast-art/`.
 
 Every clip in every module was checked live: the video resolves and its owner
 allows embedding. Clips are embedded, never copied — they play from their
