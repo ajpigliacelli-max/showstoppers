@@ -1,5 +1,7 @@
 # Resident program modules — The Bristal at Sayville
 
+> GitHub Pages currently publishes the `docs/` folder. The files in `docs/` are the live copies — when a module changes, copy it into `docs/` too (or switch Pages to publish from the root and delete `docs/`).
+
 Five browser modules for 45-minute resident programming. They run from a link,
 need nothing installed, and play their clips in the page.
 

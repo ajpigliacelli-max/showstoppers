@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>THAT SCENE! &mdash; Iconic Movie Moments</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Figtree:wght@400;600;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+ --night:#121014; --velvet:#1C181F; --velvet2:#262029; --wine:#5E1623;
+ --crimson:#D62839; --amber:#F6A035; --ivory:#F6F1E7; --dim:#9B8E86;
+ --disp:'Anton',Impact,sans-serif; --body:'Figtree',system-ui,-apple-system,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--night);color:var(--ivory);font-family:var(--body);min-height:100vh;
+ -webkit-font-smoothing:antialiased;
+ background-image:radial-gradient(ellipse 100% 55% at 50% 0%,#2E1118 0%,transparent 62%)}
+.wrap{max-width:1150px;margin:0 auto;padding:18px 20px 70px}
+
+/* ---- marquee header ---- */
+.marquee{border:3px solid var(--amber);border-radius:6px;padding:20px 18px 18px;position:relative;
+ background:linear-gradient(180deg,#1A1016,#140E12);text-align:center;margin-bottom:6px;
+ box-shadow:0 0 0 7px var(--night),0 0 0 9px rgba(246,160,53,.28),0 14px 30px rgba(0,0,0,.6)}
+.lamps{position:absolute;left:0;right:0;display:flex;justify-content:space-around;padding:0 12px}
+.lamps.top{top:-7px} .lamps.bot{bottom:-7px}
+.lamp{width:9px;height:9px;border-radius:50%;background:var(--amber);
+ box-shadow:0 0 8px var(--amber),0 0 16px rgba(246,160,53,.6);animation:flick 1.6s infinite}
+@keyframes flick{0%,100%{opacity:1}50%{opacity:.3}}
+h1.logo{font-family:var(--disp);font-size:clamp(2.3rem,8.4vw,4.9rem);line-height:.92;
+ letter-spacing:.012em;color:var(--ivory);text-transform:uppercase;
+ text-shadow:0 3px 0 var(--crimson),0 6px 14px rgba(0,0,0,.7)}
+.sub1{margin-top:12px;font-weight:800;letter-spacing:.34em;text-transform:uppercase;
+ font-size:.7rem;color:var(--amber)}
+
+/* ---- chrome ---- */
+.bar{display:flex;gap:8px;justify-content:center;margin:20px 0 14px;flex-wrap:wrap}
+.bar button{border:0;cursor:pointer;font-family:var(--body);font-weight:900;font-size:.66rem;
+ letter-spacing:.16em;text-transform:uppercase;padding:10px 17px;border-radius:4px;
+ background:var(--velvet2);color:var(--dim);border-bottom:3px solid #120F14}
+.bar button:hover{color:var(--ivory)}
+.pbar{height:6px;background:var(--velvet);border-radius:0;overflow:hidden;margin:0 0 7px}
+.pbar span{display:block;height:100%;width:0;transition:width .5s ease;
+ background:linear-gradient(90deg,var(--crimson),var(--amber))}
+.pbtxt{text-align:center;font-size:.58rem;font-weight:900;letter-spacing:.2em;
+ text-transform:uppercase;color:var(--dim);margin-bottom:18px}
+.rail{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;margin-bottom:22px}
+.rail button{border:0;cursor:pointer;font-family:var(--body);font-weight:900;text-transform:uppercase;
+ letter-spacing:.09em;font-size:.62rem;padding:10px 12px;border-radius:4px;background:var(--velvet);
+ color:var(--dim);border-bottom:3px solid #120F14;line-height:1.3;text-align:center}
+.rail button b{display:block;font-size:.55rem;color:#6E645E;letter-spacing:.14em;font-weight:800}
+.rail button.on{background:var(--crimson);color:#fff;border-bottom-color:#8E1724}
+.rail button.on b{color:#F6C9CD}
+
+/* ---- panels ---- */
+.stage{background:var(--velvet);border:1px solid #2E262F;border-radius:8px;
+ padding:clamp(18px,2.8vw,30px);margin-bottom:16px}
+.kick{font-weight:900;letter-spacing:.26em;text-transform:uppercase;font-size:.6rem;
+ color:var(--amber);margin-bottom:10px}
+.big{font-family:var(--disp);font-size:clamp(1.7rem,5vw,3.1rem);text-transform:uppercase;
+ color:var(--ivory);line-height:1.04;letter-spacing:.01em}
+.sub{font-size:1.02rem;color:var(--dim);margin-top:11px;line-height:1.55}
+.hero{text-align:center;padding:26px 0}
+.hero .big{font-size:clamp(2rem,7vw,4rem)}
+
+/* ---- clips ---- */
+.clip{background:var(--velvet2);border-radius:6px;padding:16px 18px;margin-bottom:12px;
+ border-left:5px solid var(--crimson)}
+.clip.alt{border-left-color:var(--amber)}
+.ctop{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}
+.ctitle{font-family:var(--disp);font-size:1.25rem;text-transform:uppercase;color:var(--ivory);
+ line-height:1.12;letter-spacing:.012em}
+.cyear{color:var(--amber)}
+.cmom{font-size:.92rem;color:var(--dim);margin-top:5px}
+.meta{font-size:.58rem;font-weight:900;letter-spacing:.17em;text-transform:uppercase;
+ color:#6E645E;margin-top:7px}
+.btn{border:0;cursor:pointer;font-family:var(--body);font-weight:900;text-transform:uppercase;
+ letter-spacing:.12em;font-size:.7rem;padding:13px 20px;border-radius:4px;background:var(--crimson);
+ color:#fff;border-bottom:3px solid #8E1724;white-space:nowrap}
+.btn.amber{background:var(--amber);color:#2A1A08;border-bottom-color:#A86A14}
+.btn.quiet{background:var(--velvet);color:var(--ivory);border-bottom-color:#120F14}
+.btn:active{transform:translateY(2px);border-bottom-width:1px}
+.tstat{margin-top:8px;font-size:.56rem;font-weight:900;letter-spacing:.2em;
+ text-transform:uppercase;color:#6E645E}
+.pwrap{margin-top:14px;border-radius:6px;overflow:hidden;background:#000;display:none;
+ border:1px solid #332A33}
+.pwrap.on{display:block}
+.pframe{position:relative;padding-bottom:56.25%;height:0}
+.pframe iframe,.pframe>div{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+.transport{display:flex;gap:6px;flex-wrap:wrap;justify-content:center;padding:11px;background:var(--velvet2)}
+.transport button{border:0;cursor:pointer;font-family:var(--body);font-weight:900;text-transform:uppercase;
+ letter-spacing:.1em;font-size:.6rem;padding:10px 13px;border-radius:4px;background:var(--velvet);
+ color:var(--ivory);border-bottom:3px solid #120F14}
+.transport button:active{transform:translateY(2px);border-bottom-width:1px}
+
+/* ---- story / games ---- */
+.beat{margin-top:12px;background:var(--velvet2);border-radius:6px;padding:17px 19px;
+ border-left:5px solid var(--amber)}
+.beat h4{font-family:var(--disp);font-size:1.3rem;text-transform:uppercase;color:var(--ivory);
+ letter-spacing:.012em;line-height:1.12}
+.how{margin-top:16px;display:inline-block;text-align:left;max-width:560px}
+.how li{list-style:none;font-size:1rem;color:var(--ivory);margin-bottom:10px;padding-left:26px;position:relative;line-height:1.5}
+.how li:before{content:'';position:absolute;left:0;top:.45em;width:9px;height:9px;background:var(--crimson)}
+.q{text-align:center;padding:12px 0 4px}
+.qfilm{font-weight:900;letter-spacing:.2em;text-transform:uppercase;font-size:.66rem;color:var(--amber);margin-bottom:16px}
+.qline{font-family:var(--disp);font-size:clamp(1.8rem,5.6vw,3.4rem);color:var(--ivory);
+ line-height:1.14;margin:18px 0;letter-spacing:.012em}
+.qans{font-family:var(--disp);font-size:clamp(1.9rem,6vw,3.6rem);color:var(--amber);
+ line-height:1.14;margin:18px 0;display:none;letter-spacing:.012em}
+.qans.on{display:block}
+.role{margin-top:10px;background:var(--velvet2);border-radius:6px;padding:14px 16px;
+ font-family:var(--disp);font-size:1.05rem;text-transform:uppercase;color:var(--crimson);letter-spacing:.015em}
+.scores{display:grid;grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:12px;margin-top:8px}
+.team{background:var(--velvet2);border-radius:6px;padding:17px 12px;text-align:center;
+ border-bottom:4px solid var(--wine)}
+.team .nm{font-family:var(--disp);font-size:1.05rem;text-transform:uppercase;color:var(--amber);margin-bottom:7px}
+.team .nu{font-family:var(--disp);font-size:3.1rem;line-height:1;color:var(--ivory)}
+.team .rw{display:flex;gap:6px;justify-content:center;margin-top:12px}
+.team .rw button{border:0;cursor:pointer;font-family:var(--disp);font-size:1.05rem;width:48px;height:40px;
+ border-radius:4px;background:var(--velvet);color:var(--ivory);border-bottom:3px solid #120F14}
+.team .rw button.p{background:var(--crimson);color:#fff;border-bottom-color:#8E1724}
+.srow{display:flex;gap:10px;align-items:center;margin-top:16px}
+.srow input{flex:1;background:var(--night);border:1px solid #3A303A;border-radius:4px;color:var(--ivory);
+ font-family:var(--body);font-size:.95rem;padding:13px 15px}
+.srow input::placeholder{color:#6E645E}
+.srow .cnt{font-size:.58rem;font-weight:900;letter-spacing:.17em;text-transform:uppercase;
+ color:var(--amber);white-space:nowrap}
+.lib{display:grid;grid-template-columns:repeat(auto-fit,minmax(272px,1fr));gap:12px}
+.nav{display:flex;gap:10px;justify-content:space-between;margin-top:6px}
+.foot{text-align:center;margin-top:26px;font-size:.58rem;color:#6E645E;letter-spacing:.2em;
+ text-transform:uppercase;font-weight:900}
+</style>
+</head>
+<body>
+<div class="wrap">
+ <div class="marquee">
+  <div class="lamps top" id="lt"></div>
+  <h1 class="logo">That Scene!</h1>
+  <div class="sub1">Iconic Movie Moments</div>
+  <div class="lamps bot" id="lb"></div>
+ </div>
+ <div class="bar">
+  <button data-act="lib">Spare Clips</button>
+  <button data-act="score">Scoreboard</button>
+  <button data-act="clear">Clear Played</button>
+ </div>
+ <div class="pbar"><span id="prog"></span></div>
+ <div class="pbtxt" id="progtxt"></div>
+ <div class="rail" id="rail"></div>
+ <div id="panel"></div>
+ <div class="nav"><button class="btn quiet" data-act="back">&larr; Back</button>
+  <button class="btn" data-act="next">Next &rarr;</button></div>
+ <div class="foot">The Bristal at Sayville</div>
+</div>
+<script>
+(function(){
+"use strict";
+var D={"seg": [{"type": "card", "name": "WELCOME", "mins": 2, "head": "ICONIC MOVIE MOMENTS", "sub": "Four reels. Two stories. Two games.", "at": "0:00"}, {"type": "reel", "n": 1, "name": "THE GASP", "blurb": "The moment the whole theater went quiet.", "clips": [{"k": "oz", "t": "The Wizard of Oz", "y": 1939, "m": "Dorothy opens the door — into color", "v": "YvQ7HiJkUJ4", "ch": "Warner Bros. Entertainment", "s": 0, "e": 126, "run": 126}, {"k": "psycho", "t": "Psycho", "y": 1960, "m": "The shower — what 1960 was not ready for", "v": "BYnPGS9Ev8w", "ch": "Universal Pictures", "s": 0, "e": 95, "run": 95}, {"k": "apes", "t": "Planet of the Apes", "y": 1968, "m": "The beach — the ending", "v": "mDLS12_a-fk", "ch": "Movieclips", "s": 55, "e": 160, "run": 105}], "mins": 6.6, "at": "2:00"}, {"type": "story", "name": "BEFORE THE COMPUTERS", "mins": 3, "stand": "Everything you just watched was done with light, paint, cardboard and patience.", "heads": ["The color cost a fortune", "Forty-five seconds, seven days", "The shark that would not work"], "at": "8:36"}, {"type": "finish", "name": "FINISH THE LINE", "mins": 5, "tagline": "I start it. You finish it. Out loud.", "how": ["The line comes up with the end missing.", "Shout the ending — together is fine.", "I click. We find out."], "items": [{"film": "Gone with the Wind", "y": 1939, "setup": "Frankly, my dear,", "answer": "…I don’t give a damn."}, {"film": "The Wizard of Oz", "y": 1939, "setup": "Toto, I’ve a feeling we’re", "answer": "…not in Kansas anymore."}, {"film": "Jaws", "y": 1975, "setup": "You’re gonna need", "answer": "…a bigger boat."}, {"film": "Sunset Boulevard", "y": 1950, "setup": "All right, Mr. DeMille, I’m ready for my", "answer": "…close-up."}], "at": "11:36"}, {"type": "story", "name": "WHAT THEY WERE ALLOWED TO SHOW", "mins": 3, "stand": "For thirty-four years, American movies were made under a written rulebook.", "heads": ["The Code", "Twin beds, twenty-seven inches apart", "You can watch it happen"], "at": "16:36"}, {"type": "reel", "n": 2, "name": "THE SWOON", "blurb": "Romance, under the rules of the day.", "clips": [{"k": "itch", "t": "The Seven Year Itch", "y": 1955, "m": "Marilyn over the subway grate", "v": "fIh6HDeXKGY", "ch": "Movieclips", "s": 0, "e": 110, "run": 110}, {"k": "harry", "t": "When Harry Met Sally…", "y": 1989, "m": "New Year's Eve — the finale", "v": "ovkiChacfc8", "ch": "Movieclips", "s": 0, "e": 160, "run": 160}], "mins": 5.3, "at": "19:36"}, {"type": "scramble", "name": "THE SCENE SCRAMBLE", "mins": 7, "tagline": "You get a script. You get a hat. The room guesses the movie.", "how": ["Three volunteers per scene. Hand out the cards and the props.", "Nobody memorises anything — the cards are big, just read.", "At the end, the rest of the room shouts the movie it’s spoofing."], "scenes": [{"id": "A", "title": "THE SPECIAL ORDER", "setting": "A diner booth. A waitress with an order pad and no patience left.", "cast": ["WAITRESS", "THE PARTICULAR ONE", "THE OTHER CUSTOMER"], "answer": "When Harry Met Sally… (1989)"}, {"id": "B", "title": "THE SMALL BOAT", "setting": "Three people on a boat that is too small. Something is in the water.", "cast": ["THE CAPTAIN", "THE SCIENTIST", "THE CHIEF"], "answer": "Jaws (1975)"}], "at": "24:54"}, {"type": "reel", "n": 3, "name": "SAY THE LINE", "blurb": "Three lines that outlived their movies.", "clips": [{"k": "gwtw", "t": "Gone with the Wind", "y": 1939, "m": "The last word at the door", "v": "GQ5ICXMC4xY", "ch": "Movieclips", "s": 50, "e": 163, "run": 113}, {"k": "casa", "t": "Casablanca", "y": 1942, "m": "The airfield goodbye", "v": "rEWaqUVac3M", "ch": "Movieclips", "s": 0, "e": 110, "run": 110}, {"k": "jaws", "t": "Jaws", "y": 1975, "m": "Off the back of the boat", "v": "2I91DJZKRxs", "ch": "Movieclips", "s": 0, "e": 116, "run": 116}], "mins": 6.9, "at": "31:54"}, {"type": "reel", "n": 4, "name": "THE BIG FINISH", "blurb": "Everybody sings. Nobody is excused.", "clips": [{"k": "singin", "t": "Singin’ in the Rain", "y": 1952, "m": "The title number, in the puddle", "v": "gAI6hhsDNxc", "ch": "Warner Bros. Entertainment", "s": 0, "e": 120, "run": 120}, {"k": "poppins", "t": "Mary Poppins", "y": 1964, "m": "Supercalifragilisticexpialidocious", "v": "2Yq9Ebipbb8", "ch": "Turner Classic Movies", "s": 0, "e": 129, "run": 129}], "mins": 5.0, "at": "38:48"}, {"type": "card", "name": "THAT’S A WRAP", "mins": 1.5, "head": "THAT’S A WRAP", "sub": "Thank you to today’s cast.", "at": "43:48"}], "spares": [{"k": "empire", "t": "The Empire Strikes Back", "y": 1980, "m": "“I am your father”", "v": "GLheiLGZ1k8", "ch": "Collective Culture", "s": 0, "e": 150, "run": 150}, {"k": "eternity", "t": "From Here to Eternity", "y": 1953, "m": "The beach — Lancaster & Kerr", "v": "8W1t_N7uwyA", "ch": "CineClips", "s": 0, "e": 110, "run": 110}, {"k": "tiffany", "t": "Breakfast at Tiffany’s", "y": 1961, "m": "The finale, in the rain", "v": "YnOfomPgETs", "ch": "Peter Ray", "s": 120, "e": 260, "run": 140}, {"k": "waterfront", "t": "On the Waterfront", "y": 1954, "m": "The back of the taxi", "v": "uBiewQrpBBA", "ch": "Movieclips", "s": 0, "e": 163, "run": 163}, {"k": "nxnw", "t": "North by Northwest", "y": 1959, "m": "The crop duster", "v": "sIY7BQkbIT8", "ch": "Movieclips", "s": 0, "e": 140, "run": 140}, {"k": "bullitt", "t": "Bullitt", "y": 1968, "m": "The San Francisco car chase", "v": "no7XR7s8Z7o", "ch": "Movieclips", "s": 0, "e": 140, "run": 140}, {"k": "butch", "t": "Butch Cassidy and the Sundance Kid", "y": 1969, "m": "The cliff", "v": "KyR7XB0VBPM", "ch": "Movieclips", "s": 0, "e": 161, "run": 161}, {"k": "raiders", "t": "Raiders of the Lost Ark", "y": 1981, "m": "The boulder", "v": "c6XHLe94SJA", "ch": "Movieclips", "s": 0, "e": 162, "run": 162}, {"k": "sound", "t": "The Sound of Music", "y": 1965, "m": "The hilltop", "v": "6f0T6UV-HiI", "ch": "Rodgers & Hammerstein", "s": 0, "e": 142, "run": 142}]};
+var S=D.seg, cur=0, SC=[0,0,0,0];
+var PL=null, CUR=null, PLAYED=[], YTQ=[], YTOK=false;
+var ALLCLIPS=[].concat.apply([],S.filter(function(x){return x.type==='reel';}).map(function(x){return x.clips;}));
+function el(id){return document.getElementById(id);}
+(function(){for(const id of ['lt','lb']){const h=el(id);
+ for(let i=0;i<22;i++){const d=document.createElement('div');d.className='lamp';
+  d.style.animationDelay=(i*0.09)+'s';h.appendChild(d);}}})();
+(function(){const t=document.createElement('script');t.src='https://www.youtube.com/iframe_api';
+ document.head.appendChild(t);})();
+window.onYouTubeIframeAPIReady=function(){YTOK=true;YTQ.splice(0).forEach(function(fn){fn();});};
+setTimeout(function(){if(!YTOK){YTQ.splice(0).forEach(function(fn){fn(true);});}},2500);
+function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+function rail(){el('rail').innerHTML=S.map((s,i)=>{
+ let done='';
+ if(s.type==='reel'){const n=s.clips.filter(c=>PLAYED.includes(c.k)).length;done=n+'/'+s.clips.length;}
+ return '<button class="'+(i===cur?'on':'')+'" data-act="go" data-i="'+i+'">'+esc(s.name)+
+  '<b>'+s.at+(done?' · '+done:'')+'</b></button>';}).join('');
+ const pc=Math.round(PLAYED.length/ALLCLIPS.length*100);
+ el('prog').style.width=pc+'%'; el('progtxt').textContent=PLAYED.length+' of '+ALLCLIPS.length+' clips played';}
+function go(i){cur=Math.max(0,Math.min(S.length-1,i));rail();draw();window.scrollTo({top:0,behavior:'smooth'});}
+function step(n){go(cur+n);}
+function show(w){el('rail').querySelectorAll('button').forEach(b=>b.classList.remove('on'));
+ el('panel').innerHTML=w==='lib'?libHTML(''):scoreHTML();window.scrollTo({top:0,behavior:'smooth'});}
+function clipHTML(c,alt){
+ return '<div class="clip'+(alt?' alt':'')+'"><div class="ctop"><div><div class="ctitle">'+esc(c.t)+
+ ' <span class="cyear">'+c.y+'</span></div><div class="cmom">'+esc(c.m)+'</div>'+
+ '<div class="meta">'+esc(c.ch)+' &bull; '+Math.floor(c.run/60)+':'+String(c.run%60).padStart(2,'0')+'</div></div>'+
+ '<button class="btn" data-act="play" data-k="'+c.k+'" data-v="'+c.v+'" data-s="'+c.s+'" data-e="'+c.e+'">&#9654; Play</button></div>'+
+ '<div class="tstat" id="t_'+c.k+'">not played</div>'+
+ '<div class="pwrap" id="p_'+c.k+'"><div class="pframe" id="f_'+c.k+'"></div>'+
+ '<div class="transport">'+
+ '<button data-act="ctl" data-c="play">&#9654; Play</button>'+
+ '<button data-act="ctl" data-c="pause">&#10073;&#10073; Pause</button>'+
+ '<button data-act="ctl" data-c="restart">&#8634; Restart</button>'+
+ '<button data-act="ctl" data-c="back">&minus;10s</button>'+
+ '<button data-act="ctl" data-c="skip">+10s</button>'+
+ '<button data-act="ctl" data-c="stop">&#9632; Stop</button>'+
+ '</div></div></div>';}
+function play(k,v,st,en){
+ document.querySelectorAll('.pwrap').forEach(w=>{if(w.id!=='p_'+k)w.classList.remove('on');});
+ if(PL&&PL.destroy){try{PL.destroy()}catch(e){}}
+ CUR={k:k,v:v,s:st,e:en};
+ const w=el('p_'+k); w.classList.add('on');
+ el('f_'+k).innerHTML='<div id="yt_'+k+'"></div>';
+ var mk=function(fallback){
+  if(fallback||!(window.YT&&window.YT.Player)){
+   el('f_'+k).innerHTML='<iframe src="https://www.youtube.com/embed/'+v+
+    '?autoplay=1&rel=0&modestbranding=1&start='+st+'&end='+en+
+    '" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+   PL=null; mark(k); return;}
+  PL=new YT.Player('yt_'+k,{videoId:v,
+   playerVars:{autoplay:1,rel:0,modestbranding:1,start:st,end:en,controls:1,playsinline:1},
+   events:{onReady:function(e2){e2.target.playVideo();mark(k);},
+           onStateChange:function(e3){if(e3.data===YT.PlayerState.ENDED)status(k,'finished');}}});};
+ if(window.YT&&window.YT.Player){mk(false);}else{YTQ.push(mk);setTimeout(function(){
+   if(!YTOK&&el('f_'+k)&&!el('f_'+k).querySelector('iframe'))mk(true);},2600);}
+ w.scrollIntoView({behavior:'smooth',block:'center'});}
+function ctl(a){if(!CUR)return;
+ if(!PL){if(a==='stop'){var w0=el('p_'+CUR.k);if(w0){w0.classList.remove('on');el('f_'+CUR.k).innerHTML='';}}return;}
+ try{
+  if(a==='pause')PL.pauseVideo();
+  else if(a==='play')PL.playVideo();
+  else if(a==='restart'){PL.seekTo(CUR.s,true);PL.playVideo();}
+  else if(a==='skip')PL.seekTo(Math.min(PL.getCurrentTime()+10,CUR.e),true);
+  else if(a==='back')PL.seekTo(Math.max(PL.getCurrentTime()-10,CUR.s),true);
+  else if(a==='stop'){PL.stopVideo();const w=el('p_'+CUR.k);if(w)w.classList.remove('on');}
+ }catch(e){}}
+function mark(k){if(!PLAYED.includes(k))PLAYED.push(k);rail();status(k,'✓ played');}
+function status(k,t){const b=el('t_'+k);if(b)b.textContent=t;}
+function clearPlayed(){PLAYED=[];rail();draw();}
+function draw(){const s=S[cur];let h='';
+ if(s.type==='card'){
+  h='<div class="stage hero"><div class="kick">'+s.at+'</div><div class="big">'+esc(s.head)+'</div>'+
+    '<div class="sub">'+esc(s.sub)+'</div></div>';}
+ else if(s.type==='reel'){
+  h='<div class="stage hero"><div class="kick">Reel '+s.n+' of 4</div><div class="big">'+esc(s.name)+'</div>'+
+    '<div class="sub">'+esc(s.blurb)+'</div></div>'+
+    '<div class="stage">'+s.clips.map((c,i)=>clipHTML(c,i%2===1)).join('')+'</div>';}
+ else if(s.type==='story'){
+  h='<div class="stage hero"><div class="kick">The story behind them</div><div class="big">'+esc(s.name)+'</div>'+
+    '<div class="sub">'+esc(s.stand)+'</div></div><div class="stage">'+
+    s.heads.map(x=>'<div class="beat"><h4>'+esc(x)+'</h4></div>').join('')+'</div>';}
+ else if(s.type==='finish'){
+  h='<div class="stage hero"><div class="kick">Game One</div><div class="big">'+esc(s.name)+'</div>'+
+    '<div class="sub">'+esc(s.tagline)+'</div><ul class="how">'+s.how.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul></div>';
+  s.items.forEach((it,i)=>{h+='<div class="stage q"><div class="qfilm">'+esc(it.film)+' &bull; '+it.y+'</div>'+
+   '<div class="qline">&ldquo;'+esc(it.setup)+'&hellip;&rdquo;</div>'+
+   '<div class="qans" id="a'+i+'">'+esc(it.answer)+'</div>'+
+   '<button class="btn amber" data-act="rev" data-i="'+i+'">Reveal</button></div>';});}
+ else if(s.type==='scramble'){
+  h='<div class="stage hero"><div class="kick">Game Two</div><div class="big">'+esc(s.name)+'</div>'+
+    '<div class="sub">'+esc(s.tagline)+'</div><ul class="how">'+s.how.map(x=>'<li>'+esc(x)+'</li>').join('')+'</ul></div>';
+  s.scenes.forEach(sc=>{h+='<div class="stage"><div class="kick">Scene '+sc.id+'</div>'+
+   '<div class="big">'+esc(sc.title)+'</div><div class="sub">'+esc(sc.setting)+'</div>'+
+   sc.cast.map(r=>'<div class="role">'+esc(r)+'</div>').join('')+
+   '<div class="q"><div class="qans" id="s'+sc.id+'">'+esc(sc.answer)+'</div>'+
+   '<button class="btn amber" data-act="revs" data-i="'+sc.id+'">Reveal the movie</button></div></div>';});}
+ el('panel').innerHTML=h;}
+function rev(i){el('a'+i).classList.add('on');}
+function revs(i){el('s'+i).classList.add('on');}
+function libSearch(v){el('panel').innerHTML=libHTML(v);
+ const i=el('q');if(i){i.focus();i.setSelectionRange(i.value.length,i.value.length);}}
+function libHTML(q){q=(q||'').toLowerCase();
+ const hits=D.spares.filter(c=>!q||((c.t+' '+c.m+' '+c.ch+' '+c.y).toLowerCase().indexOf(q)>-1));
+ return '<div class="stage"><div class="kick">Spare clips</div><div class="big">Swap-ins</div>'+
+ '<div class="srow"><input id="q" placeholder="Search a film, a moment, a year…" value="'+esc(q)+'" data-inp="lib">'+
+ '<span class="cnt">'+hits.length+' of '+D.spares.length+'</span></div></div>'+
+ '<div class="stage"><div class="lib">'+(hits.length?hits.map((c,i)=>clipHTML(c,i%2===1)).join(''):'<div class="sub">Nothing matches that.</div>')+'</div></div>';}
+function scoreHTML(){return '<div class="stage"><div class="kick">Scoreboard</div><div class="big">How We Stand</div>'+
+ '<div class="scores">'+SC.map((v,i)=>'<div class="team"><div class="nm">Table '+(i+1)+'</div><div class="nu">'+v+'</div>'+
+ '<div class="rw"><button data-act="sc" data-i="'+i+'" data-n="-1">&minus;</button>'+
+ '<button class="p" data-act="sc" data-i="'+i+'" data-n="1">+</button></div></div>').join('')+
+ '</div></div>';}
+function sc(i,n){SC[i]=Math.max(0,SC[i]+n);show('score');}
+document.addEventListener('click',function(ev){
+ var b=ev.target.closest&&ev.target.closest('[data-act]'); if(!b)return;
+ var a=b.getAttribute('data-act');
+ if(a==='go')go(parseInt(b.getAttribute('data-i'),10));
+ else if(a==='next')step(1);
+ else if(a==='back')step(-1);
+ else if(a==='lib')show('lib');
+ else if(a==='score')show('score');
+ else if(a==='clear')clearPlayed();
+ else if(a==='play')play(b.getAttribute('data-k'),b.getAttribute('data-v'),
+   parseInt(b.getAttribute('data-s'),10),parseInt(b.getAttribute('data-e'),10));
+ else if(a==='ctl')ctl(b.getAttribute('data-c'));
+ else if(a==='rev'){var n=el('a'+b.getAttribute('data-i'));if(n)n.classList.add('on');}
+ else if(a==='revs'){var m=el('s'+b.getAttribute('data-i'));if(m)m.classList.add('on');}
+ else if(a==='sc')sc(parseInt(b.getAttribute('data-i'),10),parseInt(b.getAttribute('data-n'),10));
+},false);
+document.addEventListener('input',function(ev){
+ var i=ev.target; if(i&&i.getAttribute&&i.getAttribute('data-inp')==='lib')libSearch(i.value);
+},false);
+rail();draw();
+})();
+</script>
+</body>
+</html>

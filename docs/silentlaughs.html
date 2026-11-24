@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SILENT LAUGHS — The Great Clowns of the Silent Screen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Limelight&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Outfit:wght@400;600;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0E0C0A; --ink2:#1A1612; --ink3:#26201A;
+  --cream:#F4E9D3; --sepia:#C9A66B; --gold:#E8C26A; --rust:#B5532F; --dim:#8F7F68;
+  --deco:'Limelight',Georgia,serif;
+  --serif:'Playfair Display',Georgia,serif;
+  --body:'Outfit',system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--ink);color:var(--cream);font-family:var(--body);min-height:100vh;
+  -webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(ellipse 110% 60% at 50% -10%, #3A2C1C 0%, transparent 60%)}
+body.audience .hostonly{display:none!important}
+.wrap{max-width:1180px;margin:0 auto;padding:18px 20px 70px}
+
+/* film strip */
+.strip{height:22px;margin:0 0 16px;border-radius:3px;
+  background:repeating-linear-gradient(90deg,#000 0 10px,var(--cream) 10px 22px,#000 22px 34px);
+  -webkit-mask:linear-gradient(#000 0 0);opacity:.18}
+header.hero{text-align:center;padding:4px 0 18px}
+h1.logo{font-family:var(--deco);font-size:clamp(2.6rem,9vw,5.4rem);line-height:.95;
+  color:var(--gold);letter-spacing:.02em;text-shadow:4px 4px 0 var(--rust),8px 8px 0 rgba(0,0,0,.5)}
+.tag{margin-top:14px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;font-size:.78rem;color:var(--sepia)}
+.notetoggle{display:flex;justify-content:center;margin:4px 0 20px}
+.notetoggle button{border:0;cursor:pointer;font-family:var(--body);font-weight:900;font-size:.66rem;
+  letter-spacing:.14em;text-transform:uppercase;padding:8px 15px;border-radius:30px;background:var(--ink2);color:#5E5242}
+.notetoggle button:hover{color:var(--cream)}
+.notetoggle button.on{background:var(--gold);color:#2A1E0E}
+
+/* stage */
+.stage{background:linear-gradient(165deg,var(--ink3),var(--ink2));border-radius:20px;
+  padding:clamp(16px,2.6vw,26px);box-shadow:0 8px 0 rgba(0,0,0,.5);margin-bottom:20px}
+.nowmeta{font-weight:900;letter-spacing:.2em;text-transform:uppercase;font-size:.7rem;color:var(--sepia);text-align:center;margin-bottom:8px}
+.nowwho{text-align:center;font-weight:900;letter-spacing:.12em;text-transform:uppercase;font-size:.85rem;color:var(--gold);margin-bottom:4px}
+.nowtitle{font-family:var(--serif);font-weight:900;font-size:clamp(1.4rem,3.8vw,2.3rem);line-height:1.1;
+  color:var(--cream);text-align:center;margin-bottom:16px}
+.pwrap{position:relative;width:100%;border-radius:14px;overflow:hidden;background:#000;
+  border:6px solid #000;box-shadow:0 0 0 2px var(--sepia),0 8px 0 rgba(0,0,0,.5)}
+.pframe{position:relative;padding-bottom:56.25%;height:0}
+.pframe iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+
+/* intertitle card — sits over the player */
+.card-over{position:absolute;inset:0;background:#000;display:flex;align-items:center;justify-content:center;
+  transition:opacity .4s,visibility .4s;padding:3.5%}
+.card-over.gone{opacity:0;visibility:hidden}
+.title-card{width:100%;height:100%;border:3px solid var(--cream);outline:2px solid var(--cream);outline-offset:-14px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+  padding:4% 7%;position:relative;
+  background:radial-gradient(ellipse at center,#1B1712 0%,#000 75%)}
+.title-card::before,.title-card::after{content:"\2756";position:absolute;color:var(--cream);font-size:clamp(.9rem,2.2vw,1.5rem);opacity:.85}
+.title-card::before{top:5%;left:50%;transform:translateX(-50%)}
+.title-card::after{bottom:5%;left:50%;transform:translateX(-50%)}
+.tc-kick{font-family:var(--body);font-weight:800;letter-spacing:.3em;text-transform:uppercase;
+  font-size:clamp(.7rem,1.7vw,1.05rem);color:var(--sepia);margin-bottom:2.5%}
+.tc-title{font-family:var(--deco);font-size:clamp(1.8rem,6.4vw,4.4rem);line-height:1.02;color:var(--cream)}
+.tc-sub{font-family:var(--serif);font-style:italic;font-weight:700;font-size:clamp(1rem,2.8vw,1.9rem);
+  color:var(--gold);margin-top:2.5%}
+.tc-ask{font-family:var(--serif);font-weight:700;font-size:clamp(1rem,2.7vw,1.85rem);color:var(--cream);
+  margin-top:5%;line-height:1.3;max-width:28ch}
+.flicker{animation:flick 3.2s infinite}
+@keyframes flick{0%,100%{opacity:1}47%{opacity:1}48%{opacity:.86}50%{opacity:1}73%{opacity:.93}74%{opacity:1}}
+
+.ctl{display:flex;gap:9px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+.btn{border:0;cursor:pointer;font-family:var(--body);font-weight:900;text-transform:uppercase;letter-spacing:.05em;
+  font-size:.85rem;padding:15px 24px;border-radius:12px;background:var(--gold);color:#2A1E0E;
+  box-shadow:0 5px 0 #9C7A30;transition:transform .1s,box-shadow .1s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 7px 0 #9C7A30}
+.btn:active{transform:translateY(3px);box-shadow:0 2px 0 #9C7A30}
+.btn.go{background:var(--rust);color:#fff;box-shadow:0 5px 0 #6E2E17}
+.btn.go:hover{box-shadow:0 7px 0 #6E2E17}
+.btn.ghost{background:var(--ink);color:var(--cream);box-shadow:0 5px 0 rgba(0,0,0,.6)}
+.btn.ghost:hover{box-shadow:0 7px 0 rgba(0,0,0,.6)}
+
+.prog{margin-top:18px}
+.bar{height:11px;background:var(--ink);border-radius:20px;overflow:hidden;box-shadow:inset 0 2px 5px rgba(0,0,0,.6)}
+.bar span{display:block;height:100%;background:linear-gradient(90deg,var(--sepia),var(--gold));border-radius:20px;transition:width .6s ease;width:0}
+.progline{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-top:10px;
+  font-weight:900;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--dim)}
+.progline b{color:var(--gold)}
+.pstatus{text-align:center;margin-top:11px;font-size:.74rem;font-weight:700;letter-spacing:.05em;color:#6E6250}
+.pstatus.good{color:var(--sepia)} .pstatus.bad{color:var(--rust)}
+
+/* host script panel */
+.script{margin-top:16px;padding:16px 18px;border-radius:12px;background:rgba(232,194,106,.08);
+  border-left:5px solid var(--gold);font-size:1rem;line-height:1.6;color:#EADBBE}
+.script b.lbl{display:block;font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);margin-bottom:6px}
+.script p+p{margin-top:9px}
+.script em{color:var(--gold);font-style:normal;font-weight:800}
+
+/* lineup */
+.card{background:var(--ink2);border-radius:18px;padding:24px;box-shadow:0 7px 0 rgba(0,0,0,.5);margin-bottom:18px}
+h2.ttl{font-family:var(--deco);font-size:clamp(1.4rem,3.6vw,2rem);color:var(--gold);line-height:1}
+h3.sub{font-weight:900;text-transform:uppercase;letter-spacing:.14em;font-size:.72rem;color:var(--sepia);margin-bottom:12px}
+p.lede{font-size:1rem;line-height:1.6;color:#DCCDB2;max-width:64ch}
+.rule{height:3px;background:repeating-linear-gradient(90deg,var(--sepia) 0 12px,transparent 12px 22px);margin:14px 0;opacity:.6}
+.row{display:flex;align-items:center;gap:14px;padding:12px 15px;border-radius:12px;background:var(--ink3);
+  margin-bottom:8px;cursor:pointer;transition:transform .1s;border-left:5px solid transparent}
+.row:hover{transform:translateX(3px)}
+.row.on{border-left-color:var(--gold);background:#3A2F22}
+.row.done{opacity:.45}
+.row.isCard{background:transparent;border:1px dashed #4A3F31;border-left-width:5px}
+.row.isCard.on{border-left-color:var(--gold);border-left-style:solid}
+.rnum{font-family:var(--deco);font-size:1.05rem;color:var(--gold);min-width:30px;text-align:center}
+.rtxt{flex:1;min-width:0}
+.rwho{font-weight:900;font-size:.72rem;letter-spacing:.11em;text-transform:uppercase;color:var(--sepia)}
+.rname{font-weight:700;font-size:.98rem;line-height:1.3;color:var(--cream);margin-top:3px}
+.rsrc{font-size:.66rem;color:#6E6250;margin-top:3px;letter-spacing:.03em}
+.rlen{font-weight:900;font-size:.82rem;color:var(--dim);white-space:nowrap}
+.hostnote{margin-top:13px;padding:12px 15px;border-radius:12px;background:rgba(232,194,106,.08);
+  border-left:4px solid var(--gold);font-size:.88rem;font-weight:600;color:#DCCDB2;line-height:1.5}
+.hostnote b{display:block;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:4px}
+ul.tips{margin-left:19px} ul.tips li{line-height:1.6;color:#DCCDB2;margin-bottom:7px}
+@media (max-width:640px){.wrap{padding:12px 13px 50px}.card{padding:18px}.rsrc{display:none}}
+</style>
+</head>
+<body class="audience">
+<div class="wrap">
+<div class="strip"></div>
+<header class="hero">
+  <h1 class="logo">Silent Laughs</h1>
+  <div class="tag">The Great Clowns of the Silent Screen &nbsp;&bull;&nbsp; The Bristal at Sayville</div>
+</header>
+<div class="notetoggle"><button id="noteBtn"></button></div>
+<main id="main"></main>
+</div>
+
+<script>
+/* ===================================================================
+   SILENT LAUGHS — a 45-minute reel for the Reflections neighborhood.
+   About 80% film, 20% host. Title cards ("intertitles") introduce each
+   comedian; the clips after them roll on their own.
+
+   Every clip below was checked live on 2026-11-23: the video resolves
+   and its owner allows embedding.
+   s = seconds it plays here.  start/end trim a clip (seconds).
+   Cards: s is the rough time you'll talk over them.
+   =================================================================== */
+const SEQ=[
+ {card:1, kick:"Tonight's Picture Show", title:"Silent Laughs", sub:"No talking. No problem.",
+  ask:"Who remembers going to the picture show?", s:90,
+  say:["Welcome, everybody. Today we're going back to the movies — the very first ones, before the movies could talk.",
+       "No voices, no sound — just music from the piano player down front, and words on a card like this one when they needed to tell you something.",
+       "<em>Ask the room:</em> Who went to the movies as a kid? How much did it cost? Who sat in the front row?"]},
+
+ {card:1, kick:"Reel One", title:"The Keystone Cops", sub:"Where it all started · 1912", ask:"Hold onto your hats!", s:60,
+  say:["These are the Keystone Cops, from Mack Sennett's studio out in Los Angeles. He called it the Fun Factory.",
+       "Silly policemen, chasing everybody, crashing into everything. This is where the big comedy stars got their start — including the fellow coming up next.",
+       "<em>Ask:</em> Who remembers the Keystone Cops?"]},
+ {id:"6Orde7FtHh0", who:"The Keystone Cops", t:"The Keystone Cops in Action", s:346, ch:"Dave Glass"},
+
+ {card:1, kick:"Reel Two", title:"Charlie Chaplin", sub:"The Little Tramp", ask:"The hat, the cane, the funny walk…", s:90,
+  say:["The most famous face in the world for a while there — Charlie Chaplin, the Little Tramp. Born in London, started right there at Keystone in 1914.",
+       "The bowler hat, the cane, the baggy pants, the big shoes, the little mustache, and that walk.",
+       "<em>Get them moving:</em> Everybody tip your hat! Who can do the Chaplin walk with their feet? (Seated is fine — toes out!)",
+       "First up, the Dance of the Rolls from The Gold Rush, 1925. Audiences loved it so much some theaters stopped the film and played it again."]},
+ {id:"4DLdMa98JdM", who:"Charlie Chaplin", t:"The Dance of the Rolls — The Gold Rush (1925)", s:73, ch:"Charlie Chaplin (official)"},
+ {id:"_0a998z_G4g", who:"Charlie Chaplin", t:"Locked in the Lion's Cage — The Circus (1928)", s:219, ch:"Charlie Chaplin (official)"},
+ {id:"o9NfXIXzgnA", who:"Charlie Chaplin", t:"The Boxing Match — City Lights (1931)", s:294, ch:"Charlie Chaplin (official)"},
+ {id:"ZdvEGPt4s0Y", who:"Charlie Chaplin", t:"Swallowed by the Machine — Modern Times (1936)", s:84, ch:"Charlie Chaplin (official)"},
+
+ {card:1, kick:"Reel Three", title:"Harold Lloyd", sub:"The Man in the Glasses", ask:"Don't look down!", s:75,
+  say:["Harold Lloyd — the regular fella in the round glasses and the straw hat. In the 1920s he was as big as Chaplin.",
+       "This is Safety Last! from 1923 — he climbs the outside of a tall building, and ends up hanging off a big clock. One of the most famous pictures in movie history.",
+       "Here's the thing: years before, a prop bomb went off in his hand and he lost a thumb and finger. He did this climb wearing a special glove.",
+       "<em>Ask:</em> Anybody here scared of heights? (Expect gasps during this one — that's the fun.)"]},
+ {id:"QEcTjhUN_7U", who:"Harold Lloyd", t:"The Big Climb — Safety Last! (1923)", s:455, ch:"ElusiveAtSeventyTwo"},
+
+ {card:1, kick:"Reel Four", title:"Buster Keaton", sub:"The Great Stone Face", ask:"He never smiled on screen. Can you keep a straight face?", s:75,
+  say:["Buster Keaton. They called him the Great Stone Face — he never smiled in his pictures, no matter what happened to him.",
+       "He did his own stunts. Trains, waterfalls, motorcycles — all real.",
+       "<em>Game:</em> Everybody give me your best stone face. No smiling! (Somebody always cracks.)",
+       "We'll finish his reel with the most famous stunt ever filmed — the whole front of a house falls on him, and he's standing right where the open window lands."]},
+ {id:"yOo_ZUVU_O8", who:"Buster Keaton", t:"Buster's Greatest Stunts", s:301, ch:"Buster Keaton (fan channel)"},
+ {id:"FN2SKWSOdGM", who:"Buster Keaton", t:"The House Falls — Steamboat Bill, Jr. (1928)", s:51, ch:"AstaireLover"},
+
+ {card:1, kick:"Reel Five", title:"Laurel & Hardy", sub:"Another fine mess", ask:"The skinny one and the big one!", s:75,
+  say:["Last but not least — Stan Laurel and Oliver Hardy. Stan was the skinny Englishman, Ollie was the big fella from Georgia.",
+       "This is Big Business from 1929. They're selling Christmas trees door to door in sunny California, and one grumpy customer starts a fight that gets completely out of hand.",
+       "We're joining it right when the trouble really gets going.",
+       "<em>Ask:</em> Who remembers Ollie fiddling with his tie? Show me!"]},
+ {id:"gBgxzlcnSYk", who:"Laurel & Hardy", t:"The Christmas Tree Feud — Big Business (1929)", s:474, start:600, ch:"Sam P."},
+
+ {card:1, kick:"", title:"The End", sub:"Thanks for coming to the picture show", ask:"Who was your favorite?", s:60,
+  say:["That's our show! <em>Go around the room:</em> Who was your favorite — Charlie, Harold, Buster, or Laurel & Hardy?",
+       "Anybody want to see one again? Tap it in the list below and it plays."]}
+];
+
+/* Spares — tap one to drop it in after the current item. */
+const EXTRAS=[
+ {id:"6n9ESFJTnHs", who:"Charlie Chaplin", t:"The Factory Scene — Modern Times (1936)", s:250, ch:"Charlie Chaplin (official)"},
+ {id:"kPcEFHA3X0c", who:"Charlie Chaplin", t:"Roller Skating Blindfolded — Modern Times (1936)", s:131, ch:"Charlie Chaplin (official)"},
+ {id:"u65lvwfTPtM", who:"Charlie Chaplin", t:"Eating His Shoe — The Gold Rush (1925)", s:159, ch:"Charlie Chaplin (official)"},
+ {id:"G09dfRrUxUM", who:"Charlie Chaplin", t:"The Mirror Maze — The Circus (1928)", s:207, ch:"Charlie Chaplin (official)"},
+ {id:"uFS7H1-YFV4", who:"Charlie Chaplin", t:"The Cabin on the Cliff — The Gold Rush (1925)", s:58, ch:"Charlie Chaplin (official)"},
+ {id:"W5EFMFtlnLw", who:"Charlie Chaplin", t:"The Spaghetti Scene — City Lights (1931)", s:68, ch:"Charlie Chaplin (official)"},
+ {id:"zqzWurPE01Y", who:"Harold Lloyd", t:"Harold Lloyd's Best Stunts and Gags", s:349, ch:"Don McHoull"},
+ {id:"a8jphxpi1ro", who:"The Keystone Cops", t:"The Keystone Kops to “Pickles and Peppers”", s:217, ch:"laughland"},
+ {id:"GwUUUqgfu-E", who:"The Keystone Cops", t:"Keystone Cops Chase Reel", s:111, ch:"Dave Glass"}
+];
+</script>
+
+<script>
+/* =================== state =================== */
+const store={
+  get(k,d){try{const v=localStorage.getItem('sl_'+k);return v?JSON.parse(v):d}catch(e){return d}},
+  set(k,v){try{localStorage.setItem('sl_'+k,JSON.stringify(v))}catch(e){}}
+};
+let ITEMS=SEQ.slice();
+let idx=0, playing=false, finished=false;
+let showNotes=store.get('showNotes',false);
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const mmss=t=>{t=Math.max(0,Math.round(t));const m=Math.floor(t/60);return m+':'+String(t%60).padStart(2,'0')};
+const cur=()=>ITEMS[idx];
+const isCard=it=>!!(it&&it.card);
+const totalSecs=()=>ITEMS.reduce((a,c)=>a+c.s,0);
+const before=n=>ITEMS.slice(0,n).reduce((a,c)=>a+c.s,0);
+const clipCount=()=>ITEMS.filter(i=>!i.card).length;
+const clipNo=n=>ITEMS.slice(0,n+1).filter(i=>!i.card).length;
+const nextClipFrom=n=>{for(let i=n;i<ITEMS.length;i++)if(!ITEMS[i].card)return i;return -1};
+const vid=c=>{const o={videoId:c.id};if(c.start)o.startSeconds=c.start;if(c.end)o.endSeconds=c.end;return o};
+
+/* =================== player =================== */
+let YTREADY=false, PL=null, PLREADY=false; const ytQueue=[];
+window.onYouTubeIframeAPIReady=function(){YTREADY=true;ytQueue.splice(0).forEach(f=>{try{f()}catch(e){}})};
+(function(){const t=document.createElement('script');t.src='https://www.youtube.com/iframe_api';document.head.appendChild(t)})();
+
+let lastStatus=null;
+function setStatus(t,tone){lastStatus={t,tone:tone||''};
+  const el=document.getElementById('pstatus');if(el){el.textContent=t;el.className='pstatus'+(tone?' '+tone:'')}}
+function killCaptions(){if(!PL)return;['captions','cc'].forEach(m=>{try{PL.unloadModule(m)}catch(e){}})}
+
+function mountPlayer(){
+  const make=()=>{
+    if(!document.getElementById('ytmount'))return;
+    const first=ITEMS[nextClipFrom(0)];
+    try{
+      PL=new YT.Player('ytmount',{
+        videoId:first.id, host:'https://www.youtube-nocookie.com',
+        playerVars:{controls:0,rel:0,modestbranding:1,iv_load_policy:3,fs:0,playsinline:1,cc_load_policy:0,
+                    start:first.start||0},
+        events:{
+          onReady:()=>{PLREADY=true;killCaptions();setStatus('Ready — talk over the title card, then press Roll film','good');},
+          onError:e=>setStatus('That clip wouldn’t load (code '+e.data+') — press Next','bad'),
+          onStateChange:e=>{
+            killCaptions();
+            if(e.data===YT.PlayerState.PLAYING){playing=true;setStatus('Rolling','good');paintControls();}
+            if(e.data===YT.PlayerState.PAUSED){playing=false;if(!isCard(cur()))setStatus('Paused','');paintControls();}
+            if(e.data===YT.PlayerState.ENDED){playing=false;if(!isCard(cur()))goTo(idx+1,true);}
+          }}});
+    }catch(e){setStatus('Player could not start on this page','bad');}
+  };
+  if(YTREADY)make();else ytQueue.push(make);
+}
+
+function goTo(n,autoplay){
+  if(n<0)n=0;
+  if(n>=ITEMS.length){idx=ITEMS.length-1;finished=true;playing=false;
+    try{PL.pauseVideo()}catch(e){}
+    setStatus('That’s the whole show','good');render();return;}
+  finished=false; idx=n; const it=cur();
+  if(isCard(it)){
+    /* title card: stop the film, have the next clip cued and waiting */
+    try{PL.pauseVideo()}catch(e){}
+    const nx=nextClipFrom(idx+1);
+    if(nx>-1&&PL&&PL.cueVideoById){try{PL.cueVideoById(vid(ITEMS[nx]))}catch(e){}}
+    playing=false; setStatus('Title card — talk, then press Roll film','good');
+  }else if(PL&&PL.loadVideoById){
+    autoplay?PL.loadVideoById(vid(it)):PL.cueVideoById(vid(it));
+    setTimeout(killCaptions,600);
+  }
+  render();
+}
+</script>
+
+<script>
+/* =================== render =================== */
+function paintControls(){
+  const p=document.getElementById('btnMain'); if(!p)return;
+  if(isCard(cur())){p.textContent=finished||idx===ITEMS.length-1?'↺ Back to start':'▶ Roll film';p.className='btn go';}
+  else{p.textContent=playing?'❙❙ Pause':'▶ Play';p.className='btn';}
+}
+function buildOnce(){
+  document.getElementById('main').innerHTML=
+   '<div class="stage">'+
+    '<div class="nowmeta" id="nowmeta"></div>'+
+    '<div class="nowwho" id="nowwho"></div>'+
+    '<div class="nowtitle" id="nowtitle"></div>'+
+    '<div class="pwrap"><div class="pframe"><div id="ytmount"></div></div>'+
+      '<div class="card-over" id="cardover"><div class="title-card flicker" id="tcard"></div></div></div>'+
+    '<div class="ctl">'+
+      '<button class="btn go" id="btnMain">▶ Roll film</button>'+
+      '<button class="btn ghost" id="btnPrev">‹ Back</button>'+
+      '<button class="btn ghost" id="btnNext">Next ›</button>'+
+      '<button class="btn ghost" id="btnReplay">↺ Replay</button>'+
+    '</div>'+
+    '<div class="script hostonly" id="script"></div>'+
+    '<div class="prog"><div class="bar"><span id="barfill"></span></div>'+
+      '<div class="progline"><span id="progA"></span><span id="progB"></span><span id="progC"></span></div>'+
+      '<div class="pstatus" id="pstatus">loading the projector…</div></div>'+
+   '</div><div id="listHost"></div>';
+  const on=(id,fn)=>document.getElementById(id).addEventListener('click',fn);
+  on('btnMain',()=>{
+    if(!PLREADY){setStatus('Projector still warming up — give it a second','bad');return;}
+    if(isCard(cur())){ if(idx===ITEMS.length-1){goTo(0,false);return;} goTo(idx+1,true); return; }
+    try{playing?PL.pauseVideo():PL.playVideo()}catch(e){}
+    setTimeout(()=>{try{if(PL.getPlayerState()!==1&&!playing)setStatus('Browser blocked it — click the picture itself to start','bad')}catch(e){}},1500);
+  });
+  on('btnNext',()=>goTo(idx+1,true));
+  on('btnPrev',()=>goTo(idx-1,true));
+  on('btnReplay',()=>{const it=cur();if(isCard(it))return;try{PL.seekTo(it.start||0,true);PL.playVideo()}catch(e){}});
+  document.addEventListener('keydown',e=>{
+    if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();document.getElementById('btnMain').click();}
+    if(e.key==='ArrowLeft'){goTo(idx-1,true);}
+  });
+}
+function rowHTML(it,n){
+  const st=(n===idx?' on':'')+(n<idx?' done':'')+(isCard(it)?' isCard':'');
+  if(isCard(it)) return '<div class="row'+st+'" data-jump="'+n+'"><div class="rnum">❖</div>'+
+    '<div class="rtxt"><div class="rwho">Title card'+(it.kick?' · '+esc(it.kick):'')+'</div>'+
+    '<div class="rname">'+esc(it.title)+'</div></div><div class="rlen hostonly">~'+mmss(it.s)+' talk</div></div>';
+  return '<div class="row'+st+'" data-jump="'+n+'"><div class="rnum">'+clipNo(n)+'</div>'+
+    '<div class="rtxt"><div class="rwho">'+esc(it.who)+'</div><div class="rname">'+esc(it.t)+'</div>'+
+    '<div class="rsrc hostonly">uploaded by '+esc(it.ch)+(it.start?' · starts at '+mmss(it.start):'')+'</div></div>'+
+    '<div class="rlen">'+mmss(it.s)+'</div></div>';
+}
+function lineupHTML(){
+  const film=ITEMS.filter(i=>!i.card).reduce((a,c)=>a+c.s,0);
+  return '<div class="card"><h2 class="ttl">Tonight’s Program</h2><div class="rule"></div>'+
+    '<p class="lede hostonly">Tap anything to jump to it. Clips roll into each other on their own and stop at each title card so you can talk.</p>'+
+    '<div style="margin-top:14px">'+ITEMS.map(rowHTML).join('')+'</div>'+
+    '<div class="hostnote hostonly"><b>Presenter</b>'+clipCount()+' clips, '+mmss(film)+' of film and about '+
+      mmss(totalSecs()-film)+' of you — '+mmss(totalSecs())+' all in. '+
+      'Spacebar or the right arrow does the big button, so a clicker works. '+
+      'Running long? Cut the Modern Times machine clip and keep the Lloyd climb whole.</div></div>'+
+
+   '<div class="card hostonly"><h3 class="sub">Spares</h3>'+
+    '<p class="lede">Tap one to drop it in right after what’s on now — if the room is loving Chaplin, give them more Chaplin.</p>'+
+    '<div style="margin-top:13px">'+EXTRAS.map((c,n)=>'<div class="row" data-extra="'+n+'"><div class="rnum">+</div>'+
+      '<div class="rtxt"><div class="rwho">'+esc(c.who)+'</div><div class="rname">'+esc(c.t)+'</div>'+
+      '<div class="rsrc">uploaded by '+esc(c.ch)+'</div></div><div class="rlen">'+mmss(c.s)+'</div></div>').join('')+
+    '</div></div>'+
+
+   '<div class="card hostonly"><h3 class="sub">Running it in Reflections</h3><ul class="tips">'+
+    '<li><strong>Turn it up.</strong> The music carries these. Louder than you think.</li>'+
+    '<li><strong>Narrate a little during the clips.</strong> “Uh oh, here comes the lion…” Short and light. It helps people follow along.</li>'+
+    '<li><strong>Read the cards out loud.</strong> Every title card, every time.</li>'+
+    '<li><strong>A clip won’t load.</strong> Press Next. Don’t troubleshoot in front of the room — there are spares.</li>'+
+    '<li><strong>Someone drifts or gets restless.</strong> Skip ahead to Chaplin or Laurel & Hardy — they get the biggest reactions.</li>'+
+    '<li><strong>They’re talking over it.</strong> That’s the program working. Let them.</li></ul></div>';
+}
+function render(){
+  const it=cur(), done=before(idx), total=totalSecs();
+  const set=(id,h)=>{const el=document.getElementById(id);if(el)el.innerHTML=h};
+  if(isCard(it)){
+    set('nowmeta','&nbsp;'); set('nowwho','&nbsp;'); set('nowtitle','&nbsp;');
+    set('tcard',(it.kick?'<div class="tc-kick">'+esc(it.kick)+'</div>':'')+
+      '<div class="tc-title">'+esc(it.title)+'</div>'+
+      (it.sub?'<div class="tc-sub">'+esc(it.sub)+'</div>':'')+
+      (it.ask?'<div class="tc-ask">'+esc(it.ask)+'</div>':''));
+    set('script','<b class="lbl">Say it your way</b>'+it.say.map(p=>'<p>'+p+'</p>').join(''));
+  }else{
+    set('nowmeta','Now showing · clip '+clipNo(idx)+' of '+clipCount());
+    set('nowwho',esc(it.who)); set('nowtitle',esc(it.t));
+    set('script','<b class="lbl">While it plays</b><p>Clip runs '+mmss(it.s)+'. When it ends the next one rolls, or the next title card comes up.</p>');
+  }
+  document.getElementById('cardover').classList.toggle('gone',!isCard(it));
+  set('progA','Item <b>'+(idx+1)+'</b> of '+ITEMS.length);
+  set('progB','<b>'+mmss(done)+'</b> in · '+mmss(total-done)+' to go');
+  set('progC','Show <b>'+mmss(total)+'</b>');
+  const f=document.getElementById('barfill'); if(f)f.style.width=(finished?100:Math.round(done/total*100))+'%';
+  document.getElementById('listHost').innerHTML=lineupHTML();
+  if(lastStatus){const el=document.getElementById('pstatus');if(el){el.textContent=lastStatus.t;el.className='pstatus'+(lastStatus.tone?' '+lastStatus.tone:'')}}
+  applyNotes(); paintControls();
+}
+function applyNotes(){
+  document.body.classList.toggle('audience',!showNotes);
+  const b=document.getElementById('noteBtn');
+  b.textContent=showNotes?'Presenter notes: on':'Presenter notes: off'; b.classList.toggle('on',showNotes);
+}
+/* one delegated listener for the list — survives every re-render */
+document.addEventListener('click',e=>{
+  const j=e.target.closest('[data-jump]'); if(j){goTo(+j.dataset.jump,true);return;}
+  const x=e.target.closest('[data-extra]');
+  if(x){ITEMS.splice(idx+1,0,EXTRAS[+x.dataset.extra]);render();}
+});
+document.getElementById('noteBtn').addEventListener('click',()=>{showNotes=!showNotes;store.set('showNotes',showNotes);applyNotes();});
+buildOnce(); render(); mountPlayer();
+</script>
+</body>
+</html>

@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>WOMEN WHO ROAST — The Queens of the Dais</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Bangers&family=Jost:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0B0B0D; --ink2:#16141A; --pink:#FF2E88; --crimson:#E0243F; --emerald:#12B47A; --lemon:#FFE14D; --cream:#FFF4DE;
+  --dim:#9C93A3; --disp:'Anton',Impact,'Arial Narrow',sans-serif; --pow:'Bangers','Anton',Impact,sans-serif;
+  --body:'Jost',system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--ink);color:var(--cream);font-family:var(--body);min-height:100vh;-webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(rgba(255,46,136,.16) 1.6px,transparent 1.8px),radial-gradient(ellipse 90% 60% at 50% -10%,rgba(255,46,136,.22),transparent 65%);
+  background-size:14px 14px,100% 100%}
+body.audience .hostonly{display:none!important}
+.wrap{max-width:1200px;margin:0 auto;padding:22px 20px 70px}
+
+/* masthead */
+header.hero{position:relative;text-align:center;padding:8px 0 8px}
+.kickline{display:inline-block;font-family:var(--pow);letter-spacing:.12em;font-size:1.05rem;color:var(--ink);background:var(--lemon);
+  padding:4px 14px 2px;border:3px solid #000;box-shadow:4px 4px 0 #000;transform:rotate(-2deg)}
+h1.logo{font-family:var(--disp);font-weight:400;text-transform:uppercase;font-size:clamp(3rem,10vw,6.6rem);line-height:.9;margin-top:14px;
+  color:var(--pink);-webkit-text-stroke:3px #000;paint-order:stroke fill;text-shadow:6px 6px 0 #000,10px 10px 0 var(--crimson);letter-spacing:.01em}
+h1.logo i{font-style:normal;color:var(--cream)}
+.tag{margin-top:14px;font-weight:600;font-size:1.05rem;color:#E7DBE9}
+.tag b{color:var(--emerald)}
+.burst{position:absolute;right:4%;top:6px;width:108px;height:108px;display:flex;align-items:center;justify-content:center;transform:rotate(12deg);
+  font-family:var(--pow);font-size:1.7rem;color:#000;background:var(--lemon);border:3px solid #000;
+  clip-path:polygon(50% 0,61% 22%,85% 10%,78% 36%,100% 46%,79% 59%,90% 85%,63% 77%,50% 100%,38% 78%,11% 88%,21% 61%,0 48%,22% 37%,14% 11%,39% 23%)}
+.notetoggle{display:flex;justify-content:center;gap:8px;margin:16px 0 20px}
+.notetoggle button{border:2px solid #333;cursor:pointer;font-family:var(--body);font-weight:700;font-size:.66rem;letter-spacing:.16em;
+  text-transform:uppercase;padding:8px 15px;border-radius:30px;background:transparent;color:#6E6575}
+.notetoggle button:hover{color:var(--cream)}
+.notetoggle button.on{background:var(--emerald);color:#04140D;border-color:#000}
+
+/* stage */
+.stage{background:var(--ink2);border:4px solid #000;border-radius:6px;padding:clamp(14px,2.4vw,24px);
+  box-shadow:10px 10px 0 var(--pink),10px 10px 0 4px #000;margin-bottom:28px}
+.nowmeta{font-family:var(--pow);letter-spacing:.1em;font-size:1.05rem;color:var(--lemon);text-align:center;min-height:1em}
+.nowtitle{font-family:var(--disp);text-transform:uppercase;font-size:clamp(1.3rem,3.4vw,2.2rem);line-height:1.05;text-align:center;margin:4px 0 14px;min-height:1.05em}
+.pwrap{position:relative;width:100%;overflow:hidden;background:#000;border:4px solid #000;outline:3px solid var(--cream);outline-offset:-10px}
+.pframe{position:relative;padding-bottom:56.25%;height:0}
+.pframe iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+
+/* overlay panels */
+.over{position:absolute;inset:0;transition:opacity .35s,visibility .35s;background:#120A12;overflow:hidden}
+.over.gone{opacity:0;visibility:hidden}
+.art{position:absolute;inset:0;background-size:cover;background-position:center;animation:kb 18s ease-in-out infinite alternate}
+@keyframes kb{from{transform:scale(1)}to{transform:scale(1.06)}}
+.shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(11,11,13,.92) 0%,rgba(11,11,13,.72) 34%,rgba(11,11,13,0) 62%)}
+.shade.all{background:rgba(11,11,13,.6)}
+.shade.soft{background:radial-gradient(ellipse at center,rgba(11,11,13,.25),rgba(11,11,13,.7))}
+.shade.low{background:linear-gradient(0deg,rgba(11,11,13,.9) 0%,rgba(11,11,13,0) 45%)}
+.dots{position:absolute;inset:0;background-image:radial-gradient(rgba(255,46,136,.28) 1.4px,transparent 1.6px);background-size:12px 12px;mix-blend-mode:screen;opacity:.5;pointer-events:none}
+.cap{position:absolute;left:4.5%;top:50%;transform:translateY(-50%);width:44%;display:flex;flex-direction:column;align-items:flex-start;text-align:left}
+.cap.right{left:auto;right:4.5%;align-items:flex-end;text-align:right}
+.cap.right .bub:after{left:auto;right:28px}.cap.right .bub:before{left:auto;right:31px}
+.shade.flip{background:linear-gradient(270deg,rgba(11,11,13,.92) 0%,rgba(11,11,13,.72) 34%,rgba(11,11,13,0) 62%)}
+.cap.bottom{top:auto;bottom:6%;transform:none;width:91%;flex-direction:row;align-items:flex-end;gap:3%}
+.k{font-family:var(--pow);letter-spacing:.08em;font-size:clamp(.8rem,1.9vw,1.35rem);color:#000;background:var(--lemon);border:3px solid #000;
+  padding:.15em .6em 0;box-shadow:4px 4px 0 #000;transform:rotate(-2deg)}
+.ttl{font-family:var(--disp);text-transform:uppercase;font-size:clamp(2rem,6.4vw,4.9rem);line-height:.92;margin-top:5%;color:var(--cream);
+  -webkit-text-stroke:2px #000;paint-order:stroke fill;text-shadow:5px 5px 0 var(--crimson)}
+.sb{display:inline-block;margin-top:4%;font-weight:800;text-transform:uppercase;letter-spacing:.06em;font-size:clamp(.72rem,1.7vw,1.15rem);
+  background:var(--pink);color:#fff;border:3px solid #000;padding:.35em .7em;box-shadow:4px 4px 0 #000}
+.bub{position:relative;margin-top:7%;background:#fff;color:#111;border:3px solid #000;border-radius:22px;padding:.6em .9em;
+  font-weight:700;font-size:clamp(.85rem,2.1vw,1.45rem);line-height:1.22;max-width:100%;box-shadow:5px 5px 0 rgba(0,0,0,.6)}
+.bub:after{content:"";position:absolute;left:28px;bottom:-20px;border:10px solid transparent;border-top:14px solid #000}
+.bub:before{content:"";position:absolute;left:31px;bottom:-12px;z-index:1;border:7px solid transparent;border-top:10px solid #fff}
+.heat{display:inline-block;margin-top:6%;font-family:var(--pow);letter-spacing:.1em;font-size:clamp(.9rem,2.2vw,1.5rem);color:#fff;background:var(--crimson);
+  border:3px solid #000;padding:.15em .7em 0;box-shadow:4px 4px 0 #000;transform:rotate(2deg)}
+.cap.bottom .ttl{margin-top:0;font-size:clamp(1.4rem,4vw,3rem)}
+/* trivia */
+.qwrap{position:absolute;inset:5% 5%;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.q-text{font-family:var(--disp);text-transform:uppercase;font-size:clamp(1.15rem,3.4vw,2.6rem);line-height:1.05;margin:2.5% 0 3.5%;max-width:24ch;
+  color:var(--cream);-webkit-text-stroke:1.5px #000;paint-order:stroke fill;text-shadow:4px 4px 0 #000}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:2.4%;width:94%}
+.opt{display:flex;align-items:center;gap:12px;text-align:left;padding:2.2% 2.6%;cursor:pointer;background:var(--cream);color:#111;border:3px solid #000;
+  box-shadow:5px 5px 0 #000;font-weight:700;font-size:clamp(.8rem,2vw,1.35rem);transition:all .25s}
+.opt b{display:inline-flex;align-items:center;justify-content:center;flex:none;width:1.7em;height:1.7em;border-radius:50%;background:var(--pink);
+  color:#fff;border:2px solid #000;font-family:var(--pow);font-size:1.05em;padding-top:.1em}
+.opt.right{background:var(--emerald);color:#04140D;transform:rotate(-1deg) scale(1.04)}
+.opt.right b{background:#000}
+.opt.wrong{opacity:.28;transform:scale(.97)}
+.why{margin-top:3.5%;font-weight:700;font-size:clamp(.85rem,2vw,1.35rem);color:#fff;background:#000;border:2px solid var(--emerald);padding:.4em .8em;
+  max-width:44ch;min-height:1em}
+.why:empty{display:none}
+/* roast meter */
+.mwrap{position:absolute;left:4%;top:50%;transform:translateY(-50%);width:58%}
+.m-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:2.2%;background:var(--cream);color:#111;border:3px solid #000;
+  box-shadow:4px 4px 0 #000;padding:1.4% 2.4%}
+.m-name{font-family:var(--disp);text-transform:uppercase;font-size:clamp(.95rem,2.6vw,1.9rem);line-height:1}
+.flames{display:flex;gap:2px}
+.flames button{border:0;background:transparent;cursor:pointer;font-size:clamp(1rem,2.8vw,2rem);filter:grayscale(1);opacity:.25;transition:all .15s;line-height:1}
+.flames button.lit{filter:none;opacity:1;transform:translateY(-2px) scale(1.1)}
+/* crown + roast */
+.center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:5%}
+.crown-name{font-family:var(--disp);text-transform:uppercase;font-size:clamp(2.2rem,7vw,5.4rem);line-height:.95;margin:2% 0;color:var(--lemon);
+  -webkit-text-stroke:2.5px #000;paint-order:stroke fill;text-shadow:6px 6px 0 var(--pink)}
+.crown-list{margin-top:2%;font-weight:700;font-size:clamp(.8rem,1.8vw,1.2rem);background:#000;border:2px solid var(--pink);padding:.5em 1em;line-height:1.6}
+.r-bub{position:relative;background:#fff;color:#111;border:4px solid #000;border-radius:30px;padding:3% 4%;max-width:56%;box-shadow:7px 7px 0 #000;
+  font-family:var(--disp);text-transform:uppercase;font-size:clamp(1.3rem,3.9vw,3rem);line-height:1.02;text-align:left}
+.r-bub:after{content:"";position:absolute;left:40px;bottom:-30px;border:14px solid transparent;border-top:22px solid #000}
+.r-count{margin-top:5%;font-family:var(--pow);letter-spacing:.1em;font-size:clamp(.8rem,1.8vw,1.2rem);color:#000;background:var(--lemon);border:3px solid #000;padding:.1em .6em 0}
+
+/* controls */
+.ctl{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:20px}
+.btn{border:3px solid #000;cursor:pointer;font-family:var(--pow);letter-spacing:.08em;font-size:1.15rem;padding:10px 22px 7px;border-radius:4px;
+  background:var(--pink);color:#fff;box-shadow:5px 5px 0 #000;transition:transform .08s,box-shadow .08s}
+.btn:hover{transform:translate(-1px,-1px);box-shadow:6px 6px 0 #000}
+.btn:active{transform:translate(4px,4px);box-shadow:1px 1px 0 #000}
+.btn.ghost{background:var(--cream);color:#111}
+.btn.hot{background:var(--crimson);color:#fff}
+.btn.hidden{display:none}
+.btn.fs{background:var(--emerald);color:#04140D}
+#theater:fullscreen{background:#0B0B0D;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1.5vh 2vw;
+  background-image:radial-gradient(rgba(255,46,136,.14) 1.6px,transparent 1.8px);background-size:14px 14px}
+#theater:-webkit-full-screen{background:#0B0B0D;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1.5vh 2vw}
+#theater:fullscreen .pwrap{width:min(96vw,calc((100vh - 110px) * 16 / 9))}
+#theater:-webkit-full-screen .pwrap{width:min(96vw,calc((100vh - 110px) * 16 / 9))}
+#theater .ctl{transition:opacity .4s}
+#theater.idle .ctl{opacity:0;pointer-events:none}
+#theater.idle{cursor:none}
+.ytbtn{display:inline-block;margin-top:6%;cursor:pointer;font-family:var(--pow);letter-spacing:.08em;font-size:clamp(1rem,2.6vw,2rem);color:#fff;background:#E62117;
+  border:3px solid #000;box-shadow:5px 5px 0 #000;padding:.2em .8em 0;transform:rotate(-1.5deg)}
+.ytbtn:hover{transform:rotate(-1.5deg) translate(-2px,-2px)}
+.enc{position:absolute;inset:4% 4%;display:flex;flex-direction:column;align-items:center}
+.enc-h{font-family:var(--disp);text-transform:uppercase;font-size:clamp(1.3rem,3.6vw,2.8rem);line-height:1;margin:1.5% 0 2.5%;color:var(--cream);
+  -webkit-text-stroke:1.5px #000;paint-order:stroke fill;text-shadow:4px 4px 0 var(--pink)}
+.enc-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.6%;width:100%;flex:1;align-content:start}
+.tile{background:var(--cream);color:#111;border:3px solid #000;box-shadow:4px 4px 0 #000;padding:3.5% 4.5%;cursor:pointer;display:flex;flex-direction:column;transition:transform .1s}
+.tile:hover{transform:translate(-2px,-2px) rotate(-1deg)}
+.tile.yt{background:#FFD3E6}
+.tile.dead{opacity:.35;pointer-events:none}
+.t-who{font-weight:800;font-size:clamp(.5rem,1vw,.8rem);letter-spacing:.1em;text-transform:uppercase;color:var(--crimson)}
+.t-t{font-family:var(--disp);text-transform:uppercase;font-size:clamp(.7rem,1.45vw,1.15rem);line-height:1.02;margin:3% 0;flex:1}
+.t-ft{display:flex;justify-content:space-between;align-items:center;gap:6px;font-size:clamp(.45rem,.85vw,.72rem);font-weight:700;color:#555}
+.t-ft b{background:#000;color:var(--lemon);padding:.15em .45em;white-space:nowrap}
+.tile.yt .t-ft b{background:var(--crimson);color:#fff}
+.prog{margin-top:20px}
+.bar{height:10px;background:#000;border:2px solid #000}
+.bar span{display:block;height:100%;background:repeating-linear-gradient(45deg,var(--pink) 0 10px,var(--crimson) 10px 20px);transition:width .6s ease;width:0}
+.progline{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-top:10px;font-weight:700;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+.progline b{color:var(--lemon)}
+.pstatus{text-align:center;margin-top:10px;font-size:.74rem;font-weight:600;color:#6E6575}
+.pstatus.good{color:var(--emerald)} .pstatus.bad{color:var(--crimson)}
+
+/* host script */
+.script{margin-top:18px;padding:16px 18px;background:#1E1B22;border:3px solid #000;border-left:8px solid var(--emerald);font-size:1rem;line-height:1.6;color:#E9E1EC}
+.script .lbl{display:block;font-family:var(--pow);letter-spacing:.1em;font-size:.95rem;color:var(--emerald);margin-bottom:4px}
+.script p+p{margin-top:8px}
+.script em{color:var(--lemon);font-style:normal;font-weight:700}
+.pill{display:inline-block;padding:1px 8px;border:2px solid #000;font-family:var(--body);font-size:.6rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;margin-left:7px;vertical-align:2px}
+.pill.mild{background:var(--emerald);color:#04140D} .pill.medium{background:var(--lemon);color:#111} .pill.spicy{background:var(--crimson);color:#fff}
+
+/* lineup */
+.card{background:var(--ink2);border:3px solid #000;box-shadow:7px 7px 0 #000;padding:24px;margin-bottom:22px}
+h2.ttlx{font-family:var(--disp);text-transform:uppercase;font-size:clamp(1.6rem,3.6vw,2.4rem);color:var(--pink);-webkit-text-stroke:1.5px #000;paint-order:stroke fill;text-shadow:3px 3px 0 #000}
+h3.sub{font-family:var(--pow);letter-spacing:.1em;font-size:1.15rem;color:var(--lemon);margin-bottom:10px}
+p.lede{font-size:1rem;line-height:1.6;color:#D9D0DC;max-width:66ch}
+.rule{height:4px;background:repeating-linear-gradient(90deg,var(--pink) 0 18px,var(--emerald) 18px 36px,var(--lemon) 36px 54px);margin:14px 0}
+.row{display:flex;align-items:center;gap:14px;padding:10px 14px;background:#211D26;border:2px solid #000;margin-bottom:8px;cursor:pointer;transition:transform .1s}
+.row:hover{transform:translateX(4px)}
+.row.on{background:var(--pink);color:#fff;box-shadow:4px 4px 0 #000}
+.row.on .rwho,.row.on .rsrc,.row.on .rlen{color:#fff}
+.row.done{opacity:.4}
+.row.aside{background:transparent;border-style:dashed;border-color:#3A3342}
+.row.aside.on{background:var(--pink);border-style:solid;border-color:#000}
+.rnum{font-family:var(--disp);font-size:1.2rem;color:var(--lemon);min-width:30px;text-align:center}
+.row.on .rnum{color:#000}
+.rtxt{flex:1;min-width:0}
+.rwho{font-weight:800;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;color:var(--emerald)}
+.rname{font-weight:600;font-size:.98rem;line-height:1.3;margin-top:2px}
+.rsrc{font-size:.68rem;color:#7D7385;margin-top:3px}
+.rlen{font-weight:700;font-size:.8rem;color:var(--dim);white-space:nowrap}
+ul.tips{margin-left:19px} ul.tips li{line-height:1.6;color:#D9D0DC;margin-bottom:7px}
+.hostnote{margin-top:13px;padding:12px 15px;background:#000;border-left:6px solid var(--lemon);font-size:.88rem;line-height:1.55;color:#D9D0DC}
+.hostnote b.l{display:block;font-family:var(--pow);letter-spacing:.1em;font-size:.9rem;color:var(--lemon);margin-bottom:2px}
+.minibtn{margin-top:8px;border:2px solid #000;background:var(--lemon);color:#111;padding:6px 12px;font-family:var(--body);font-weight:800;font-size:.66rem;
+  letter-spacing:.12em;text-transform:uppercase;cursor:pointer;box-shadow:3px 3px 0 #000}
+@media (max-width:760px){.burst{display:none}.cap{width:84%}.shade{background:rgba(11,11,13,.7)}.mwrap{width:90%}.opts{grid-template-columns:1fr}.rsrc{display:none}.card{padding:18px}}
+</style>
+</head>
+<body class="audience">
+<div class="wrap">
+<header class="hero">
+  <div class="burst">ZING!</div>
+  <div class="kickline">COMEDY LEGENDS &middot; THE BRISTAL AT SAYVILLE</div>
+  <h1 class="logo">Women <i>Who</i> Roast</h1>
+  <div class="tag">The queens of the dais &mdash; <b>from Phyllis to Nikki</b></div>
+</header>
+<div class="notetoggle"><button id="noteBtn"></button></div>
+<main id="main"></main>
+</div>
+
+<script>
+/* ===================================================================
+   WOMEN WHO ROAST — 45-minute comedy-legends program, assisted living.
+   Play-and-continue: clips roll into each other; everything else
+   (placards, trivia, the Roast Meter, Roast the Host) waits for you.
+
+   Clips are TV broadcast versions — network specials, or the bleeped
+   cable broadcast. Every clip was checked live on 2026-11-23: it loads
+   and plays embedded. s = seconds it runs here; start/end trim it.
+   heat: mild = network TV, family room · medium = a wink · spicy = bleeped
+   cable — preview it before the program.
+   =================================================================== */
+const HOST="A.J.";
+
+const SEQ=[
+ {card:1, kick:"Tonight on the Dais", title:"Women Who Roast", art:"hero", sub:"We only roast the ones we love", ask:"Who here has ever been roasted?", s:75,
+  say:["A roast is a dinner where your friends honor you by insulting you to your face. It started at the Friars Club in New York — founded in 1904, and their motto is still “We only roast the ones we love.”",
+       "For most of the century the Friars didn’t let women join — not until the late 1980s. So tonight is about the women who got on the dais anyway, from the Dean Martin roasts on NBC to the Comedy Central roasts on cable.",
+       "<em>How it works:</em> after each act you rate the roasters on the Roast Meter — one to five flames, loudest applause wins. At the end we crown a Queen of the Roast.",
+       "<em>Ask:</em> Who watched the Dean Martin roasts on TV? Who’s been roasted at a birthday or a retirement party?"]},
+
+ {card:1, kick:"Act One · The Trailblazer", title:"Phyllis Diller", art:"disguise", side:"right", sub:"First lady of the dais", ask:"The hair. The laugh. The cigarette holder.", s:60,
+  say:["Born in Lima, Ohio, in 1917. She didn’t start doing comedy until her late thirties — a housewife writing jokes about her own life and an imaginary husband she called Fang.",
+       "She became the first woman comic to headline a Las Vegas club, and she appeared on more Bob Hope specials than anyone except Bob Hope.",
+       "Here she is on the dais in 1975, taking her shots at the guest of honor — Lucille Ball."]},
+ {id:"OXalm5atolU", who:"Phyllis Diller", t:"Phyllis Diller Roasts Lucille Ball", s:75, ch:"Dean Martin (official)", heat:"mild"},
+ {quiz:1, q:"In 1983 the Friars Club held an all-men roast of Sid Caesar. How did Phyllis Diller get in?", s:40,
+  opts:["She worked as a waitress","She dressed up as a man","She climbed in through the kitchen","She was the guest of honor"], a:1,
+  why:"She showed up in a suit, wig and fake mustache as “Phillip Downey.” Two years later, the Friars roasted her.",
+  say:["Let them guess out loud first. Then reveal.","She’d been planning it for months — and later joked she couldn’t figure out which restroom to use."]},
+
+ {card:1, kick:"Las Vegas · February 7, 1975", title:"The Roast of Lucille Ball", art:"vegas", sub:"The Dean Martin Celebrity Roasts", ask:"Tuxedos, cocktails and nobody safe.", s:60,
+  say:["The Dean Martin Celebrity Roasts ran on NBC from 1974 to 1984, most of them filmed at the MGM Grand in Las Vegas — one long table of stars taking turns at the podium.",
+       "This night the guest of honor was Lucy. First up: Ruth Buzzi — Gladys from Laugh-In, the one with the handbag. Then Lucy’s old partner in crime, Vivian Vance. Ethel herself.",
+       "Then Totie Fields — four-foot-ten, Ed Sullivan gave her her big break, and she went after Dean Martin. And Lucy gets the last word."]},
+ {id:"KacjIw1mkkg", who:"Ruth Buzzi", t:"Gladys Confronts Lucy", s:82, ch:"Dean Martin (official)", heat:"mild"},
+ {id:"WJmO6vMAg3M", who:"Vivian Vance", t:"Ethel Roasts Lucy", s:88, ch:"Dean Martin (official)", heat:"mild"},
+ {id:"TlC78BjtKe8", who:"Totie Fields", t:"Totie Gives Dean a Run for His Money", s:108, ch:"Dean Martin (official)", heat:"mild"},
+ {id:"mD6_IXONpyw", who:"Lucille Ball", t:"Lucy Takes On the Dais", s:241, ch:"Dean Martin (official)", heat:"mild"},
+
+ {card:1, kick:"Roast School", title:"Anatomy of a Zinger", art:"anatomy", layout:"full", sub:"Set it up · Swerve · Sting", ask:"Eighteen seconds. Watch how Totie sets the trap.", s:45,
+  say:["Every great roast joke has three parts. The <em>setup</em> makes you expect one thing. The <em>swerve</em> changes direction. The <em>sting</em> lands on the target.",
+       "Totie’s about to make it sound like Lucy threw a wild party… watch where it actually lands.",
+       "<em>After it plays:</em> ask the room — what did you think she was going to say?"]},
+ {id:"ijWvnFRA8Dg", who:"Totie Fields", t:"Totie Zings Lucy", s:18, ch:"The Boomer Vault", heat:"mild"},
+ {quiz:1, q:"“Totie” was a nickname. What was Totie Fields’ real first name?", s:30,
+  opts:["Dorothy","Sophie","Theodora","Lottie"], a:1,
+  why:"Born Sophie Feldman in Hartford, Connecticut. “Totie” was baby talk for Sophie.",
+  say:["Quick one. Let a few people shout guesses."]},
+
+ {card:1, kick:"Las Vegas · May 6, 1978", title:"Betty White", art:"homemaker", sub:"Sugar on top, poison underneath", ask:"Who remembers the Happy Homemaker?", s:50,
+  say:["Betty had just finished playing Sue Ann Nivens on The Mary Tyler Moore Show — the sweet TV homemaker with a mean streak. She won Emmys for it, and it’s exactly how she roasted.",
+       "This is her own Dean Martin roast. She sat there all night taking it from Milton Berle, Red Buttons, Phyllis Diller… and then they handed her the microphone."]},
+ {id:"yJVrl_-9ldY", who:"Betty White", t:"Betty Gets Her Revenge on the Dais", s:202, ch:"Dean Martin (official)", heat:"mild"},
+ {quiz:1, q:"Betty White’s husband sat on the dais that night. Which game show did he host?", s:30,
+  opts:["Password","Jeopardy!","Hollywood Squares","The Match Game"], a:0,
+  why:"Allen Ludden, host of Password. Betty was a regular player — that’s how they met.",
+  say:["If someone gets it fast, ask who used to play along at home."]},
+ {meter:1, round:"Act One · The Dean Martin Dais", names:["Phyllis Diller","Ruth Buzzi","Vivian Vance","Totie Fields","Lucille Ball","Betty White"], s:60,
+  say:["Read each name. Let the room cheer. You tap the flames — one to five — based on the noise.","Tap a name’s flames again to change it. The scores carry to the crowning at the end."]},
+
+ {card:1, gate:1, kick:"Act Two · The Roast Goes Cable", title:"The Comedy Central Roasts", art:"bleep", sub:"Same sting. More bleeps.", ask:"Heat check — who can handle a little spice?", heat:"spicy", s:70,
+  say:["In the 2000s Comedy Central turned the roast into a TV event — saltier, bleeped, and the old guard showed the kids how it’s done.",
+       "Everything in this act is Comedy Central’s own bleeped version. Some of it plays right here; the rest opens on YouTube, because Comedy Central won’t let its roast clips play inside other websites.",
+       "<em>Heat check:</em> take a show of hands. If the room says no, press <em>Skip the spicy act</em> and you jump straight to the crowning."]},
+ {id:"JJ3g4zC6Nbg", who:"Betty White", t:"Betty, 84, Roasts William Shatner (2006)", s:28, ch:"fan upload of the Comedy Central broadcast", heat:"spicy",
+  note:"Short taste of Betty at the Shatner roast. Fan upload — if YouTube blocks it, the module skips it on its own."},
+
+ {card:1, kick:"The Roast of Bob Saget · 2008", title:"Cloris Leachman", art:"cloris", sub:"Eighty-two and fearless", ask:"Phyllis from the Mary Tyler Moore Show. You won’t believe what comes out of her mouth.", s:45,
+  say:["Cloris Leachman — an Oscar for The Last Picture Show, eight Emmys, Frau Blücher in Young Frankenstein. At 82 she sat down at the Roast of Bob Saget and out-dirtied the comics a third her age.",
+       "This short cut is her comebacks. Fan upload — preview it. The full Comedy Central version is on the next slide."]},
+ {id:"t_mZVAQfiZY", who:"Cloris Leachman", t:"Cloris’s Best Roast Comebacks", s:63, ch:"fan compilation", heat:"spicy",
+  note:"Short fan compilation of Cloris at the cable roasts. Preview it; if YouTube blocks it, the module skips it."},
+
+ {card:1, kick:"CBS Studios · July 26, 2009", title:"The Roast of Joan Rivers", art:"joanroast", sub:"Can we talk?", ask:"Seventy-six years old, and the hardest hitter in the room.", s:50,
+  say:["Joan made her name on Johnny Carson’s Tonight Show in the 1960s and became his permanent guest host in 1983. In 2009 Comedy Central finally gave her her own roast, with Kathy Griffin as roastmaster.",
+       "The next clip is Comedy Central’s own “Legendary Ladies of the Roast” — Joan, Betty White and Cloris Leachman schooling the dais. It opens on YouTube in a new tab. Play about six minutes, close the tab, and you’re right back here."]},
+ {link:1, art:"joanroast", yt:"VVnXQX0OS6Y", t0:0, who:"Joan Rivers, Betty White & Cloris Leachman", t:"The Legendary Ladies of the Roast", s:360, ch:"Comedy Central (official, bleeped)", heat:"spicy",
+  note:"Comedy Central’s official bleeped compilation, 18 minutes long. Plan on about six, then close the tab and press Next."},
+ {quiz:1, q:"In 1986, Joan Rivers made TV history. She became the first woman to…", s:30,
+  opts:["host her own late-night network talk show","host the Academy Awards alone","be roasted by the Friars Club","win an Emmy for stand-up"], a:0,
+  why:"The Late Show Starring Joan Rivers — the very first show on the brand-new Fox network. It cost her her friendship with Johnny Carson.",
+  say:["Good one to talk about: she went head-to-head with her own mentor. Was she right to do it?"]},
+
+ {card:1, kick:"The Roast of Justin Bieber · 2015", title:"Martha Stewart", art:"martha", sub:"Yes, that Martha", ask:"Domestic goddess. Roast assassin.", s:40,
+  say:["The queen of pie crusts and centerpieces walked onto the Comedy Central dais in 2015 to roast pop star Justin Bieber — and three years later she came back for Bruce Willis.",
+       "Her set is about a minute and a half. It opens on YouTube at the exact spot."]},
+ {link:1, art:"martha", yt:"LAOoF2gyQaA", t0:302, who:"Martha Stewart", t:"Martha Roasts Justin Bieber", s:90, ch:"Comedy Central (official, bleeped)", heat:"spicy",
+  note:"Opens Comedy Central’s bleeped “Harshest Burns” at 5:02, where Martha starts. Her set ends around 6:27 — that’s Jeff Ross coming up next."},
+
+ {card:1, kick:"The Queen Today", title:"Nikki Glaser", art:"stage", sub:"The new queen of the roast", ask:"Nobody on the dais is safe — especially the guest of honor.", s:45,
+  say:["Nikki Glaser came up on the Comedy Central roasts — Rob Lowe in 2016, Bruce Willis in 2018, Alec Baldwin in 2019. Then in 2024 she stole the Netflix Roast of Tom Brady.",
+       "This is Comedy Central’s own cut of her best roast moments. It opens on YouTube. Play five or six minutes and come back."]},
+ {link:1, art:"stage", yt:"2Ilu0Px_wE4", t0:0, who:"Nikki Glaser", t:"Nikki’s Best Roast Moments", s:330, ch:"Comedy Central (official, bleeped)", heat:"spicy",
+  note:"Comedy Central’s bleeped compilation from the Willis, Lowe and Baldwin roasts, 16 minutes long. Plan on five or six."},
+ {quiz:1, q:"After the Tom Brady roast made her famous, Nikki Glaser became the first woman to…", s:30,
+  opts:["host the Oscars","solo-host the Golden Globes","host Saturday Night Live","roast a president"], a:1,
+  why:"January 2025. Tina Fey and Amy Poehler had co-hosted, but Nikki was the first woman to host the Globes alone.",
+  say:["Bridge it back: from Phyllis sneaking in wearing a mustache, to a woman running the whole show."]},
+ {meter:1, safe:1, round:"Act Two · The Cable Queens", names:["Cloris Leachman","Joan Rivers","Martha Stewart","Nikki Glaser"], s:45,
+  say:["Same as before — cheer, then flames.","If you skipped the spicy act, leave these at zero and go straight to the crowning."]},
+
+ {crown:1, safe:1, s:40, say:["Big reveal. Read the winner like an awards show. Second and third get applause too.","Tie? Go to the room for a final cheer-off."]},
+
+ {roast:1, s:180, prompts:[
+   {p:HOST+" is so young, he thinks a “party line” is…", ex:["the line for the dessert table","a group text"]},
+   {p:HOST+" has so much energy…", ex:["the Energizer Bunny asked him to slow down","the coffee drinks him"]},
+   {p:HOST+" plans so many activities…", ex:["we need an activity to recover from the activities","the calendar filed a complaint"]},
+   {p:HOST+" is so attached to his phone…", ex:["he tried to swipe the TV","he answers the doorbell by texting"]},
+   {p:HOST+" dresses so sharp…", ex:["the mirror asks him for advice","he ironed his sweatpants"]},
+   {p:"Open mic — who wants a shot at the host?", ex:["Hand the mic to your bravest resident","Your comeback: “Thank you, I’ll be here all week. Literally — it’s on the calendar.”"]}
+  ],
+  say:["Finale. The room roasts YOU. Read the setup, let them finish it. If they stall, use a sample punchline — then take the hit like a pro.","The rule from the Friars: you only roast the ones you love. So be gracious — and laugh the loudest."]},
+
+ {card:1, kick:"Goodnight from the Dais", title:"We Only Roast the Ones We Love", art:"goodnight", sub:"Thank you, you’ve been a wonderful audience", ask:"Who’s your Queen of the Roast?", s:30,
+  say:["Wrap it: which line got you? Who would you want roasting you at your birthday?","Next week’s Comedy Legends teaser goes here.","<em>Time left?</em> Press Next for the Encore board."]},
+
+ {encore:1, title:"Encore — more from the roast queens", s:0,
+  say:["Only if you have time. <em>Play here</em> tiles run in the module and come back to this board when they end.",
+       "<em>YouTube</em> tiles are Comedy Central’s own bleeped roast clips. They open in a new tab at the right spot — close the tab to come back."]}
+];
+
+/* Encore board. id = plays here; yt = opens Comedy Central's clip on YouTube (t0 = start second). */
+const ENCORE=[
+ {id:"WySTqRZx4zg", who:"Phyllis Diller", t:"Phyllis Has No Mercy for Betty White", yr:"1978", s:409, heat:"mild"},
+ {id:"Or5X13tQL10", who:"Lucille Ball", t:"Lucy Gets Roasted — Highlights", yr:"1975", s:419, heat:"mild"},
+ {id:"kgAuJExPvJs", who:"Phyllis Diller", t:"Phyllis Roasts Don Rickles", yr:"1974", s:128, heat:"mild"},
+ {id:"crdohyFDrJs", who:"Phyllis Diller", t:"Phyllis Roasts Sammy Davis Jr.", yr:"1975", s:157, heat:"mild"},
+ {id:"nMXz_s6-wJM", who:"Dean Martin", t:"Dean Reads Lucy a Letter", yr:"1975", s:55, heat:"mild"},
+ {id:"K7wkb30lskQ", who:"Foster Brooks", t:"Betty White’s “Former Fiancé”", yr:"1978", s:197, heat:"mild"},
+ {yt:"S9SStRvGg8I", who:"Joan Rivers", t:"Joan’s Best Roast Comebacks", yr:"Comedy Central", s:1005, heat:"spicy"},
+ {yt:"LAOoF2gyQaA", t0:87, who:"Natasha Leggero", t:"Natasha Roasts Justin Bieber", yr:"2015", s:96, heat:"spicy"},
+ {yt:"w2DTEOB5rhk", t0:1325, who:"Nikki Glaser", t:"Nikki at the Rob Lowe Roast", yr:"2016", s:83, heat:"spicy"},
+ {yt:"w2DTEOB5rhk", t0:3189, who:"Martha Stewart", t:"Martha at the Bruce Willis Roast", yr:"2018", s:123, heat:"spicy"},
+ {yt:"w2DTEOB5rhk", t0:640, who:"Sarah Silverman", t:"Sarah at the James Franco Roast", yr:"2013", s:23, heat:"spicy"},
+ {yt:"c86Ytt0gmE8", who:"Whitney Cummings", t:"Whitney’s Best Roast Moments", yr:"Comedy Central", s:0, heat:"spicy"}
+];
+
+/* Spares — tap one (presenter notes on) to drop it in after what's on now. */
+const EXTRAS=[
+ {id:"WySTqRZx4zg", who:"Phyllis Diller", t:"Phyllis Has No Mercy for Betty White (1978)", s:409, ch:"Dean Martin (official)", heat:"mild"},
+ {id:"kgAuJExPvJs", who:"Phyllis Diller", t:"Phyllis Roasts Don Rickles (1974)", s:128, ch:"fan upload", heat:"mild"},
+ {id:"crdohyFDrJs", who:"Phyllis Diller", t:"Phyllis Roasts Sammy Davis Jr. (1975)", s:157, ch:"fan upload", heat:"mild"},
+ {id:"nMXz_s6-wJM", who:"Dean Martin", t:"Dean Reads Lucy a Letter from the League of Women Voters", s:55, ch:"Dean Martin (official)", heat:"mild"},
+ {id:"42p2Y2wfkXY", who:"Dean Martin", t:"Dean’s Brief History of Lucille Ball", s:127, ch:"Dean Martin (official)", heat:"mild"},
+ {id:"K7wkb30lskQ", who:"Foster Brooks", t:"Foster Brooks Roasts Betty White (1978)", s:197, ch:"Dean Martin (official)", heat:"mild"},
+ {id:"-6mCmE4pgyo", who:"Martha Stewart", t:"Martha at the Bieber Roast — 27-second taste", s:27, ch:"Comedy Central (official, bleeped)", heat:"spicy"}
+];
+</script>
+
+<script>
+/* =================== state =================== */
+const store={get(k,d){try{const v=localStorage.getItem('wr_'+k);return v?JSON.parse(v):d}catch(e){return d}},
+             set(k,v){try{localStorage.setItem('wr_'+k,JSON.stringify(v))}catch(e){}}};
+let ITEMS=SEQ.slice(), idx=0, playing=false, finished=false;
+let showNotes=store.get('showNotes',false), scores=store.get('scores',{});
+let revealed={}, rstep=0, opened={}, failed=store.get('failed',{}), checking=false, probeRes=null, probeTimer=null, skipTimer=null;
+const kind=it=>it.card?'card':it.quiz?'quiz':it.meter?'meter':it.crown?'crown':it.roast?'roast':it.encore?'encore':it.link?'link':'clip';
+const isClip=it=>it&&kind(it)==='clip';
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const mmss=t=>{t=Math.max(0,Math.round(t));return Math.floor(t/60)+':'+String(t%60).padStart(2,'0')};
+const cur=()=>ITEMS[idx];
+const total=()=>ITEMS.reduce((a,c)=>a+c.s,0);
+const before=n=>ITEMS.slice(0,n).reduce((a,c)=>a+c.s,0);
+const nextClipFrom=n=>{for(let i=n;i<ITEMS.length;i++)if(isClip(ITEMS[i]))return i;return -1};
+const ytURL=c=>'https://www.youtube.com/watch?v='+c.yt+(c.t0?'&t='+c.t0+'s':'');
+const openYT=c=>window.open(ytURL(c),'_blank','noopener');
+const vid=c=>{const o={videoId:c.id};if(c.start)o.startSeconds=c.start;if(c.end)o.endSeconds=c.end;return o};
+const L='ABCD';
+
+/* =================== player =================== */
+let YTREADY=false,PL=null,PLREADY=false;const q=[];
+window.onYouTubeIframeAPIReady=()=>{YTREADY=true;q.splice(0).forEach(f=>{try{f()}catch(e){}})};
+(()=>{const t=document.createElement('script');t.src='https://www.youtube.com/iframe_api';document.head.appendChild(t)})();
+let lastStatus=null;
+function setStatus(t,tone){lastStatus={t,tone:tone||''};const el=document.getElementById('pstatus');if(el){el.textContent=t;el.className='pstatus'+(tone?' '+tone:'')}}
+function killCC(){if(!PL)return;['captions','cc'].forEach(m=>{try{PL.unloadModule(m)}catch(e){}})}
+function mountPlayer(){
+  const make=()=>{const first=ITEMS[nextClipFrom(0)];
+    try{PL=new YT.Player('ytmount',{videoId:first.id,host:'https://www.youtube-nocookie.com',
+      playerVars:{controls:0,rel:0,modestbranding:1,iv_load_policy:3,fs:0,playsinline:1,cc_load_policy:0,start:first.start||0},
+      events:{onReady:()=>{PLREADY=true;killCC();setStatus('Ready — open with the placard, then press Next','good')},
+        onError:e=>{ if(checking){if(probeRes){clearTimeout(probeTimer);const r=probeRes;probeRes=null;r('blocked ('+e.data+')')}return}
+          if(!isClip(cur()))return; const it=cur(); failed[it.id]=e.data; store.set('failed',failed);
+          const ov=document.getElementById('over'); ov.classList.remove('gone');
+          ov.innerHTML=bg('goodnight','all')+'<div class="center"><div class="k">Technical difficulties</div><div class="bub">That clip won\u2019t play here \u2014 on to the next!</div></div>';
+          setStatus('\u201c'+it.t+'\u201d is blocked on YouTube (code '+e.data+') \u2014 skipped it. Run the clip check before the show.','bad');
+          const at=idx; clearTimeout(skipTimer); skipTimer=setTimeout(()=>{ if(idx===at) afterClip(); },2200); },
+        onStateChange:e=>{ if(checking){ if(e.data===1&&probeRes){clearTimeout(probeTimer);const r=probeRes;probeRes=null;r('ok')} return }
+          killCC();
+          if(e.data===YT.PlayerState.PLAYING){playing=true;setStatus('Rolling','good');paint()}
+          if(e.data===YT.PlayerState.PAUSED){playing=false;if(isClip(cur()))setStatus('Paused','');paint()}
+          if(e.data===YT.PlayerState.ENDED){playing=false;if(isClip(cur()))afterClip()}}}});
+    }catch(e){setStatus('Player could not start on this page','bad')}};
+  if(YTREADY)make();else q.push(make);
+}
+function afterClip(){ const it=cur();
+  if(it&&it.ret!=null){ const r=it.ret; ITEMS.splice(idx,1); goTo(r,false); return }
+  goTo(idx+1,true) }
+function goTo(n,autoplay){ clearTimeout(skipTimer);
+  if(n<0)n=0;
+  if(n>=ITEMS.length){idx=ITEMS.length-1;finished=true;playing=false;try{PL.pauseVideo()}catch(e){};setStatus('That’s the show','good');render();return}
+  finished=false;idx=n;const it=cur();
+  if(kind(it)==='roast')rstep=0;
+  if(isClip(it)){ if(PL&&PL.loadVideoById){autoplay?PL.loadVideoById(vid(it)):PL.cueVideoById(vid(it));setTimeout(killCC,600)} }
+  else{ try{PL.pauseVideo()}catch(e){}; playing=false;
+    const nx=nextClipFrom(idx+1); if(nx>-1&&PL&&PL.cueVideoById){try{PL.cueVideoById(vid(ITEMS[nx]))}catch(e){}}
+    setStatus({card:'Placard up — talk, then press Next',quiz:'Trivia — let them guess, then reveal',meter:'Roast Meter — cheer, then tap flames',
+               crown:'Crowning the queen',roast:'Roast the Host — let them finish the line',encore:'Encore board — tap a tile',
+               link:'This one plays on YouTube — press the big button to open it'}[kind(it)],'good'); }
+  render();
+}
+function probe(c){return new Promise(res=>{probeRes=res;probeTimer=setTimeout(()=>{if(probeRes){probeRes=null;res('no answer')}},10000);
+  try{PL.loadVideoById({videoId:c.id,startSeconds:c.start||0})}catch(e){probeRes=null;clearTimeout(probeTimer);res('error')}})}
+async function clipCheck(){
+  if(!PLREADY||checking)return; checking=true;
+  const seen=new Map(); [...ITEMS.filter(isClip),...EXTRAS,...ENCORE.filter(e=>e.id)].forEach(c=>{if(!seen.has(c.id))seen.set(c.id,c)});
+  const list=[...seen.values()], out={}; try{PL.mute()}catch(e){}
+  for(let i=0;i<list.length;i++){ setStatus('Clip check: '+(i+1)+' of '+list.length+' \u2014 '+list[i].t,'good'); out[list[i].id]=await probe(list[i]); }
+  try{PL.stopVideo();PL.unMute()}catch(e){}
+  checking=false; failed={}; Object.keys(out).forEach(k=>{if(out[k]!=='ok')failed[k]=out[k]}); store.set('failed',failed); store.set('checked',new Date().toLocaleString());
+  const bad=Object.keys(failed).length; setStatus(bad?bad+' clip(s) won\u2019t play \u2014 marked in the list. The show skips them by itself.':'Clip check done \u2014 every clip plays.',bad?'bad':'good');
+  goTo(idx,false);
+}
+function mainAction(){
+  const it=cur(),k=kind(it);
+  if(!PLREADY&&isClip(it)){setStatus('Player still warming up — one second','bad');return}
+  if(idx===ITEMS.length-1&&!isClip(it)){goTo(0,false);return}
+  if(k==='clip'){try{playing?PL.pauseVideo():PL.playVideo()}catch(e){}
+    setTimeout(()=>{try{if(PL.getPlayerState()!==1&&!playing)setStatus('Browser blocked it — click the picture to start','bad')}catch(e){}},1500);return}
+  if(k==='link'&&!opened[idx]){opened[idx]=1;openYT(it);render();return}
+  if(k==='quiz'&&!revealed[idx]){revealed[idx]=1;render();return}
+  if(k==='roast'&&rstep<it.prompts.length-1){rstep++;render();return}
+  goTo(idx+1,true);
+}
+</script>
+
+<script>
+/* =================== render =================== */
+function mainLabel(){
+  const it=cur(),k=kind(it);
+  if(idx===ITEMS.length-1&&!isClip(it))return '↺ Back to start';
+  if(k==='clip')return playing?'❙❙ Pause':'▶ Play';
+  if(k==='link'&&!opened[idx])return '▶ Open on YouTube';
+  if(k==='quiz'&&!revealed[idx])return 'Reveal the answer';
+  if(k==='roast'&&rstep<it.prompts.length-1)return 'Next zinger ›';
+  return isClip(ITEMS[idx+1])?'▶ Roll the clip':'Next ›';
+}
+function paint(){const b=document.getElementById('btnMain');if(b)b.textContent=mainLabel();
+  const s=document.getElementById('btnSkip');if(s)s.classList.toggle('hidden',!cur().gate)}
+function flames(name){const v=scores[name]||0;let h='';for(let i=1;i<=5;i++)h+='<button data-fl="'+esc(name)+'|'+i+'" class="'+(i<=v?'lit':'')+'" aria-label="'+i+' flames">🔥</button>';return h}
+function ranked(){return Object.keys(scores).filter(n=>scores[n]>0).sort((a,b)=>scores[b]-scores[a])}
+const ART=/htmlpreview\.github\.io/.test(location.hostname)?'https://raw.githubusercontent.com/ajpigliacelli-max/showstoppers/main/womenwhoroast-art/':'womenwhoroast-art/';
+const KART={quiz:'trivia',meter:'meter',crown:'crown',roast:'host',link:'bleep'};
+function bg(name,shade){return '<div class="art" style="background-image:url(\''+ART+name+'.jpg\')"></div><div class="shade '+(shade||'')+'"></div><div class="dots"></div>'}
+function panelHTML(it){
+  const k=kind(it);
+  if(k==='card'){
+    if(it.layout==='full')return bg(it.art,'low')+'<div class="cap bottom"><div class="ttl">'+esc(it.title)+'</div>'+(it.ask?'<div class="bub" style="margin:0 0 1%">'+esc(it.ask)+'</div>':'')+'</div>';
+    return bg(it.art,it.side==='right'?'flip':'')+'<div class="cap'+(it.side==='right'?' right':'')+'">'+(it.kick?'<div class="k">'+esc(it.kick)+'</div>':'')+
+      '<div class="ttl">'+esc(it.title)+'</div>'+(it.sub?'<div class="sb">'+esc(it.sub)+'</div>':'')+
+      (it.ask?'<div class="bub">'+esc(it.ask)+'</div>':'')+(it.heat?'<div class="heat">🌶 Heat check!</div>':'')+'</div>'}
+  if(k==='quiz'){const r=!!revealed[idx];
+    return bg(KART.quiz,'all')+'<div class="qwrap"><div class="k">Dais Trivia</div><div class="q-text">'+esc(it.q)+'</div><div class="opts">'+
+      it.opts.map((o,i)=>'<div class="opt'+(r?(i===it.a?' right':' wrong'):'')+'" data-opt="'+i+'"><b>'+L[i]+'</b>'+esc(o)+'</div>').join('')+
+      '</div><div class="why">'+(r?esc(it.why):'')+'</div></div>'}
+  if(k==='meter')return bg(KART.meter)+'<div class="mwrap"><div class="k" style="margin-bottom:4%">Roast Meter · '+esc(it.round)+'</div>'+
+    it.names.map(n=>'<div class="m-row"><div class="m-name">'+esc(n)+'</div><div class="flames">'+flames(n)+'</div></div>').join('')+'</div>';
+  if(k==='crown'){const r=ranked();
+    if(!r.length)return bg(KART.crown,'all')+'<div class="center"><div class="k">Queen of the Roast</div><div class="bub">Rate the roasters on the Roast Meter first.</div></div>';
+    const top=scores[r[0]],winners=r.filter(n=>scores[n]===top);
+    return bg(KART.crown,'soft')+'<div class="center"><div class="k">And the Queen of the Roast is…</div>'+
+      '<div class="crown-name">'+winners.map(esc).join(' & ')+'</div>'+
+      (r.length>winners.length?'<div class="crown-list">'+r.filter(n=>!winners.includes(n)).slice(0,4).map(n=>esc(n)+' '+'🔥'.repeat(scores[n])).join(' &nbsp;·&nbsp; ')+'</div>':'')+'</div>'}
+  if(k==='link')return bg(it.art||KART.link)+'<div class="cap"><div class="k">Comedy Central \u00b7 bleeped</div><div class="ttl" style="font-size:clamp(1.6rem,4.6vw,3.6rem)">'+esc(it.t)+'</div>'+
+      '<div class="sb">'+esc(it.who)+'</div><div class="ytbtn" data-yt="1">\u25B6 Plays on YouTube</div>'+
+      '<div class="bub" style="margin-top:5%">'+(opened[idx]?'Close the YouTube tab when you\u2019re done \u2014 then Next.':'Comedy Central won\u2019t let this play inside the show, so it opens on YouTube.')+'</div></div>';
+  if(k==='encore')return bg('goodnight','all')+'<div class="enc"><div class="k">Encore!</div><div class="enc-h">More from the Roast Queens</div><div class="enc-grid">'+
+      ENCORE.map((c,i)=>'<div class="tile'+(c.yt?' yt':'')+(failed[c.id]?' dead':'')+'" data-enc="'+i+'"><div class="t-who">'+esc(c.who)+'</div><div class="t-t">'+esc(c.t)+'</div>'+
+        '<div class="t-ft"><span>'+esc(c.yr||'')+(c.s?' \u00b7 '+mmss(c.s):'')+'</span><b>'+(c.yt?'\u2197 YouTube':'\u25B6 Play here')+'</b></div></div>').join('')+'</div></div>';
+  if(k==='roast'){const p=it.prompts[rstep];
+    return bg(KART.roast)+'<div class="cap"><div class="k">Finale · Roast the Host</div><div class="r-bub" style="max-width:100%;margin-top:7%">'+esc(p.p)+'</div>'+
+      '<div class="r-count">Zinger '+(rstep+1)+' of '+it.prompts.length+'</div></div>'}
+  return '';
+}
+function scriptHTML(it){
+  const k=kind(it),pill=h=>h?'<span class="pill '+h+'">'+h+'</span>':'';
+  if(k==='link')return '<span class="lbl">On YouTube'+pill(it.heat)+'</span><p>'+esc(it.note||'')+'</p><p>Press the big button (or the slide) to open it in a new tab. In YouTube press <em>F</em> for full screen. When you\u2019re done, close that tab and press Next here.</p><p><a href="'+ytURL(it)+'" target="_blank" rel="noopener" style="color:var(--lemon)">'+ytURL(it)+'</a></p>';
+  if(k==='encore')return '<span class="lbl">Encore</span>'+(it.say||[]).map(p=>'<p>'+p+'</p>').join('');
+  if(k==='clip')return '<span class="lbl">While it plays'+pill(it.heat)+'</span><p>Runs '+mmss(it.s)+(it.end?' (trimmed)':'')+'. When it ends the next item comes up on its own.</p>'+(it.note?'<p>'+esc(it.note)+'</p>':'');
+  let h='<span class="lbl">Say it your way'+pill(it.heat)+'</span>'+(it.say||[]).map(p=>'<p>'+p+'</p>').join('');
+  if(k==='quiz')h+='<p><em>Answer: '+L[it.a]+' — '+esc(it.opts[it.a])+'.</em> '+esc(it.why)+'</p>';
+  if(k==='roast'){const p=it.prompts[rstep];h+='<p><em>If they stall:</em> “'+p.ex.map(esc).join('” · “')+'”</p>'}
+  return h;
+}
+function rowHTML(it,n){
+  const k=kind(it),st=(n===idx?' on':'')+(n<idx?' done':'')+(k!=='clip'?' aside':'');
+  const icon={card:'❖',quiz:'?',meter:'🔥',crown:'👑',roast:'🎤',encore:'★',link:'↗'}[k];
+  const label={card:'Placard',quiz:'Dais Trivia',meter:'Roast Meter',crown:'The Crowning',roast:'Finale',encore:'If you need more time',link:'Plays on YouTube'}[k];
+  const pill=it.heat?'<span class="pill '+it.heat+' hostonly">'+it.heat+'</span>':'';
+  if(k!=='clip')return '<div class="row'+st+'" data-jump="'+n+'"><div class="rnum">'+icon+'</div><div class="rtxt"><div class="rwho">'+label+pill+'</div>'+
+    '<div class="rname">'+esc(k==='link'?it.who+' \u2014 '+it.t:(it.title||it.q||it.round||(k==='crown'?'Queen of the Roast':'Roast the Host')))+'</div></div><div class="rlen'+(k==='link'?'':' hostonly')+'">'+(it.s?(k==='link'?'':'~')+mmss(it.s):'optional')+'</div></div>';
+  const no=ITEMS.slice(0,n+1).filter(isClip).length;
+  const dead=failed[it.id]?'<span class="pill spicy hostonly">\u274C won\u2019t play</span>':'';
+  return '<div class="row'+st+'" data-jump="'+n+'"><div class="rnum">'+(it.ret!=null?'\u2605':no)+'</div><div class="rtxt"><div class="rwho">'+esc(it.who)+pill+dead+'</div>'+
+    '<div class="rname">'+esc(it.t)+'</div><div class="rsrc hostonly">'+esc(it.ch)+(it.end?' · trimmed to '+mmss(it.end):'')+'</div></div><div class="rlen">'+mmss(it.s)+'</div></div>';
+}
+function lineupHTML(){
+  const film=ITEMS.filter(isClip).reduce((a,c)=>a+c.s,0),gateAt=ITEMS.findIndex(i=>i.gate),sp=ITEMS[gateAt+1];
+  return '<div class="card"><h2 class="ttlx">Tonight’s Program</h2><div class="rule"></div>'+
+   '<p class="lede hostonly">Tap anything to jump to it. Clips roll on their own; placards, trivia and games wait for you.</p>'+
+   '<div style="margin-top:14px">'+ITEMS.map(rowHTML).join('')+'</div>'+
+   '<div class="hostnote hostonly"><b class="l">Presenter</b>'+ITEMS.filter(isClip).length+' clips, '+mmss(film)+' of film and about '+mmss(total()-film)+
+   ' of you, games included \u2014 '+mmss(total())+' all in. The YouTube pieces are open-ended: you decide when to come back.'+
+   ' Spacebar or the right arrow presses the big button, so a clicker works.</div></div>'+
+  '<div class="card hostonly"><h3 class="sub">Before you start</h3><ul class="tips">'+
+   '<li><strong>Run the clip check</strong> on the Bristal computer before residents arrive. It plays every in-show clip for a second, muted, and marks any that YouTube blocks. <button class="minibtn" id="runCheck">Run clip check</button>'+
+     (store.get('checked',null)?'<br><small style="color:#8E8496">Last checked '+esc(store.get('checked',''))+' \u2014 '+(Object.keys(failed).length?Object.keys(failed).length+' blocked':'all clear')+'</small>':'')+'</li>'+
+   '<li><strong>Preview Act Two.</strong> It\u2019s all Comedy Central\u2019s bleeped versions, but it\u2019s salty. Decide in advance whether this room gets it \u2014 the Heat Check slide has a button that skips the whole act.</li>'+
+   '<li><strong>Log into YouTube on the Bristal computer</strong> once so the Comedy Central clips open without sign-in or age prompts.</li>'+
+   '<li><strong>Reset the Roast Meter</strong> so last week’s scores don’t carry over. <button class="minibtn" id="resetScores">Reset scores</button></li>'+
+   '<li><strong>Turn the volume up.</strong> Old roast audio is quiet and the laughs are half the fun.</li>'+
+   '<li><strong>A clip won\u2019t load mid-show?</strong> The module skips it by itself after two seconds. Don\u2019t troubleshoot in front of the room.</li>'+
+   '<li><strong>Full screen:</strong> the Full screen button or the F key. The buttons hide when the mouse sits still; Esc gets you out.</li></ul></div>'+
+  '<div class="card hostonly"><h3 class="sub">Spares</h3><p class="lede">Tap one to drop it in right after what’s on now.</p><div style="margin-top:13px">'+
+   EXTRAS.map((c,n)=>'<div class="row" data-extra="'+n+'"><div class="rnum">+</div><div class="rtxt"><div class="rwho">'+esc(c.who)+'<span class="pill '+c.heat+'">'+c.heat+'</span></div>'+
+     '<div class="rname">'+esc(c.t)+'</div><div class="rsrc">'+esc(c.ch)+'</div></div><div class="rlen">'+mmss(c.s)+'</div></div>').join('')+'</div></div>';
+}
+function render(){
+  const it=cur(),k=kind(it),done=before(idx),T=total();
+  const set=(id,h)=>{const el=document.getElementById(id);if(el)el.innerHTML=h};
+  const clipNow=k==='clip';['nowmeta','nowtitle'].forEach(i=>document.getElementById(i).style.display=clipNow?'':'none');if(clipNow){set('nowmeta',esc(it.who));set('nowtitle',esc(it.t))}
+  const ov=document.getElementById('over');ov.classList.toggle('gone',k==='clip');if(k!=='clip')ov.innerHTML=panelHTML(it);
+  set('script',scriptHTML(it));
+  set('progA','Item <b>'+(idx+1)+'</b> of '+ITEMS.length);
+  set('progB','<b>'+mmss(done)+'</b> in · '+mmss(T-done)+' to go');
+  set('progC','Show <b>'+mmss(T)+'</b>');
+  document.getElementById('barfill').style.width=(finished?100:Math.round(done/T*100))+'%';
+  document.getElementById('listHost').innerHTML=lineupHTML();
+  if(lastStatus){const el=document.getElementById('pstatus');el.textContent=lastStatus.t;el.className='pstatus'+(lastStatus.tone?' '+lastStatus.tone:'')}
+  applyNotes();paint();
+}
+function applyNotes(){document.body.classList.toggle('audience',!showNotes);const b=document.getElementById('noteBtn');
+  b.textContent=showNotes?'Presenter notes: on':'Presenter notes: off';b.classList.toggle('on',showNotes)}
+const fsEl=()=>document.fullscreenElement||document.webkitFullscreenElement;
+function toggleFull(){const th=document.getElementById('theater');
+  if(fsEl()){(document.exitFullscreen||document.webkitExitFullscreen).call(document)}
+  else{const f=th.requestFullscreen||th.webkitRequestFullscreen;if(f)f.call(th)}}
+function buildOnce(){
+  document.getElementById('main').innerHTML=
+   '<div class="stage"><div class="nowmeta" id="nowmeta"></div><div class="nowtitle" id="nowtitle"></div>'+
+   '<div id="theater"><div class="pwrap"><div class="pframe"><div id="ytmount"></div></div><div class="over" id="over"></div></div>'+
+   '<div class="ctl"><button class="btn" id="btnMain">Next ›</button><button class="btn hot hidden" id="btnSkip">Skip the spicy act ›</button>'+
+   '<button class="btn ghost" id="btnPrev">‹ Back</button><button class="btn ghost" id="btnNext">Skip ›</button><button class="btn ghost" id="btnReplay">↺ Replay</button><button class="btn fs" id="btnFull">\u26F6 Full screen</button></div></div>'+
+   '<div class="script hostonly" id="script"></div>'+
+   '<div class="prog"><div class="bar"><span id="barfill"></span></div><div class="progline"><span id="progA"></span><span id="progB"></span><span id="progC"></span></div>'+
+   '<div class="pstatus" id="pstatus">warming up the spotlight…</div></div></div><div id="listHost"></div>';
+  const on=(id,fn)=>document.getElementById(id).addEventListener('click',fn);
+  on('btnMain',mainAction);
+  on('btnSkip',()=>{const t=ITEMS.findIndex((x,i)=>i>idx&&x.safe);goTo(t>-1?t:idx+1,false)});
+  on('btnNext',()=>goTo(idx+1,true));
+  on('btnPrev',()=>goTo(idx-1,false));
+  on('btnReplay',()=>{const it=cur();if(kind(it)==='link'){openYT(it);return}if(!isClip(it))return;try{PL.seekTo(it.start||0,true);PL.playVideo()}catch(e){}});
+  on('btnFull',toggleFull);
+  const th=document.getElementById('theater');let idleT=null;
+  const wake=()=>{th.classList.remove('idle');clearTimeout(idleT);idleT=setTimeout(()=>{if(fsEl())th.classList.add('idle')},2500)};
+  th.addEventListener('mousemove',wake);th.addEventListener('click',wake);
+  const onFs=()=>{const b=document.getElementById('btnFull');b.textContent=fsEl()?'\u2715 Exit full screen':'\u26F6 Full screen';th.classList.remove('idle');if(fsEl())wake()};
+  document.addEventListener('fullscreenchange',onFs);document.addEventListener('webkitfullscreenchange',onFs);
+  document.addEventListener('keydown',e=>{if(e.target.tagName==='INPUT')return;
+    if(e.key==='ArrowRight'||e.key===' '){e.preventDefault();mainAction()} if(e.key==='ArrowLeft')goTo(idx-1,false);
+    if(e.key==='f'||e.key==='F'){e.preventDefault();toggleFull()}});
+}
+document.addEventListener('click',e=>{
+  const f=e.target.closest('[data-fl]');if(f){const[n,v]=f.dataset.fl.split('|');scores[n]=(scores[n]===+v)?0:+v;store.set('scores',scores);render();return}
+  const o=e.target.closest('[data-opt]');if(o&&kind(cur())==='quiz'){revealed[idx]=1;render();return}
+  const j=e.target.closest('[data-jump]');if(j){goTo(+j.dataset.jump,true);return}
+  const x=e.target.closest('[data-extra]');if(x){ITEMS.splice(idx+1,0,EXTRAS[+x.dataset.extra]);render();return}
+  if(e.target.id==='resetScores'){scores={};store.set('scores',scores);render();return}
+  if(e.target.id==='runCheck'){clipCheck();return}
+  if(e.target.closest('[data-yt]')&&kind(cur())==='link'){opened[idx]=1;openYT(cur());render();return}
+  const t=e.target.closest('[data-enc]');
+  if(t&&kind(cur())==='encore'){const c=ENCORE[+t.dataset.enc];
+    if(c.yt){openYT(c);return}
+    ITEMS.splice(idx+1,0,Object.assign({},c,{ch:'Encore',ret:idx}));goTo(idx+1,true)}
+});
+document.getElementById('noteBtn').addEventListener('click',()=>{showNotes=!showNotes;store.set('showNotes',showNotes);applyNotes()});
+buildOnce();render();mountPlayer();
+</script>
+</body>
+</html>

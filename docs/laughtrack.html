@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>THE LAUGH TRACK — Classic TV Montage</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Outfit:wght@400;600;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#130821; --ink2:#1E0D36; --ink3:#2A1348;
+  --gold:#FFC72C; --mag:#FF2E88; --teal:#00E5C7; --cream:#FFF4E0;
+  --violet:#8B5CF6; --orange:#FF8A3D;
+  --disp:'Archivo Black',system-ui,sans-serif;
+  --body:'Outfit',system-ui,-apple-system,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--ink);color:var(--cream);font-family:var(--body);min-height:100vh;
+  -webkit-font-smoothing:antialiased;
+  background-image:radial-gradient(ellipse 120% 60% at 50% -10%, #3B1A5C 0%, transparent 60%)}
+body.audience .hostonly{display:none!important}
+.wrap{max-width:1180px;margin:0 auto;padding:18px 20px 70px}
+.bulbs{display:flex;gap:10px;justify-content:center;padding:6px 0 14px;flex-wrap:wrap}
+.bulb{width:11px;height:11px;border-radius:50%;background:var(--gold);
+  box-shadow:0 0 10px var(--gold),0 0 20px rgba(255,199,44,.5);animation:blink 1.4s infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+header.hero{text-align:center;padding:4px 0 20px}
+h1.logo{font-family:var(--disp);font-size:clamp(2.4rem,8.5vw,5rem);line-height:.92;
+  letter-spacing:-.02em;color:var(--gold);text-transform:uppercase;
+  text-shadow:5px 5px 0 var(--mag),10px 10px 0 rgba(0,0,0,.45);transform:rotate(-1.6deg)}
+.tag{margin-top:16px;font-weight:800;letter-spacing:.22em;text-transform:uppercase;
+  font-size:.78rem;color:var(--teal)}
+.notetoggle{display:flex;justify-content:center;margin:4px 0 20px}
+.notetoggle button{border:0;cursor:pointer;font-family:var(--body);font-weight:900;font-size:.66rem;
+  letter-spacing:.14em;text-transform:uppercase;padding:8px 15px;border-radius:30px;
+  background:var(--ink2);color:#6B5B85}
+.notetoggle button:hover{color:var(--cream)}
+.notetoggle button.on{background:var(--teal);color:#0C2E29}
+
+/* ---------- STAGE ---------- */
+.stage{background:linear-gradient(165deg,var(--ink3),var(--ink2));border-radius:22px;
+  padding:clamp(16px,2.6vw,26px);box-shadow:0 8px 0 rgba(0,0,0,.45);margin-bottom:20px}
+.nowmeta{font-weight:900;letter-spacing:.2em;text-transform:uppercase;font-size:.68rem;
+  color:var(--teal);text-align:center;margin-bottom:9px}
+.nowtitle{font-family:var(--disp);font-size:clamp(1.3rem,3.6vw,2.2rem);line-height:1.08;
+  text-transform:uppercase;color:var(--cream);text-align:center;margin-bottom:5px}
+.nowshow{text-align:center;font-weight:900;letter-spacing:.1em;text-transform:uppercase;
+  font-size:.8rem;color:var(--gold);margin-bottom:16px}
+.pmarquee{display:flex;gap:9px;justify-content:center;align-items:center;padding:8px 0 9px;
+  background:var(--ink);border-radius:14px 14px 0 0;border-bottom:3px solid var(--gold)}
+.pmarquee i{width:8px;height:8px;border-radius:50%;background:var(--gold);display:block;
+  box-shadow:0 0 7px var(--gold);animation:blink 1.5s infinite}
+.pwrap{position:relative;width:100%;border-radius:0 0 16px 16px;overflow:hidden;
+  box-shadow:0 6px 0 rgba(0,0,0,.45);background:#000}
+.pframe{position:relative;padding-bottom:56.25%;height:0;cursor:pointer}
+.pframe iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
+.pidle{position:absolute;top:0;left:0;right:0;bottom:0;background:linear-gradient(160deg,var(--ink3),#0B0416);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
+  transition:opacity .35s,visibility .35s}
+.pidle.gone{opacity:0;visibility:hidden}
+.pidle .big{font-family:var(--disp);text-transform:uppercase;color:var(--gold);
+  font-size:clamp(1.1rem,3vw,1.7rem);text-align:center;padding:0 20px;line-height:1.15}
+.pidle .sub{font-weight:700;font-size:.8rem;color:#9C8BB8;letter-spacing:.05em;text-align:center;padding:0 20px}
+.ctl{display:flex;gap:9px;justify-content:center;flex-wrap:wrap;margin-top:16px}
+.btn{border:0;cursor:pointer;font-family:var(--body);font-weight:900;text-transform:uppercase;
+  letter-spacing:.05em;font-size:.82rem;padding:14px 22px;border-radius:14px;
+  background:var(--gold);color:#2A1348;box-shadow:0 5px 0 #B8821A;transition:transform .1s,box-shadow .1s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 7px 0 #B8821A}
+.btn:active{transform:translateY(3px);box-shadow:0 2px 0 #B8821A}
+.btn.alt{background:var(--teal);color:#0C2E29;box-shadow:0 5px 0 #009B88}
+.btn.alt:hover{box-shadow:0 7px 0 #009B88}
+.btn.ghost{background:var(--ink);color:var(--cream);box-shadow:0 5px 0 rgba(0,0,0,.55)}
+.btn.ghost:hover{box-shadow:0 7px 0 rgba(0,0,0,.55)}
+.btn.play{background:var(--mag);color:#fff;box-shadow:0 5px 0 #A3134F}
+.btn.play:hover{box-shadow:0 7px 0 #A3134F}
+
+/* ---------- PROGRESS ---------- */
+.prog{margin-top:18px}
+.bar{height:12px;background:var(--ink);border-radius:20px;overflow:hidden;box-shadow:inset 0 2px 5px rgba(0,0,0,.5)}
+.bar span{display:block;height:100%;background:linear-gradient(90deg,var(--gold),var(--mag));
+  border-radius:20px;transition:width .6s ease;width:0}
+.progline{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;margin-top:10px;
+  font-weight:900;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:#A694BE}
+.progline b{color:var(--teal)}
+.pstatus{text-align:center;margin-top:11px;font-size:.72rem;font-weight:700;
+  letter-spacing:.05em;color:#7A6B93}
+.pstatus.good{color:var(--teal)} .pstatus.bad{color:var(--gold)}
+
+/* ---------- LINEUP ---------- */
+.card{background:var(--ink2);border-radius:20px;padding:24px;box-shadow:0 7px 0 rgba(0,0,0,.45);margin-bottom:18px}
+h2.ttl{font-family:var(--disp);font-size:clamp(1.3rem,3.6vw,2rem);text-transform:uppercase;
+  color:var(--gold);line-height:1;letter-spacing:-.01em}
+h3.sub{font-weight:900;text-transform:uppercase;letter-spacing:.14em;font-size:.72rem;
+  color:var(--teal);margin-bottom:12px}
+p.lede{font-size:1rem;line-height:1.6;color:#E8DCC8;max-width:62ch}
+.rule{height:4px;background:repeating-linear-gradient(90deg,var(--gold) 0 14px,transparent 14px 26px);
+  margin:15px 0;border-radius:2px;opacity:.75}
+.row{display:flex;align-items:center;gap:14px;padding:13px 15px;border-radius:14px;
+  background:var(--ink3);margin-bottom:9px;cursor:pointer;transition:transform .1s;border-left:5px solid transparent}
+.row:hover{transform:translateX(3px)}
+.row.on{border-left-color:var(--gold);background:#3A1A5E}
+.row.done{opacity:.5}
+.rnum{font-family:var(--disp);font-size:1.1rem;color:var(--gold);min-width:30px;text-align:center}
+.rtxt{flex:1;min-width:0}
+.rshow{font-weight:900;font-size:.72rem;letter-spacing:.11em;text-transform:uppercase;color:var(--teal)}
+.rname{font-weight:700;font-size:.98rem;line-height:1.3;color:var(--cream);margin-top:3px}
+.rsrc{font-size:.66rem;color:#7A6B93;margin-top:3px;letter-spacing:.03em}
+.rlen{font-weight:900;font-size:.82rem;color:#A694BE;white-space:nowrap}
+.note{background:rgba(255,46,136,.11);border:2px dashed rgba(255,46,136,.4);border-radius:14px;
+  padding:15px;margin-top:14px;font-size:.9rem;line-height:1.55}
+.hostnote{margin-top:13px;padding:12px 15px;border-radius:12px;background:rgba(255,199,44,.09);
+  border-left:4px solid var(--gold);font-size:.86rem;font-weight:600;color:#E0CFA8;line-height:1.5}
+.hostnote b{display:block;font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:4px}
+@media (max-width:640px){.wrap{padding:12px 13px 50px}.card{padding:18px}.rsrc{display:none}}
+@media print{body{background:#fff;color:#000}.stage,.notetoggle,.ctl{display:none!important}}
+</style>
+</head>
+<body class="audience">
+<div class="wrap">
+<div class="bulbs" id="bulbs"></div>
+<header class="hero">
+  <h1 class="logo">The Laugh Track</h1>
+  <div class="tag">Classic TV, Back to Back &nbsp;&bull;&nbsp; The Bristal at Sayville</div>
+</header>
+<div class="notetoggle"><button id="noteBtn"></button></div>
+<main id="main"></main>
+</div>
+<script>
+/* ===================================================================
+   THE LAUGH TRACK — classic TV scenes, played back to back.
+   Every clip below was checked live on 2026-11-16: the video resolves
+   and its owner allows embedding. s = length in seconds.
+   =================================================================== */
+const LINEUP=[
+ {id:"6x4Uk7qWRR8", show:"I Love Lucy", t:"Lucy's Vitameatavegamin Commercial", s:294, ch:"Paramount+"},
+ {id:"QNauilZRzHk", show:"The Honeymooners", t:"Ralph Takes a Golf Lesson", s:249, ch:"Myrtle Beach Golf Trips"},
+ {id:"9IUSM4EKcRI", show:"The Carol Burnett Show", t:"The Dentist — full sketch, Tim Conway and Harvey Korman", s:558, ch:"The Carol Burnett Show Official"},
+ {id:"AnHiAWlrYQc", show:"I Love Lucy", t:"Lucy and Ethel at the Chocolate Factory", s:187, ch:"Paramount+"},
+ {id:"Ylr6gxLqJZ8", show:"The Tonight Show Starring Johnny Carson", t:"Carnac the Magnificent", s:452, ch:"Johnny Carson"},
+ {id:"Q8EKTrRrU0o", show:"The Mary Tyler Moore Show", t:"Mary Loses It at Chuckles' Funeral", s:270, ch:"K.J. Norman"},
+ {id:"JbyLTbD_LR4", show:"The Andy Griffith Show", t:"Andy Gives Barney Fife a Haircut", s:204, ch:"The Andy Griffith Show"},
+ {id:"0L5QC9ZJkM8", show:"The Tonight Show Starring Johnny Carson", t:"Ed Ames Throws a Tomahawk", s:74, ch:"Johnny Carson"},
+ {id:"Q0Xrd49_EiA", show:"I Love Lucy", t:"Lucy Stomps Grapes in Italy", s:219, ch:"Paramount+"},
+ {id:"1jYDpAf4XLM", show:"All in the Family", t:"Mike Meets Archie for the First Time", s:287, ch:"The Norman Lear Effect"}
+];
+const EXTRAS=[
+ {id:"OSV-fFE45Tc", show:"The Carol Burnett Show", t:"Went with the Wind — the curtain-rod dress", s:283, ch:"Vintage TV Shows"},
+ {id:"DPJEUzkqq9s", show:"Get Smart", t:"The Cone of Silence", s:298, ch:"ClipZone"},
+ {id:"oN3rumkshQM", show:"The Odd Couple", t:"Felix and Oscar on “Password” with Betty White", s:297, ch:"A FUSCO — Classic TV"},
+ {id:"DGFg7bygfXA", show:"Bewitched", t:"Samantha and Endora's Magical Argument", s:268, ch:"Bewitched"},
+ {id:"WPEoYUK-Eh0", show:"The Andy Griffith Show", t:"Barney Shows Off His Judo Skills", s:237, ch:"The Andy Griffith Show"},
+ {id:"Vihnr5dM3PM", show:"The Honeymooners", t:"Ralph and Norton Dance the Hucklebuck", s:228, ch:"compukatz"},
+ {id:"b7-vyWmCDUo", show:"The Jack Benny Program", t:"“Your Money or Your Life”", s:128, ch:"House Of Old Time Radio"},
+ {id:"CRfuTTd09vo", show:"The Tonight Show Starring Johnny Carson", t:"The Copper Clapper Caper, with Jack Webb", s:118, ch:"Johnny Carson"}
+];
+</script>
+<script>
+/* =================== state =================== */
+const store={
+  get(k,d){try{const v=localStorage.getItem('lt_'+k);return v?JSON.parse(v):d}catch(e){return d}},
+  set(k,v){try{localStorage.setItem('lt_'+k,JSON.stringify(v))}catch(e){}}
+};
+let order = store.get('order', LINEUP.map((_,i)=>i));   // indexes into LINEUP
+let idx   = 0;            // position in order
+let started = false, finished = false;
+let showNotes = store.get('showNotes', false);
+const yt=id=>'https://www.youtube.com/watch?v='+id;
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const mmss=t=>{t=Math.max(0,Math.round(t));const m=Math.floor(t/60);return m+':'+String(t%60).padStart(2,'0')};
+const clips=()=>order.map(i=>LINEUP[i]);
+const totalSecs=()=>clips().reduce((a,c)=>a+c.s,0);
+const elapsedBefore=n=>clips().slice(0,n).reduce((a,c)=>a+c.s,0);
+
+/* =================== player =================== */
+let YTREADY=false, PL=null, playing=false; const ytQueue=[];
+window.onYouTubeIframeAPIReady=function(){YTREADY=true;ytQueue.splice(0).forEach(f=>{try{f()}catch(e){}})};
+(function(){const t=document.createElement('script');
+ t.src='https://www.youtube.com/iframe_api';document.head.appendChild(t)})();
+
+let lastStatus=null;
+function setStatus(t,tone){
+  lastStatus={t:t,tone:tone||''};     /* survives a re-render */
+  const el=document.getElementById('pstatus');
+  if(el){el.textContent=t;el.className='pstatus'+(tone?' '+tone:'')}}
+function killCaptions(){ if(!PL)return;
+  ['captions','cc'].forEach(m=>{try{PL.unloadModule(m)}catch(e){}});}
+
+function mountPlayer(){
+  const make=()=>{
+    if(!document.getElementById('ytmount'))return;
+    try{
+      PL=new YT.Player('ytmount',{
+        videoId: clips()[idx].id,
+        host:'https://www.youtube-nocookie.com',
+        playerVars:{controls:0,rel:0,modestbranding:1,iv_load_policy:3,fs:0,
+          playsinline:1,cc_load_policy:0},
+        events:{
+          onReady:()=>{ killCaptions(); setStatus('Ready — press Start the show','good'); },
+          onError:e=>setStatus('That clip wouldn’t load (code '+e.data+') — press Next','bad'),
+          onStateChange:e=>{
+            killCaptions();
+            if(e.data===YT.PlayerState.PLAYING){ playing=true; started=true;
+              document.querySelector('.pidle').classList.add('gone');
+              setStatus('Playing','good'); paintControls(); }
+            if(e.data===YT.PlayerState.PAUSED){ playing=false; setStatus('Paused',''); paintControls(); }
+            /* the whole point: roll straight into the next scene */
+            if(e.data===YT.PlayerState.ENDED){ playing=false; goTo(idx+1,true); }
+          }}});
+    }catch(e){ setStatus('Player could not start on this page','bad'); }
+  };
+  if(YTREADY)make(); else ytQueue.push(make);
+}
+function loadCurrent(autoplay){
+  const c=clips()[idx]; if(!c)return;
+  if(PL&&PL.loadVideoById){
+    autoplay ? PL.loadVideoById(c.id) : PL.cueVideoById(c.id);
+    setTimeout(killCaptions,600);
+  }
+  render();
+}
+function goTo(n,autoplay){
+  if(n<0)n=0;
+  if(n>=order.length){ // end of programme
+    idx=order.length-1; playing=false; finished=true;
+    setStatus('That’s the whole programme — ' + mmss(totalSecs()) + ' of classic television','good');
+    render(); return;
+  }
+  idx=n; loadCurrent(!!autoplay);
+}
+</script>
+<script>
+/* =================== render =================== */
+(function(){const b=document.getElementById('bulbs');let h='';
+ for(let i=0;i<26;i++)h+='<span class="bulb" style="animation-delay:'+(i*0.09).toFixed(2)+'s"></span>';
+ b.innerHTML=h})();
+
+function paintControls(){
+  const p=document.getElementById('btnPlay');
+  if(p)p.textContent = playing ? '\u2759\u2759 Pause' : (started ? '\u25B6 Play' : '\u25B6 Start the show');
+}
+
+/* The player is built ONCE and never re-rendered. Rebuilding the page around
+   it destroys the iframe, which killed both skip and every scene after the
+   first. Everything else updates in place. */
+function buildOnce(){
+  document.getElementById('main').innerHTML =
+    '<div class="stage">'+
+      '<div class="nowmeta" id="nowmeta"></div>'+
+      '<div class="nowshow" id="nowshow"></div>'+
+      '<div class="nowtitle" id="nowtitle"></div>'+
+      '<div class="pmarquee"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>'+
+      '<div class="pwrap"><div class="pframe" id="pframe"><div id="ytmount"></div></div>'+
+        '<div class="pidle" id="pidle">'+
+          '<div class="big">Press Start the show</div>'+
+          '<div class="sub">one press and the scenes roll on their own</div></div>'+
+      '</div>'+
+      '<div class="ctl">'+
+        '<button class="btn play" id="btnPlay">\u25B6 Start the show</button>'+
+        '<button class="btn ghost" id="btnPrev">\u2039 Back</button>'+
+        '<button class="btn alt" id="btnNext">Skip ahead \u203A</button>'+
+        '<button class="btn ghost" id="btnReplay">\u21BA Replay scene</button>'+
+      '</div>'+
+      '<div class="prog">'+
+        '<div class="bar"><span id="barfill"></span></div>'+
+        '<div class="progline"><span id="progA"></span><span id="progB"></span><span id="progC"></span></div>'+
+        '<div class="pstatus" id="pstatus">loading the player\u2026</div>'+
+      '</div>'+
+    '</div>'+
+    '<div id="listHost"></div>';
+  const on=(id,fn)=>{const b=document.getElementById(id); if(b)b.addEventListener('click',fn)};
+  on('btnPlay',()=>{
+    if(!PL){ setStatus('Player still loading \u2014 give it a second','bad'); return; }
+    try{ playing ? PL.pauseVideo() : PL.playVideo(); }catch(e){}
+    setTimeout(()=>{ try{ if(PL.getPlayerState&&PL.getPlayerState()!==1&&!playing)
+      setStatus('Browser blocked it \u2014 click the picture itself to start','bad'); }catch(e){} },1500);
+  });
+  on('btnNext',()=>goTo(idx+1,true));
+  on('btnPrev',()=>goTo(idx-1,true));
+  on('btnReplay',()=>{try{PL.seekTo(0,true);PL.playVideo()}catch(e){}});
+}
+
+function rowHTML(c,n,cur,state){
+  return '<div class="row'+(cur?' on':'')+(state==='done'?' done':'')+'" data-jump="'+n+'">'+
+    '<div class="rnum">'+(n+1)+'</div>'+
+    '<div class="rtxt"><div class="rshow">'+esc(c.show)+'</div>'+
+      '<div class="rname">'+esc(c.t)+'</div>'+
+      '<div class="rsrc hostonly">uploaded by '+esc(c.ch)+'</div></div>'+
+    '<div class="rlen">'+mmss(c.s)+'</div></div>';
+}
+function lineupHTML(){
+  return '<div class="card"><h2 class="ttl">The running order</h2>'+
+    '<div class="rule"></div>'+
+    '<p class="lede hostonly">Tap any scene to jump straight to it. When one finishes the next '+
+    'starts on its own \u2014 you only need to touch this if you want to skip or go back.</p>'+
+    '<div style="margin-top:14px">'+
+      clips().map((c,n)=>rowHTML(c,n,n===idx,n<idx?'done':'')).join('')+
+    '</div>'+
+    '<div class="hostnote hostonly"><b>Presenter</b>'+
+    order.length+' scenes, '+mmss(totalSecs())+' in all. Press <strong>Start the show</strong> once at the top \u2014 '+
+    'browsers need one press before they\u2019ll play sound, and after that everything runs by itself. '+
+    'The Dentist and Carnac are the long ones; if you\u2019re running over, skip ahead from the Andy Griffith '+
+    'haircut and finish on Archie.</div></div>'+
+
+    '<div class="card hostonly"><h3 class="sub">Swap-ins</h3>'+
+    '<p class="lede">Tap one to drop it in after the scene playing now. Useful if the room is '+
+    'loving one show, or if you need to stretch to fill the hour.</p>'+
+    '<div style="margin-top:13px">'+
+      EXTRAS.map((c,n)=>'<div class="row" data-extra="'+n+'">'+
+        '<div class="rnum">+</div>'+
+        '<div class="rtxt"><div class="rshow">'+esc(c.show)+'</div>'+
+          '<div class="rname">'+esc(c.t)+'</div>'+
+          '<div class="rsrc">uploaded by '+esc(c.ch)+'</div></div>'+
+        '<div class="rlen">'+mmss(c.s)+'</div></div>').join('')+
+    '</div></div>'+
+
+    '<div class="card hostonly"><h3 class="sub">If something goes wrong</h3>'+
+    '<ul style="margin-left:19px">'+
+    '<li style="line-height:1.6;color:#E8DCC8;margin-bottom:7px"><strong>No sound.</strong> Press Start the show once more. One press on the page is all a browser wants.</li>'+
+    '<li style="line-height:1.6;color:#E8DCC8;margin-bottom:7px"><strong>A clip won\u2019t load.</strong> Press Skip ahead. Don\u2019t troubleshoot in front of the room \u2014 there are spares below.</li>'+
+    '<li style="line-height:1.6;color:#E8DCC8;margin-bottom:7px"><strong>Running long.</strong> Skip from scene seven; the Archie scene is the one to end on.</li>'+
+    '<li style="line-height:1.6;color:#E8DCC8"><strong>They\u2019re talking over it.</strong> That\u2019s the programme working. Let them.</li>'+
+    '</ul></div>';
+}
+
+/* in-place update: never touches the player */
+function render(){
+  const c=clips()[idx], done=elapsedBefore(idx), total=totalSecs();
+  const set=(id,txt)=>{const el=document.getElementById(id); if(el)el.innerHTML=txt};
+  set('nowmeta','Now playing &nbsp;\u00b7&nbsp; scene '+(idx+1)+' of '+order.length);
+  set('nowshow',esc(c.show));
+  set('nowtitle',esc(c.t));
+  set('progA','Scene <b>'+(idx+1)+'</b> of '+order.length);
+  set('progB','<b>'+mmss(done)+'</b> in \u00b7 '+mmss(total-done)+' to go');
+  set('progC','Full programme <b>'+mmss(total)+'</b>');
+  const f=document.getElementById('barfill');
+  if(f)f.style.width=(finished?100:Math.round(done/total*100))+'%';
+  const idle=document.getElementById('pidle');
+  if(idle)idle.classList.toggle('gone',started);
+  document.getElementById('listHost').innerHTML=lineupHTML();
+  if(lastStatus){const el=document.getElementById('pstatus');
+    if(el){el.textContent=lastStatus.t;el.className='pstatus'+(lastStatus.tone?' '+lastStatus.tone:'')}}
+  applyNotes(); wireList(); paintControls();
+}
+function applyNotes(){
+  document.body.classList.toggle('audience',!showNotes);
+  const b=document.getElementById('noteBtn');
+  if(b){b.textContent = showNotes ? 'Presenter notes: on' : 'Presenter notes: off';
+        b.classList.toggle('on',showNotes);}
+}
+function wireList(){
+  document.querySelectorAll('[data-jump]').forEach(r=>r.addEventListener('click',e=>
+    goTo(+e.currentTarget.dataset.jump,true)));
+  document.querySelectorAll('[data-extra]').forEach(r=>r.addEventListener('click',e=>{
+    const x=EXTRAS[+e.currentTarget.dataset.extra];
+    LINEUP.push(x); order.splice(idx+1,0,LINEUP.length-1);
+    store.set('order',order); render();
+  }));
+}
+document.getElementById('noteBtn').addEventListener('click',()=>{
+  showNotes=!showNotes; store.set('showNotes',showNotes); applyNotes();
+});
+buildOnce();
+render();
+mountPlayer();
+</script>
+</body>
+</html>
