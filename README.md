@@ -43,15 +43,18 @@ Host script sits under the player with Presenter notes on. Nine spare clips.
 ### Women Who Roast — comedy legends (assisted living)
 https://ajpigliacelli-max.github.io/showstoppers/womenwhoroast.html
 
-About 46 minutes, all roasts. Act One is the Dean Martin Celebrity Roasts: Phyllis
-Diller, the 1975 Lucille Ball roast (Ruth Buzzi, Vivian Vance, Totie Fields, Lucy)
-and Betty White's 1978 roast, playing in the module. Act Two is the Comedy Central
-roasts: Betty White, Cloris Leachman, Joan Rivers, Martha Stewart and Nikki Glaser,
-in Comedy Central's bleeped versions. Comedy Central blocks its clips from playing
-inside other sites, so those open on YouTube in a new tab. A Heat Check can skip
-the whole act. Five trivia questions, a two-act Roast Meter that crowns a Queen of
-the Roast, Roast the Host, and an Encore board for extra time. Full-screen button
-(or F), a clip check that flags blocked clips, and auto-skip if one fails mid-show.
+About 44 minutes, all roasts, every clip playing inside the module. Act One is the
+Dean Martin Celebrity Roasts: Phyllis Diller, the 1975 Lucille Ball roast (Ruth Buzzi,
+Vivian Vance, Totie Fields, Lucy) and Betty White's 1978 roast. Act Two is the cable
+roasts: Betty White at Shatner, Cloris Leachman at Saget, Joan Rivers' rebuttal at her
+own 2009 roast, Martha Stewart at Bieber, and Nikki Glaser. Comedy Central blocks its
+own uploads from playing inside other sites, so Act Two uses fan uploads of the TV
+broadcasts, news coverage and Netflix; the Netflix Nikki clip is not bleeped. Several
+slots carry backup clips (`alts`) that roll if the first choice is blocked. A Heat
+Check can skip the whole act. Five trivia questions, a two-act Roast Meter that
+crowns a Queen of the Roast, Roast the Host, and an Encore board for extra time.
+Full-screen button (or F), a clip check that tests every clip and backup, and
+auto-skip if one fails mid-show.
 Pop-art illustrations made in OpenArt live in `womenwhoroast-art/`.
 
 Every clip in every module was checked live: the video resolves and its owner
