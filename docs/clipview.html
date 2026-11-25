@@ -1,0 +1,6 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"></head><body style="margin:0;background:#000">
+<div id="p"></div><script>
+var a=location.hash.slice(1).split(':');var P;
+function onYouTubeIframeAPIReady(){P=new YT.Player('p',{width:800,height:450,videoId:a[0],playerVars:{autoplay:1,mute:1,start:+a[1]||0,controls:0},
+events:{onReady:function(e){e.target.mute();e.target.playVideo();},onStateChange:function(e){if(e.data===1)document.title='PLAYING';}}});}
+</script><script src="https://www.youtube.com/iframe_api"></script></body></html>
